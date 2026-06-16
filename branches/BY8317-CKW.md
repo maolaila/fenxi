@@ -1,6 +1,6 @@
 # 商户分支功能地图：BY8317-CKW
 
-- 生成时间：2026-06-16 14:08:44 +0900
+- 生成时间：2026-06-16 14:13:34 +0900
 - 来源：远端分支 `origin/BY8317-CKW`
 - 分支提交：`13d4cec19` / 2026-06-11 15:51:17 +0900 / fix: localize aliyun captcha trigger text
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）

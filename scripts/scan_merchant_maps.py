@@ -175,7 +175,9 @@ def list_refs() -> list[str]:
 
 def classify_ref(ref: str, remote_names: set[str]) -> tuple[str, str]:
     name = ref.removeprefix("origin/")
-    if name in {"BY-Demo", "BY-Demo-H5V2-PC"}:
+    if name == "BY-Demo-H5V2-PC":
+        return "演示站基准分支", "当前演示站分支；作为 PC/H5-v2 商户差异对照基准，不生成商户地图。"
+    if name == "BY-Demo":
         return "基准分支", "作为商户差异对照基准，不生成商户地图。"
     if ref.startswith(EXCLUDED_PREFIXES) or name in {"axiang", "justLotteryHalls", "only-chat-master-v2"}:
         return "排除", "工程/开发/历史功能分支，不按商户分支生成地图。"
@@ -587,6 +589,8 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
         "",
         f"- 生成时间：{GENERATED_AT}",
         f"- 项目仓库：`{CODE_REPO}`",
+        "- 当前演示站分支：`BY-Demo-H5V2-PC` / `origin/BY-Demo-H5V2-PC`。",
+        "- 商户差异默认以当前演示站分支作为 PC/H5-v2 对照基准。",
         f"- 商户分支数：{len(datasets)}",
         "",
     ]
@@ -597,6 +601,8 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
         "",
         f"- 生成时间：{GENERATED_AT}",
         f"- 项目仓库：`{CODE_REPO}`",
+        "- 当前演示站分支：`BY-Demo-H5V2-PC` / `origin/BY-Demo-H5V2-PC`。",
+        "- 商户差异默认以当前演示站分支作为 PC/H5-v2 对照基准。",
         f"- 有效端：`pc/`、`h5-v2/`",
         f"- 废弃端：`h5/`，不作为后续开发依据。",
         "",
