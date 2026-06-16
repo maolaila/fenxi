@@ -368,6 +368,10 @@ def table(headers: list[str], rows: list[list[object]]) -> str:
     return "\n".join(output) + "\n"
 
 
+def write_markdown(path: Path, lines: list[str]) -> None:
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
+
+
 def summarize_paths(files: list[dict[str, object]], limit: int = 10) -> str:
     paths = [str(item["path"]) for item in files[:limit]]
     if len(files) > limit:
@@ -520,7 +524,7 @@ def write_branch_doc(data: dict[str, object], out_dir: Path) -> None:
             "",
         ]
     )
-    (out_dir / f"{safe_name(branch)}.md").write_text("\n".join(content), encoding="utf-8", newline="\n")
+    write_markdown(out_dir / f"{safe_name(branch)}.md", content)
 
 
 def sum_int(values) -> int:
@@ -586,7 +590,7 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
         f"- 商户分支数：{len(datasets)}",
         "",
     ]
-    (DOCS_REPO / "README.md").write_text("\n".join(readme), encoding="utf-8", newline="\n")
+    write_markdown(DOCS_REPO / "README.md", readme)
 
     overview = [
         "# 功能地图总览",
@@ -604,7 +608,7 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
         table(["分支", "分类", "说明"], [[item["ref"], item["classification"], item["note"]] for item in inventory]),
         "",
     ]
-    (DOCS_REPO / "功能地图总览.md").write_text("\n".join(overview), encoding="utf-8", newline="\n")
+    write_markdown(DOCS_REPO / "功能地图总览.md", overview)
 
     for endpoint in ACTIVE_ENDPOINTS:
         rows = []
@@ -631,7 +635,7 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
             table(["分支", "文件数", "主要功能域", "代表路径", "分支地图"], rows),
             "",
         ]
-        (DOCS_REPO / endpoint / "功能地图总览.md").write_text("\n".join(endpoint_doc), encoding="utf-8", newline="\n")
+        write_markdown(DOCS_REPO / endpoint / "功能地图总览.md", endpoint_doc)
 
     deprecated_rows = []
     for data in datasets:
@@ -653,7 +657,7 @@ def write_summary(datasets: list[dict[str, object]], inventory: list[dict[str, s
         table(["分支", "废弃 h5 文件数", "代表路径", "分支地图"], deprecated_rows),
         "",
     ]
-    (DOCS_REPO / "deprecated-h5" / "历史差异总览.md").write_text("\n".join(dep_doc), encoding="utf-8", newline="\n")
+    write_markdown(DOCS_REPO / "deprecated-h5" / "历史差异总览.md", dep_doc)
 
 
 def write_data(datasets: list[dict[str, object]], inventory: list[dict[str, str]]) -> None:
