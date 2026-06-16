@@ -1,0 +1,78 @@
+ref,classification,note
+BY-Demo-H5V2-PC,基准分支,作为商户差异对照基准，不生成商户地图。
+BY8315-6688,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8315-6688-h5,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8316-YDYL,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8316-YDYL_CS,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8351-JCYL,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8357-WKYL,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8358-HP,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8359-JJYL,商户分支,本地仅有商户分支，纳入功能地图并标注本地来源。
+BY8360-SH,本地重复,远端存在同名分支，以 origin 版本为准。
+BY8361-LG,本地重复,远端存在同名分支，以 origin 版本为准。
+codex/aliyun-captcha-BY8315-6688-h5,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8316-YDYL,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8319-QM49,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8351-JCYL,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8357-WKYL,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8358-HP,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/aliyun-captcha-BY8360-SH,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/login-password-rules-base,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8315-6688-h5,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8319-QM49,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8351-JCYL,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8357-WKYL,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8358-HP,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+codex/password-rules-BY8360-SH,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+feat/pony,排除,功能修复分支，且已被基准分支包含，不按商户地图输出。
+master,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/8314-JSYL,商户分支,远端商户分支，纳入功能地图。
+origin/B312,商户分支,远端商户分支，纳入功能地图。
+origin/B313-5867,商户分支,远端商户分支，纳入功能地图。
+origin/BY-Demo,基准分支,作为商户差异对照基准，不生成商户地图。
+origin/BY-Demo-H5V2-PC,基准分支,作为商户差异对照基准，不生成商户地图。
+origin/BY8301-DFCP,商户分支,远端商户分支，纳入功能地图。
+origin/BY8315-6688,商户分支,远端商户分支，纳入功能地图。
+origin/BY8315-6688-h5,商户分支,远端商户分支，纳入功能地图。
+origin/BY8316-YDYL,商户分支,远端商户分支，纳入功能地图。
+origin/BY8316-YDYL_CS,商户分支,远端商户分支，纳入功能地图。
+origin/BY8317-CKW,商户分支,远端商户分支，纳入功能地图。
+origin/BY8318-AMXPJ,商户分支,远端商户分支，纳入功能地图。
+origin/BY8319-QM49,商户分支,远端商户分支，纳入功能地图。
+origin/BY8320-857C,商户分支,远端商户分支，纳入功能地图。
+origin/BY8351-JCYL,商户分支,远端商户分支，纳入功能地图。
+origin/BY8357-WKYL,商户分支,远端商户分支，纳入功能地图。
+origin/BY8358-HP,商户分支,远端商户分支，纳入功能地图。
+origin/BY8360-SH,商户分支,远端商户分支，纳入功能地图。
+origin/BY8361-LG,商户分支,远端商户分支，纳入功能地图。
+origin/BY8362-YL,商户分支,远端商户分支，纳入功能地图。
+origin/api,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/axiang,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/by339,商户分支,远端商户分支，纳入功能地图。
+origin/chat,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/chat-develop,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-ChatRoom-v2,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-ChatRoom-v2-0193,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-cur,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-cur-changlong,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-cur-recharge,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-newlottery-develop-v2,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-rongyun-5.x,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/cr-withdraw-v2,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop-usdt,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop-v1,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop-v2-2023-7-31-xw-taizi,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop-v2-cur-trans,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/develop-v2-rongyun-5x,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/feat/pony,排除,功能修复分支，且已被基准分支包含，不按商户地图输出。
+origin/jinshayule,商户分支,远端商户分支，纳入功能地图。
+origin/justLotteryHalls,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master-backup,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master-fix,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master-usdt,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master-v1,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/master-v2,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/only-chat-master-v2,排除,工程/开发/历史功能分支，不按商户分支生成地图。
+origin/release,排除,工程/开发/历史功能分支，不按商户分支生成地图。
