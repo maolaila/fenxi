@@ -25,4 +25,4 @@
 - 项目仓库：`C:\works\tgproject`
 - 当前演示站分支：`BY-Demo-H5V2-PC` / `origin/BY-Demo-H5V2-PC`。
 - 商户差异默认以当前演示站分支作为 PC/H5-v2 对照基准。
-- 商户分支数：21
+- 商户分支数：22
