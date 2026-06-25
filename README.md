@@ -18,6 +18,7 @@
 - `deprecated-h5/历史差异总览.md`：废弃 `h5/` 历史差异索引。
 - `data/`：机器可读 CSV/JSON，包含完整文件级差异。
 - `scripts/scan_merchant_maps.py`：可重复运行的扫描脚本。
+- `tools/packet-capture/`：线上 PC/H5 抓包和手动 AES 解密工具。
 
 ## 当前扫描
 

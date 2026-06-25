@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>线上抓包工具</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="toolbar">
+        <div>
+          <h1>线上抓包工具</h1>
+          <p>输入线上地址和接口，抓取原始包、前端解密数据和静态包信息。</p>
+        </div>
+        <button id="startBtn" class="primary">开始抓包</button>
+      </header>
+
+      <section class="form-grid">
+        <label class="field wide">
+          <span>线上 URL</span>
+          <input id="url" type="url" placeholder="https://dingsheng111.vip 或 https://dingsheng111.vip/a/#/home/lottery" />
+          <small>H5 端输入裸域名时会自动抓取 /a/#/home/lottery。</small>
+        </label>
+        <label class="field">
+          <span>端</span>
+          <select id="terminal">
+            <option value="h5">H5 移动端</option>
+            <option value="pc">PC</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>商户名</span>
+          <input id="merchant" placeholder="例如：鼎盛" />
+        </label>
+        <label class="field">
+          <span>用户名</span>
+          <input id="username" autocomplete="username" placeholder="非必填" />
+        </label>
+        <label class="field">
+          <span>密码</span>
+          <input id="password" type="password" autocomplete="current-password" placeholder="非必填" />
+        </label>
+        <label class="field wide">
+          <span>接口</span>
+          <textarea id="endpoint" rows="3" placeholder="/api/v2/sysDict/querySystemConfig"></textarea>
+        </label>
+        <label class="field">
+          <span>等待毫秒</span>
+          <input id="waitMs" type="number" min="0" step="1000" value="5000" />
+        </label>
+        <label class="field">
+          <span>登录后等待毫秒</span>
+          <input id="loginWaitMs" type="number" min="0" step="1000" value="3000" />
+        </label>
+        <label class="check">
+          <input id="headed" type="checkbox" />
+          <span>显示浏览器供手动操作</span>
+        </label>
+      </section>
+
+      <section class="status">
+        <div id="state" class="state idle">未开始</div>
+        <pre id="result"></pre>
+      </section>
+
+      <section class="decrypt-panel">
+        <header class="section-title">
+          <div>
+            <h2>手动解密</h2>
+            <p>粘贴接口响应密文，使用当前线上包的 AESDec 解密，并输出可复制调用语句。</p>
+          </div>
+          <button id="decryptBtn" class="secondary">一键解密</button>
+        </header>
+
+        <div class="form-grid compact">
+          <label class="field wide">
+            <span>接口返回密文</span>
+            <textarea id="decryptPayload" rows="7" placeholder='支持原始响应 JSON、report.json、transaction；只贴 {"code":200,"data":"{\"body\":\"...\"}"} 时需要填写 AES key。'></textarea>
+          </label>
+          <label class="field wide">
+            <span>AES key</span>
+            <input id="decryptKey" placeholder="非必填；只贴原始响应时填 response.decrypted.key" />
+            <small>完整 report/transaction 通常可自动提取 key；单独响应体无法自己带出 key。</small>
+          </label>
+        </div>
+
+        <section class="status">
+          <div id="decryptState" class="state idle">未开始</div>
+          <pre id="decryptResult"></pre>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

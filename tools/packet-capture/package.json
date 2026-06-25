@@ -1,0 +1,17 @@
+{
+  "name": "merchant-packet-capture",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Capture online merchant PC/H5 packets, bundle metadata, and frontend AES decrypted payloads.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "capture": "node cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "playwright": "latest"
+  }
+}

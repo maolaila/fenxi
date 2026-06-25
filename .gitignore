@@ -1,0 +1,4 @@
+# Local production packet-capture reports.
+/抓包文件夹/
+/tools/packet-capture/node_modules/
+/tools/packet-capture/.tmp/
