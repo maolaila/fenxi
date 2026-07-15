@@ -1,15 +1,15 @@
 # 商户分支功能地图：BY8316-YDYL_CS
 
-- 生成时间：2026-06-16 14:13:34 +0900
+- 生成时间：2026-07-15 09:30:23 +0900
 - 来源：远端分支 `origin/BY8316-YDYL_CS`
-- 分支提交：`697a5a74a` / 2026-06-11 15:51:11 +0900 / fix: localize aliyun captcha trigger text
+- 分支提交：`92b497667` / 2026-06-21 20:16:56 +0900 / fix: keep blue-white promo tabs gradient
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
 
 ## 结论摘要
 
-- 有效端差异文件：346 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、未归类路径、彩票/投注/开奖、登录/注册/验证码、个人中心/账户、构建/配置。
+- 有效端差异文件：347 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、未归类路径、彩票/投注/开奖、登录/注册/验证码、个人中心/账户、构建/配置。
 - 其他路径差异文件：2 个；通常是根配置、文档或非端目录，需要按完整清单核对。
 - 扫描到新增/变更颜色值：#fff, #ffffff, #0000, #e4393c, #000000, #000, #333, #eee, #313131, #ff7614, #1f6efe, #ddc17c, #f3f3f3, #999, #eeeeee, #ab47bc, #131522, #d2d0d0, #dddee1, #be1204。
 
@@ -30,7 +30,7 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 332 | 79251 | 42423 | pc/.gitignore<br>pc/README.md<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/configstatic/pc/images/logo-icon.png<br>...另 324 个路径见完整清单 |
-| h5-v2 | 14 | 884 | 50 | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/plugin/plugin.js<br>...另 6 个路径见完整清单 |
+| h5-v2 | 15 | 1119 | 50 | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/plugin/plugin.js<br>...另 7 个路径见完整清单 |
 | 其他 | 2 | 72 | 0 | .gitignore<br>docs/merchant-frontend-branches.md |
 
 ## 功能域地图
@@ -47,7 +47,7 @@
 | 构建/配置 | 23 | h5-v2、pc | h5-v2/src/utils/getSysConfig.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/configstatic/pc/images/logo-icon.png<br>pc/configstatic/pc/images/logo.gif<br>...另 15 个路径见完整清单 |
 | 聊天室/私聊 | 20 | pc | pc/src/assets/images/chat/cptt.png<br>pc/src/store/modules/chat.js<br>pc/src/views/chatRoom/chatHeader.vue<br>pc/src/views/chatRoom/chatLeft/index.vue<br>pc/src/views/chatRoom/chatLeft/messageList.vue<br>pc/src/views/chatRoom/chatLeft/peopleList.vue<br>pc/src/views/chatRoom/chatMain/chat.less<br>pc/src/views/chatRoom/chatMain/chatFeature.vue<br>...另 12 个路径见完整清单 |
 | 资金/充值/提现 | 10 | pc | pc/src/views/personalCenter/child_modal/account/bankAccount.vue<br>pc/src/views/personalCenter/child_modal/recharge/components/DigitalCurrency.vue<br>pc/src/views/personalCenter/child_modal/recharge/recharge.vue<br>pc/src/views/personalCenter/child_modal/recharge/step2.vue<br>pc/src/views/personalCenter/child_modal/recharge/step3.vue<br>pc/src/views/personalCenter/child_modal/withdraw/aliPay.vue<br>pc/src/views/personalCenter/child_modal/withdraw/bankPay.vue<br>pc/src/views/personalCenter/child_modal/withdraw/cardPay.vue<br>...另 2 个路径见完整清单 |
-| 活动/红包/推广/下载 | 8 | pc | pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v10/active/index.vue<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/active.vue<br>pc/src/views/active/index.vue<br>pc/src/views/feedbackActive/feedbackActive.vue<br>pc/src/views/redPacket/redPacket.vue |
+| 活动/红包/推广/下载 | 9 | h5-v2、pc | h5-v2/src/views7/active/active.vue<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v10/active/index.vue<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/active.vue<br>pc/src/views/active/index.vue<br>pc/src/views/feedbackActive/feedbackActive.vue<br>...另 1 个路径见完整清单 |
 | 代理/报表/团队 | 5 | h5-v2、pc | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue<br>pc/src/views/personalCenter/child_modal/agentBetting/agentBetting.vue<br>pc/src/views/personalCenter/child_modal/agentReport/agentreport.vue<br>pc/src/views/personalCenter/child_modal/agentTrade/agentTrade.vue<br>pc/src/views/personalCenter/child_modal/subReport/index.vue |
 | 客服/反馈/帮助 | 3 | pc | pc/src/components/Longqueue/long-helper/longHelperList.vue<br>pc/src/components/Longqueue/long-helper/longRecordList.vue<br>pc/src/views/feedbackActive/feedbackActive.vue |
 
@@ -55,7 +55,7 @@
 
 | 类型 | 文件数 |
 | --- | --- |
-| 页面 | 211 |
+| 页面 | 212 |
 | 图片资源 | 43 |
 | 构建配置 | 22 |
 | 其他 | 15 |
@@ -68,7 +68,7 @@
 
 ## 主题色/展示资源线索
 
-- 颜色值：#fff, #ffffff, #0000, #e4393c, #000000, #000, #333, #eee, #313131, #ff7614, #1f6efe, #ddc17c, #f3f3f3, #999, #eeeeee, #ab47bc, #131522, #d2d0d0, #dddee1, #be1204, #949494, #5169de, #666, #aa8743, #3be6e5, #1f94ff, #e2e2e2, #ebf2fb, #f5f3a9, #b79954
+- 颜色值：#fff, #ffffff, #0000, #e4393c, #000000, #000, #333, #eee, #313131, #ff7614, #1f6efe, #ddc17c, #f3f3f3, #999, #eeeeee, #ab47bc, #131522, #d2d0d0, #dddee1, #be1204, #949494, #5169de, #666, #e6e6e6, #aa8743, #3be6e5, #1f94ff, #e2e2e2, #ebf2fb, #f5f3a9
 
 | 端 | 类型 | 功能域 | 状态 | 路径 |
 | --- | --- | --- | --- | --- |
@@ -164,14 +164,15 @@
 
 | 候选基准 | 有效端文件数 | 废弃 h5 文件数 | 总文件数 | 共同祖先 | 共同祖先时间 |
 | --- | --- | --- | --- | --- | --- |
-| origin/BY-Demo-H5V2-PC | 346 | 0 | 348 | ac5ce626bae8 | 2024-01-25 14:52:34 +0800 |
-| origin/BY-Demo | 480 | 0 | 482 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
-| origin/master | 3957 | 3 | 3963 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
+| origin/BY-Demo-H5V2-PC | 347 | 0 | 349 | ac5ce626bae8 | 2024-01-25 14:52:34 +0800 |
+| origin/BY-Demo | 481 | 0 | 483 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/master | 3958 | 3 | 3964 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
 
 ## 最近商户分支提交
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 92b497667 | 2026-06-21 | fix: keep blue-white promo tabs gradient |
 | 697a5a74a | 2026-06-11 | fix: localize aliyun captcha trigger text |
 | b088ea3f8 | 2026-06-06 | fix: reset pc aliyun captcha lifecycle |
 | c84cadcf1 | 2026-06-05 | fix: handle aliyun captcha close in h5 requests |
@@ -201,7 +202,6 @@
 | bdb44f310 | 2025-03-25 | feat: 更换个人二维码背景图 |
 | 54dfe9a4c | 2025-03-25 | fix: 优惠活动 标题展示调整 |
 | c035e0f71 | 2025-03-18 | fix:317 321修改提示语 |
-| 33cb990e2 | 2025-03-17 | fix: 1 |
 
 ## 完整文件级差异清单
 
@@ -223,6 +223,7 @@
 | M | h5-v2 | 页面 | 个人中心/账户、代理/报表/团队 | 1 | 1 |  | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue |
 | M | h5-v2 | 页面 | 个人中心/账户 | 1 | 1 |  | h5-v2/src/views/personal-center/child_modal/mysetting/myPhone/myPhone.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码、接口/状态/工具 | 89 | 14 |  | h5-v2/src/views/register/registerMixin.js |
+| A | h5-v2 | 页面 | 活动/红包/推广/下载 | 235 | 0 |  | h5-v2/src/views7/active/active.vue |
 | M | pc | 其他 | 未归类路径 | 1 | 1 |  | pc/.gitignore |
 | M | pc | 其他 | 未归类路径 | 245 | 205 |  | pc/README.md |
 | M | pc | 其他 | 首页/导航/版面、构建/配置 | 29 | 2 |  | pc/config/index.js |

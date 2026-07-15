@@ -1,15 +1,15 @@
 # 商户分支功能地图：BY8357-WKYL
 
-- 生成时间：2026-06-16 14:13:34 +0900
+- 生成时间：2026-07-15 09:30:23 +0900
 - 来源：远端分支 `origin/BY8357-WKYL`
-- 分支提交：`7f59a9185` / 2026-06-14 20:12:43 +0900 / fix: sync h5 theme variables
+- 分支提交：`016d9502a` / 2026-06-19 16:11:02 +0900 / fix: remove auth text backgrounds on gold layout
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
 
 ## 结论摘要
 
-- 有效端差异文件：386 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、彩票/投注/开奖、未归类路径、个人中心/账户、登录/注册/验证码、构建/配置。
+- 有效端差异文件：390 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、彩票/投注/开奖、未归类路径、个人中心/账户、登录/注册/验证码、构建/配置。
 - 其他路径差异文件：2 个；通常是根配置、文档或非端目录，需要按完整清单核对。
 - 扫描到新增/变更颜色值：#fff, #ffffff, #0000, #e4393c, #000000, #f3f3f3, #000, #333, #eee, #313131, #1f6efe, #ddc17c, #999, #eeeeee, #be1204, #ab47bc, #131522, #dddee1, #3be6e5, #1f94ff。
 
@@ -30,14 +30,14 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 350 | 100825 | 57804 | pc/.gitignore<br>pc/README.md<br>pc/build/webpack.dev.conf.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>...另 342 个路径见完整清单 |
-| h5-v2 | 36 | 1550 | 195 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/lottey.js<br>h5-v2/src/store/modules/sysDict.js<br>...另 28 个路径见完整清单 |
+| h5-v2 | 40 | 1576 | 203 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/lottey.js<br>h5-v2/src/store/modules/sysDict.js<br>...另 32 个路径见完整清单 |
 | 其他 | 2 | 72 | 1 | .gitignore<br>docs/merchant-frontend-branches.md |
 
 ## 功能域地图
 
 | 功能域 | 文件数 | 涉及端 | 代表路径 |
 | --- | --- | --- | --- |
-| 首页/导航/版面 | 107 | h5-v2、pc | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/views/free-play/index.vue<br>h5-v2/src/views/password/indexNew.vue<br>h5-v2/src/views7/home/headLine.vue<br>pc/config/index.js<br>pc/index.html<br>pc/src/assets/images-v10/home/certified_4.png<br>...另 99 个路径见完整清单 |
+| 首页/导航/版面 | 108 | h5-v2、pc | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/views/free-play/index.vue<br>h5-v2/src/views/password/indexNew.vue<br>h5-v2/src/views7/home/headLine.vue<br>h5-v2/src/views9/home/header.vue<br>pc/config/index.js<br>pc/index.html<br>...另 100 个路径见完整清单 |
 | 主题/颜色/静态资源 | 93 | h5-v2、pc | h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/src/store/modules/theme.js<br>h5-v2/src/utils/less.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/configstatic/pc/images/logo-icon.png<br>...另 85 个路径见完整清单 |
 | 接口/状态/工具 | 53 | h5-v2、pc | h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/lottey.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/store/modules/theme.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/customerService.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/less.js<br>...另 45 个路径见完整清单 |
 | 彩票/投注/开奖 | 46 | h5-v2、pc | h5-v2/src/views/buy-lottery/buy_lottery.vue<br>pc/src/api/betShare.js<br>pc/src/store/modules/betShare.js<br>pc/src/store/modules/lottery.js<br>pc/src/views-v10/game/components/GameBall.vue<br>pc/src/views-v11/home/fast_betting.vue<br>pc/src/views-v11/layout/child_modal/left_lottery.vue<br>pc/src/views-v11/layout/child_modal/lottery_head.vue<br>...另 38 个路径见完整清单 |
@@ -47,7 +47,7 @@
 | 构建/配置 | 27 | h5-v2、pc | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/vue.config.js<br>pc/build/webpack.dev.conf.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>...另 19 个路径见完整清单 |
 | 聊天室/私聊 | 27 | h5-v2、pc | h5-v2/src/views/chat/chat/child_modal/notice.vue<br>h5-v2/src/views/chat/chat/child_modal/scrollNotice.vue<br>h5-v2/src/views/chat/withdrawChat/withdrawChat.vue<br>h5-v2/src/views2/chat/chatMain/components/chatGroup.vue<br>pc/src/assets/images/chat/cptt.png<br>pc/src/store/modules/chat.js<br>pc/src/views/chatRoom/chatHeader.vue<br>pc/src/views/chatRoom/chatLeft/index.vue<br>...另 19 个路径见完整清单 |
 | 资金/充值/提现 | 15 | h5-v2、pc | h5-v2/src/views/chat/withdrawChat/withdrawChat.vue<br>h5-v2/src/views3/fund/components/withdrawal.vue<br>h5-v2/src/views4/fund/components/withdrawal.vue<br>pc/src/components/Calendar/index.vue<br>pc/src/components/modifyFundPwd.vue<br>pc/src/views/personalCenter/child_modal/account/bankAccount.vue<br>pc/src/views/personalCenter/child_modal/recharge/components/DigitalCurrency.vue<br>pc/src/views/personalCenter/child_modal/recharge/recharge.vue<br>...另 7 个路径见完整清单 |
-| 活动/红包/推广/下载 | 8 | pc | pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v10/active/index.vue<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/active.vue<br>pc/src/views/active/index.vue<br>pc/src/views/feedbackActive/feedbackActive.vue<br>pc/src/views/redPacket/redPacket.vue |
+| 活动/红包/推广/下载 | 11 | h5-v2、pc | h5-v2/src/views3/active/active.vue<br>h5-v2/src/views5/active/active.vue<br>h5-v2/src/views7/active/active.vue<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v10/active/index.vue<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/active.vue<br>...另 3 个路径见完整清单 |
 | 客服/反馈/帮助 | 5 | h5-v2、pc | h5-v2/src/utils/customerService.js<br>pc/src/components/Longqueue/long-helper/longHelperList.vue<br>pc/src/components/Longqueue/long-helper/longRecordList.vue<br>pc/src/utils/customerService.js<br>pc/src/views/feedbackActive/feedbackActive.vue |
 | 代理/报表/团队 | 5 | h5-v2、pc | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue<br>pc/src/views/personalCenter/child_modal/agentBetting/agentBetting.vue<br>pc/src/views/personalCenter/child_modal/agentReport/agentreport.vue<br>pc/src/views/personalCenter/child_modal/agentTrade/agentTrade.vue<br>pc/src/views/personalCenter/child_modal/subReport/index.vue |
 
@@ -55,7 +55,7 @@
 
 | 类型 | 文件数 |
 | --- | --- |
-| 页面 | 234 |
+| 页面 | 238 |
 | 图片资源 | 46 |
 | 构建配置 | 26 |
 | 工具/混入 | 20 |
@@ -170,14 +170,16 @@
 
 | 候选基准 | 有效端文件数 | 废弃 h5 文件数 | 总文件数 | 共同祖先 | 共同祖先时间 |
 | --- | --- | --- | --- | --- | --- |
-| origin/BY-Demo-H5V2-PC | 386 | 0 | 388 | e01faf3edf3d | 2026-04-07 14:20:04 +0900 |
-| origin/BY-Demo | 941 | 0 | 943 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/BY-Demo-H5V2-PC | 390 | 0 | 392 | e01faf3edf3d | 2026-04-07 14:20:04 +0900 |
+| origin/BY-Demo | 943 | 0 | 945 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
 | origin/master | 4193 | 3 | 4199 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
 
 ## 最近商户分支提交
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 016d9502a | 2026-06-19 | fix: remove auth text backgrounds on gold layout |
+| f0d451eab | 2026-06-19 | fix: keep active tabs gradient fixed |
 | 7f59a9185 | 2026-06-14 | fix: sync h5 theme variables |
 | bd30a1385 | 2026-06-12 | fix: limit customer service picker to service links |
 | 98c93ab79 | 2026-05-29 | fix: use multUrl for customer service picker |
@@ -206,8 +208,6 @@
 | b9305f296 | 2026-04-16 | feat: 调整跑马灯速度 |
 | 93afcbd51 | 2026-04-16 | feat: 调整首页跑马灯速度 |
 | 43fda7f98 | 2026-04-11 | 1 |
-| f9fef9ff5 | 2026-04-11 | feat: 恢复支付宝上传收款码功能 |
-| 85d162128 | 2026-04-11 | feat: 完成pc支付宝/微信多个账号绑定 |
 
 ## 完整文件级差异清单
 
@@ -247,9 +247,13 @@
 | M | h5-v2 | 页面 | 个人中心/账户 | 11 | 4 |  | h5-v2/src/views/personal-center/child_modal/takefee_list/weChatPay.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码、接口/状态/工具 | 54 | 9 |  | h5-v2/src/views/register/registerMixin.js |
 | M | h5-v2 | 页面 | 聊天室/私聊 | 1 | 1 |  | h5-v2/src/views2/chat/chatMain/components/chatGroup.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 8 | 0 |  | h5-v2/src/views3/active/active.vue |
 | M | h5-v2 | 页面 | 资金/充值/提现 | 2 | 2 |  | h5-v2/src/views3/fund/components/withdrawal.vue |
 | M | h5-v2 | 页面 | 资金/充值/提现 | 10 | 4 |  | h5-v2/src/views4/fund/components/withdrawal.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 8 | 0 |  | h5-v2/src/views5/active/active.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 6 | 6 |  | h5-v2/src/views7/active/active.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 6 | 1 |  | h5-v2/src/views7/home/headLine.vue |
+| M | h5-v2 | 页面 | 首页/导航/版面 | 4 | 2 |  | h5-v2/src/views9/home/header.vue |
 | M | h5-v2 | 构建配置 | 构建/配置 | 1 | 3 |  | h5-v2/vue.config.js |
 | M | pc | 其他 | 未归类路径 | 1 | 1 |  | pc/.gitignore |
 | M | pc | 其他 | 未归类路径 | 245 | 205 |  | pc/README.md |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16 14:13:34 +0900",
+  "generated_at": "2026-07-15 09:30:23 +0900",
   "branches": [
     {
       "branch": "origin/8314-JSYL",
@@ -7,27 +7,28 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "d9a756df95dfb5d4afbd816156187d22f7d985d5",
-        "short_commit": "d9a756df9",
-        "date": "2024-02-01 09:48:27 +0800",
-        "subject": "侧边栏意见反馈"
+        "commit": "cedd8cec47041b1b4cc47661c0f32160270d6cb6",
+        "short_commit": "cedd8cec4",
+        "date": "2026-06-21 20:13:17 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
+        "h5-v2": 1,
         "pc": 22
       },
       "type_counts": {
+        "页面": 12,
         "其他": 2,
         "构建配置": 2,
         "图片资源": 5,
         "工具/混入": 1,
-        "页面": 11,
         "主题样式": 1
       },
       "feature_counts": {
+        "活动/红包/推广/下载": 2,
         "首页/导航/版面": 8,
         "构建/配置": 3,
         "主题/颜色/静态资源": 8,
-        "活动/红包/推广/下载": 1,
         "未归类路径": 1,
         "接口/状态/工具": 1,
         "聊天室/私聊": 3,
@@ -42,29 +43,29 @@
         "#f5f3a9",
         "#b79954",
         "#e6de95",
+        "#e6e6e6",
+        "#1f6efe",
         "#208bff",
         "#2fd4f6",
         "#ebf2fb",
         "#a32dd8",
         "#3180fd",
         "#f7d139",
+        "#ffffff",
         "#111",
         "#f5f9ff",
         "#127dec",
         "#c6d3f3",
         "#aa8743",
-        "#1f6efe",
         "#ebf7ff",
         "#515a6e",
         "#ccc",
         "#b48132",
-        "#333",
-        "#666666",
-        "#e6e6e6",
-        "#ff3939",
-        "#b1c781",
-        "#8c8c8c",
-        "#e5e5e5"
+        "#f4fafe",
+        "#000000",
+        "#292929",
+        "#bbbbbb",
+        "#2161fe"
       ],
       "map": "branches/8314-JSYL.md"
     },
@@ -74,13 +75,13 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "7cdec6a30fd3d5619af338ec388b73306eb2db21",
-        "short_commit": "7cdec6a30",
-        "date": "2024-02-27 10:05:07 +0800",
-        "subject": "Merge branch 'B312' of http://47.52.90.110/tgclient/tgproject into B312"
+        "commit": "c77e01e0bfec0756a5437344277092040757b0f0",
+        "short_commit": "c77e01e0b",
+        "date": "2026-06-21 20:13:41 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
-        "h5-v2": 42,
+        "h5-v2": 43,
         "pc": 34
       },
       "type_counts": {
@@ -88,14 +89,14 @@
         "其他": 9,
         "主题样式": 2,
         "图片资源": 27,
-        "页面": 19,
+        "页面": 20,
         "组件": 2
       },
       "feature_counts": {
         "构建/配置": 17,
         "未归类路径": 11,
         "主题/颜色/静态资源": 45,
-        "活动/红包/推广/下载": 3,
+        "活动/红包/推广/下载": 4,
         "代理/报表/团队": 7,
         "彩票/投注/开奖": 1,
         "聊天室/私聊": 3,
@@ -107,11 +108,11 @@
         "#fff",
         "#0000",
         "#ff7614",
+        "#ffffff",
         "#d2d0d0",
         "#f7f7f7",
-        "#ffffff",
-        "#e2e2e2",
         "#000",
+        "#e2e2e2",
         "#efbe16",
         "#eee",
         "#949494",
@@ -128,12 +129,12 @@
         "#f3f3f3",
         "#fed136",
         "#161212",
+        "#1f6efe",
         "#ed3f14",
         "#495060",
         "#dddee1",
         "#f8f8f9",
-        "#bbbec4",
-        "#dd4413"
+        "#bbbec4"
       ],
       "map": "branches/B312.md"
     },
@@ -143,20 +144,20 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "964ecaa31250a7bc4515fac54e6e6b84fcc9e8e7",
-        "short_commit": "964ecaa31",
-        "date": "2024-03-11 10:26:14 +0800",
-        "subject": "侧边栏按钮"
+        "commit": "c2307188c145eb2017fcbcb7ec31ed1f7b40be02",
+        "short_commit": "c2307188c",
+        "date": "2026-06-21 20:13:47 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
-        "h5-v2": 47,
+        "h5-v2": 48,
         "pc": 22
       },
       "type_counts": {
         "构建配置": 24,
         "其他": 9,
         "主题样式": 2,
-        "页面": 31,
+        "页面": 32,
         "图片资源": 1,
         "组件": 2
       },
@@ -164,7 +165,7 @@
         "构建/配置": 24,
         "未归类路径": 11,
         "主题/颜色/静态资源": 26,
-        "活动/红包/推广/下载": 2,
+        "活动/红包/推广/下载": 3,
         "彩票/投注/开奖": 5,
         "资金/充值/提现": 10,
         "聊天室/私聊": 2,
@@ -177,11 +178,11 @@
         "#0000",
         "#ff7614",
         "#d2d0d0",
-        "#e2e2e2",
         "#ffffff",
+        "#e2e2e2",
+        "#000",
         "#f7f7f7",
         "#efbe16",
-        "#000",
         "#949494",
         "#f7d139",
         "#f5f3a9",
@@ -191,6 +192,7 @@
         "#33333a",
         "#40404a",
         "#fed136",
+        "#1f6efe",
         "#f2f2f2",
         "#fec746",
         "#dd4413",
@@ -199,10 +201,9 @@
         "#bd2415",
         "#aa8743",
         "#4c8bfe26",
+        "#e6e6e6",
         "#7f7f7f",
-        "#bbbec4",
-        "#f5f5f5",
-        "#1f5efe"
+        "#bbbec4"
       ],
       "map": "branches/B313-5867.md"
     },
@@ -212,29 +213,32 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "f122625badb344c57ec80125ee54670690e3eae4",
-        "short_commit": "f122625ba",
-        "date": "2024-10-28 14:26:52 +0800",
-        "subject": "调整1"
+        "commit": "e3e73389487a049a9a82bd19933187ab2a197fd9",
+        "short_commit": "e3e733894",
+        "date": "2026-06-21 20:13:56 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
-        "h5-v2": 24
+        "h5-v2": 25
       },
       "type_counts": {
         "图片资源": 3,
         "路由": 1,
-        "页面": 20
+        "页面": 21
       },
       "feature_counts": {
         "聊天室/私聊": 8,
         "主题/颜色/静态资源": 4,
         "首页/导航/版面": 3,
-        "活动/红包/推广/下载": 3,
+        "活动/红包/推广/下载": 4,
         "资金/充值/提现": 5,
         "个人中心/账户": 10,
         "登录/注册/验证码": 1
       },
-      "colors": [],
+      "colors": [
+        "#2161fe",
+        "#39e2e6"
+      ],
       "map": "branches/by339.md"
     },
     {
@@ -243,14 +247,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "c0e618274964ade11f66f76917f34e1b30a351e3",
-        "short_commit": "c0e618274",
-        "date": "2026-06-11 15:50:55 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "95bd7698654c787d82b6948479b7ccd83bc1e0c2",
+        "short_commit": "95bd76986",
+        "date": "2026-06-21 20:14:06 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 1,
-        "h5-v2": 18,
+        "h5-v2": 19,
         "pc": 36
       },
       "type_counts": {
@@ -261,7 +265,7 @@
         "路由": 1,
         "状态": 2,
         "构建配置": 2,
-        "页面": 32
+        "页面": 33
       },
       "feature_counts": {
         "未归类路径": 8,
@@ -271,14 +275,15 @@
         "登录/注册/验证码": 20,
         "构建/配置": 2,
         "个人中心/账户": 3,
-        "代理/报表/团队": 1
+        "代理/报表/团队": 1,
+        "活动/红包/推广/下载": 1
       },
       "colors": [
         "#fff",
         "#000",
+        "#ffffff",
         "#ee0022",
         "#eee",
-        "#ffffff",
         "#faf3f3",
         "#161212",
         "#333",
@@ -297,13 +302,13 @@
         "#efeef4",
         "#38f",
         "#dc3b40",
+        "#e6e6e6",
         "#e2e2e2",
         "#bdbdbd",
         "#989898",
         "#f00",
         "#ff0000",
-        "#ff000000",
-        "#112255"
+        "#ff000000"
       ],
       "map": "branches/BY8301-DFCP.md"
     },
@@ -313,14 +318,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "d541434be2e34d1c671478f19c6d9e8065a0e58a",
-        "short_commit": "d541434be",
-        "date": "2026-06-11 15:50:58 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "dc8e632eef3c60ab6acd81ae66dd982488308184",
+        "short_commit": "dc8e632ee",
+        "date": "2026-06-21 20:14:11 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 1,
-        "h5-v2": 24,
+        "h5-v2": 25,
         "pc": 70
       },
       "type_counts": {
@@ -332,7 +337,7 @@
         "工具/混入": 9,
         "路由": 1,
         "状态": 3,
-        "页面": 47
+        "页面": 48
       },
       "feature_counts": {
         "未归类路径": 12,
@@ -344,7 +349,7 @@
         "登录/注册/验证码": 21,
         "彩票/投注/开奖": 1,
         "个人中心/账户": 9,
-        "活动/红包/推广/下载": 2,
+        "活动/红包/推广/下载": 3,
         "聊天室/私聊": 4,
         "资金/充值/提现": 2
       },
@@ -353,8 +358,8 @@
         "#000",
         "#eee",
         "#333",
-        "#111",
         "#ffffff",
+        "#111",
         "#ee0022",
         "#fec746",
         "#efbe16",
@@ -362,6 +367,7 @@
         "#b79954",
         "#e6de95",
         "#faf3f3",
+        "#e6e6e6",
         "#a32dd8",
         "#3180fd",
         "#f7d139",
@@ -377,8 +383,7 @@
         "#666",
         "#0ecf9b",
         "#f1fcf8",
-        "#0ece9b",
-        "#fef0f0"
+        "#0ece9b"
       ],
       "map": "branches/BY8315-6688.md"
     },
@@ -388,14 +393,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "f37189de26d81a39865e1a52157d99170334456a",
-        "short_commit": "f37189de2",
-        "date": "2026-06-14 20:06:05 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "237293f8337e7efeee3c50fb0a8dbafbbf4da15b",
+        "short_commit": "237293f83",
+        "date": "2026-06-21 20:14:40 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 1,
-        "h5-v2": 23,
+        "h5-v2": 27,
         "pc": 43
       },
       "type_counts": {
@@ -405,18 +410,19 @@
         "组件": 5,
         "工具/混入": 13,
         "状态": 4,
-        "页面": 35
+        "页面": 39
       },
       "feature_counts": {
         "未归类路径": 9,
         "主题/颜色/静态资源": 4,
         "构建/配置": 4,
-        "首页/导航/版面": 14,
+        "首页/导航/版面": 15,
         "接口/状态/工具": 28,
         "登录/注册/验证码": 25,
         "客服/反馈/帮助": 2,
         "个人中心/账户": 6,
         "代理/报表/团队": 1,
+        "活动/红包/推广/下载": 3,
         "聊天室/私聊": 2
       },
       "colors": [
@@ -432,6 +438,8 @@
         "#d2b79c",
         "#dcc9b7",
         "#d3b69a",
+        "#2161fe",
+        "#39e2e6",
         "#ff464b",
         "#ddc17c",
         "#f5e6bf",
@@ -447,9 +455,7 @@
         "#f1fcf8",
         "#0ece9b",
         "#fef0f0",
-        "#333",
-        "#f0f0f0",
-        "#999"
+        "#333"
       ],
       "map": "branches/BY8315-6688-h5.md"
     },
@@ -459,14 +465,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "ad14a4ea2d1c3168fd6387f2ed26b64c228a1a7d",
-        "short_commit": "ad14a4ea2",
-        "date": "2026-06-11 15:51:07 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "0ab7d526b498647f58eddbf9ab80e2d621acd5fb",
+        "short_commit": "0ab7d526b",
+        "date": "2026-06-19 16:10:48 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 35,
+        "h5-v2": 39,
         "pc": 352
       },
       "type_counts": {
@@ -475,7 +481,7 @@
         "组件": 17,
         "工具/混入": 16,
         "状态": 11,
-        "页面": 236,
+        "页面": 240,
         "接口": 6,
         "图片资源": 46,
         "主题样式": 16,
@@ -484,7 +490,7 @@
       "feature_counts": {
         "未归类路径": 46,
         "构建/配置": 26,
-        "首页/导航/版面": 112,
+        "首页/导航/版面": 113,
         "接口/状态/工具": 50,
         "主题/颜色/静态资源": 93,
         "登录/注册/验证码": 35,
@@ -493,7 +499,7 @@
         "资金/充值/提现": 15,
         "个人中心/账户": 41,
         "代理/报表/团队": 6,
-        "活动/红包/推广/下载": 8,
+        "活动/红包/推广/下载": 11,
         "客服/反馈/帮助": 3
       },
       "colors": [
@@ -536,14 +542,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "697a5a74a7bcfb726a94a1a50cd60bed9b16e332",
-        "short_commit": "697a5a74a",
-        "date": "2026-06-11 15:51:11 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "92b497667822de48d014e306945ce8573efb11d6",
+        "short_commit": "92b497667",
+        "date": "2026-06-21 20:16:56 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 14,
+        "h5-v2": 15,
         "pc": 332
       },
       "type_counts": {
@@ -552,7 +558,7 @@
         "工具/混入": 14,
         "状态": 9,
         "构建配置": 22,
-        "页面": 211,
+        "页面": 212,
         "接口": 5,
         "图片资源": 43,
         "主题样式": 15,
@@ -566,8 +572,8 @@
         "构建/配置": 23,
         "个人中心/账户": 34,
         "代理/报表/团队": 5,
+        "活动/红包/推广/下载": 9,
         "主题/颜色/静态资源": 87,
-        "活动/红包/推广/下载": 8,
         "彩票/投注/开奖": 43,
         "聊天室/私聊": 20,
         "客服/反馈/帮助": 3,
@@ -597,13 +603,13 @@
         "#949494",
         "#5169de",
         "#666",
+        "#e6e6e6",
         "#aa8743",
         "#3be6e5",
         "#1f94ff",
         "#e2e2e2",
         "#ebf2fb",
-        "#f5f3a9",
-        "#b79954"
+        "#f5f3a9"
       ],
       "map": "branches/BY8316-YDYL_CS.md"
     },
@@ -613,14 +619,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "13d4cec19bdc24398d1f1a4b8ba2398260ae6d83",
-        "short_commit": "13d4cec19",
-        "date": "2026-06-11 15:51:17 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "93104432902c249d8472eec69884b1d7c83c73be",
+        "short_commit": "931044329",
+        "date": "2026-06-21 20:17:21 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 14,
+        "h5-v2": 15,
         "pc": 200
       },
       "type_counts": {
@@ -629,7 +635,7 @@
         "工具/混入": 10,
         "状态": 4,
         "构建配置": 13,
-        "页面": 120,
+        "页面": 121,
         "接口": 1,
         "图片资源": 39,
         "主题样式": 15
@@ -642,8 +648,8 @@
         "构建/配置": 14,
         "个人中心/账户": 17,
         "代理/报表/团队": 2,
+        "活动/红包/推广/下载": 5,
         "主题/颜色/静态资源": 68,
-        "活动/红包/推广/下载": 4,
         "聊天室/私聊": 7,
         "彩票/投注/开奖": 8,
         "资金/充值/提现": 3
@@ -672,10 +678,10 @@
         "#4c8bfe26",
         "#e6de95",
         "#666",
+        "#1f6efe",
         "#d1d4f6",
         "#ccc",
         "#313131",
-        "#1f6efe",
         "#26252b",
         "#33333a",
         "#ff7614"
@@ -688,14 +694,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "435d7c0b69eef954d29cec6bc4b0ff631afd0caa",
-        "short_commit": "435d7c0b6",
-        "date": "2026-06-11 15:51:19 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "80924ac8f5b5b4712f5fa75356d266d80c87b496",
+        "short_commit": "80924ac8f",
+        "date": "2026-06-21 20:17:24 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 14,
+        "h5-v2": 15,
         "pc": 199
       },
       "type_counts": {
@@ -704,7 +710,7 @@
         "工具/混入": 10,
         "状态": 4,
         "构建配置": 12,
-        "页面": 120,
+        "页面": 121,
         "接口": 1,
         "图片资源": 39,
         "主题样式": 15
@@ -717,8 +723,8 @@
         "构建/配置": 13,
         "个人中心/账户": 17,
         "代理/报表/团队": 2,
+        "活动/红包/推广/下载": 5,
         "主题/颜色/静态资源": 67,
-        "活动/红包/推广/下载": 4,
         "聊天室/私聊": 7,
         "彩票/投注/开奖": 8,
         "资金/充值/提现": 3
@@ -747,10 +753,10 @@
         "#4c8bfe26",
         "#e6de95",
         "#666",
+        "#1f6efe",
         "#d1d4f6",
         "#ccc",
         "#313131",
-        "#1f6efe",
         "#26252b",
         "#33333a",
         "#ff7614"
@@ -763,14 +769,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "49ff07a80bdb1c06e912d4dc85dfe30e08808bdd",
-        "short_commit": "49ff07a80",
-        "date": "2026-06-14 20:10:30 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "c07bbe3e96daf90942b1b08233ea69547680698c",
+        "short_commit": "c07bbe3e9",
+        "date": "2026-06-21 20:17:28 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 21,
+        "h5-v2": 22,
         "pc": 204
       },
       "type_counts": {
@@ -779,7 +785,7 @@
         "组件": 4,
         "工具/混入": 15,
         "状态": 5,
-        "页面": 124,
+        "页面": 125,
         "接口": 1,
         "图片资源": 39,
         "主题样式": 15
@@ -794,7 +800,7 @@
         "客服/反馈/帮助": 2,
         "个人中心/账户": 19,
         "代理/报表/团队": 2,
-        "活动/红包/推广/下载": 4,
+        "活动/红包/推广/下载": 5,
         "聊天室/私聊": 7,
         "彩票/投注/开奖": 8,
         "资金/充值/提现": 3
@@ -815,8 +821,8 @@
         "#1f94ff",
         "#f5f9ff",
         "#795d1b",
-        "#f5f3a9",
         "#1f6efe",
+        "#f5f3a9",
         "#b79954",
         "#eee",
         "#f3f3f3",
@@ -839,14 +845,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "9d489af1329d7ea52ec85c771274236f8837aef3",
-        "short_commit": "9d489af13",
-        "date": "2026-06-11 15:51:25 +0900",
-        "subject": "fix: localize aliyun captcha trigger text"
+        "commit": "de334c5f8a3c7868012793ce092cdc9624510140",
+        "short_commit": "de334c5f8",
+        "date": "2026-06-21 20:17:31 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 14,
+        "h5-v2": 15,
         "pc": 201
       },
       "type_counts": {
@@ -855,7 +861,7 @@
         "工具/混入": 10,
         "状态": 4,
         "构建配置": 13,
-        "页面": 121,
+        "页面": 122,
         "接口": 1,
         "图片资源": 39,
         "主题样式": 15
@@ -868,8 +874,8 @@
         "构建/配置": 14,
         "个人中心/账户": 17,
         "代理/报表/团队": 2,
+        "活动/红包/推广/下载": 5,
         "主题/颜色/静态资源": 68,
-        "活动/红包/推广/下载": 4,
         "聊天室/私聊": 7,
         "彩票/投注/开奖": 8,
         "资金/充值/提现": 3
@@ -898,10 +904,10 @@
         "#4c8bfe26",
         "#e6de95",
         "#666",
+        "#1f6efe",
         "#d1d4f6",
         "#ccc",
         "#313131",
-        "#1f6efe",
         "#26252b",
         "#33333a",
         "#ff7614"
@@ -909,54 +915,85 @@
       "map": "branches/BY8320-857C.md"
     },
     {
+      "branch": "origin/BY8321-AOK",
+      "display_name": "BY8321-AOK",
+      "source": "远端",
+      "base": "origin/BY-Demo-H5V2-PC",
+      "meta": {
+        "commit": "3f9ba2b1193c13214bc0eaefbb6976a551403646",
+        "short_commit": "3f9ba2b11",
+        "date": "2026-06-29 13:51:52 +0900",
+        "subject": "fix: play private chat notice for BY8321"
+      },
+      "endpoint_counts": {
+        "pc": 1
+      },
+      "type_counts": {
+        "页面": 1
+      },
+      "feature_counts": {
+        "首页/导航/版面": 1,
+        "聊天室/私聊": 1
+      },
+      "colors": [],
+      "map": "branches/BY8321-AOK.md"
+    },
+    {
       "branch": "origin/BY8351-JCYL",
       "display_name": "BY8351-JCYL",
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "8313e83aaf8a1c73218fb34624cf2ac03677c58b",
-        "short_commit": "8313e83aa",
-        "date": "2026-06-14 20:11:17 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "8a400120584cb11f0242010d2a68ba55f708445f",
+        "short_commit": "8a4001205",
+        "date": "2026-06-19 16:35:40 +0900",
+        "subject": "fix: keep active tabs gradient fixed"
       },
       "endpoint_counts": {
         "其他": 1,
-        "h5-v2": 32,
+        "h5-v2": 76,
         "pc": 43
       },
       "type_counts": {
         "其他": 5,
         "构建配置": 3,
-        "组件": 5,
+        "组件": 6,
         "工具/混入": 13,
         "状态": 3,
-        "页面": 47
+        "页面": 89,
+        "主题样式": 1
       },
       "feature_counts": {
-        "未归类路径": 9,
-        "主题/颜色/静态资源": 3,
+        "未归类路径": 13,
+        "主题/颜色/静态资源": 4,
         "构建/配置": 3,
-        "首页/导航/版面": 17,
+        "首页/导航/版面": 26,
         "接口/状态/工具": 29,
-        "登录/注册/验证码": 28,
+        "登录/注册/验证码": 34,
         "客服/反馈/帮助": 2,
-        "个人中心/账户": 13,
-        "代理/报表/团队": 1,
-        "资金/充值/提现": 5
+        "聊天室/私聊": 7,
+        "资金/充值/提现": 6,
+        "个人中心/账户": 18,
+        "代理/报表/团队": 3,
+        "活动/红包/推广/下载": 3,
+        "彩票/投注/开奖": 11
       },
       "colors": [
         "#fff",
+        "#2b323d",
         "#e4393c",
         "#ffd9db",
         "#dfbf67",
         "#eb3434",
         "#ff464c",
+        "#d2b79c",
         "#ee0022",
         "#f5dc8b",
         "#1f6efe",
-        "#d2b79c",
         "#dcc9b7",
         "#d3b69a",
+        "#2161fe",
+        "#39e2e6",
         "#ff464b",
         "#ddc17c",
         "#f5e6bf",
@@ -971,10 +1008,7 @@
         "#0ecf9b",
         "#f1fcf8",
         "#0ece9b",
-        "#fef0f0",
-        "#333",
-        "#f0f0f0",
-        "#999"
+        "#fef0f0"
       ],
       "map": "branches/BY8351-JCYL.md"
     },
@@ -984,14 +1018,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "7f59a9185995c4dcab1661b4d38bbc5042ee8951",
-        "short_commit": "7f59a9185",
-        "date": "2026-06-14 20:12:43 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "016d9502a2c53e9d91c05152a95331d8077351fe",
+        "short_commit": "016d9502a",
+        "date": "2026-06-19 16:11:02 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 36,
+        "h5-v2": 40,
         "pc": 350
       },
       "type_counts": {
@@ -1000,7 +1034,7 @@
         "组件": 15,
         "工具/混入": 20,
         "状态": 11,
-        "页面": 234,
+        "页面": 238,
         "接口": 5,
         "图片资源": 46,
         "主题样式": 15,
@@ -1010,7 +1044,7 @@
         "未归类路径": 45,
         "构建/配置": 27,
         "主题/颜色/静态资源": 93,
-        "首页/导航/版面": 107,
+        "首页/导航/版面": 108,
         "接口/状态/工具": 53,
         "登录/注册/验证码": 40,
         "客服/反馈/帮助": 5,
@@ -1019,7 +1053,7 @@
         "资金/充值/提现": 15,
         "个人中心/账户": 43,
         "代理/报表/团队": 5,
-        "活动/红包/推广/下载": 8
+        "活动/红包/推广/下载": 11
       },
       "colors": [
         "#fff",
@@ -1061,10 +1095,10 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "4cff9bfd79b53f82a7f3badfd48ba113ccc10f80",
-        "short_commit": "4cff9bfd7",
-        "date": "2026-06-14 20:14:03 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "ca31b2dc70a9fce8d9b9a3cca0050c0265fa9fbf",
+        "short_commit": "ca31b2dc7",
+        "date": "2026-06-19 16:11:08 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 2,
@@ -1133,15 +1167,15 @@
       "map": "branches/BY8358-HP.md"
     },
     {
-      "branch": "BY8359-JJYL",
+      "branch": "origin/BY8359-JJYL",
       "display_name": "BY8359-JJYL",
-      "source": "本地",
+      "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "8686599296341b7898f2d6ba4ef51c436f91145a",
-        "short_commit": "868659929",
-        "date": "2026-05-05 16:17:27 +0900",
-        "subject": "fix: 完成修改余额宝展示和后台配置不一致的问题"
+        "commit": "7742830f1e87e1798e7433af847744b1747a2765",
+        "short_commit": "7742830f1",
+        "date": "2026-06-19 16:11:15 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 1,
@@ -1215,14 +1249,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "8ca164cc1ab82a8b2f46bd715a0b8d22d841ad78",
-        "short_commit": "8ca164cc1",
-        "date": "2026-06-14 20:14:52 +0900",
-        "subject": "fix: sync h5 theme variables"
+        "commit": "f9938bf95b576859bb120a7af538982983eeb3f4",
+        "short_commit": "f9938bf95",
+        "date": "2026-06-19 16:11:22 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 1,
-        "h5-v2": 84,
+        "h5-v2": 87,
         "h5-废弃": 2,
         "pc": 45
       },
@@ -1232,14 +1266,14 @@
         "组件": 5,
         "工具/混入": 13,
         "状态": 3,
-        "页面": 100,
+        "页面": 103,
         "主题样式": 1
       },
       "feature_counts": {
         "未归类路径": 15,
         "主题/颜色/静态资源": 4,
         "构建/配置": 3,
-        "首页/导航/版面": 33,
+        "首页/导航/版面": 34,
         "接口/状态/工具": 29,
         "登录/注册/验证码": 41,
         "客服/反馈/帮助": 2,
@@ -1247,7 +1281,7 @@
         "资金/充值/提现": 2,
         "个人中心/账户": 18,
         "代理/报表/团队": 4,
-        "活动/红包/推广/下载": 2,
+        "活动/红包/推广/下载": 4,
         "彩票/投注/开奖": 11
       },
       "colors": [
@@ -1264,6 +1298,8 @@
         "#1f6efe",
         "#dcc9b7",
         "#d3b69a",
+        "#2161fe",
+        "#39e2e6",
         "#ff464b",
         "#ddc17c",
         "#f5e6bf",
@@ -1278,48 +1314,50 @@
         "#0ecf9b",
         "#f1fcf8",
         "#0ece9b",
-        "#fef0f0",
-        "#333",
-        "#f0f0f0"
+        "#fef0f0"
       ],
       "map": "branches/BY8360-SH.md"
     },
     {
-      "branch": "origin/BY8361-LG",
-      "display_name": "BY8361-LG",
+      "branch": "origin/BY8361-XG",
+      "display_name": "BY8361-XG",
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "cd3bea2c68edfe1b21171c39a86c75f4f92f5910",
-        "short_commit": "cd3bea2c6",
-        "date": "2026-06-15 14:38:56 +0900",
-        "subject": "fix: render BY8361 withdrawal limit values"
+        "commit": "2b64aabcb7262c4cc49571b4ba5651c6a704faa6",
+        "short_commit": "2b64aabcb",
+        "date": "2026-07-15 09:29:32 +0900",
+        "subject": "fix: align BY8361 XG h5 theme details"
       },
       "endpoint_counts": {
-        "h5-v2": 17,
+        "h5-v2": 42,
         "pc": 10
       },
       "type_counts": {
         "构建配置": 2,
         "图片资源": 2,
-        "工具/混入": 2,
-        "页面": 21
+        "状态": 1,
+        "主题样式": 2,
+        "工具/混入": 4,
+        "页面": 41
       },
       "feature_counts": {
-        "主题/颜色/静态资源": 4,
+        "主题/颜色/静态资源": 8,
         "构建/配置": 2,
         "代理/报表/团队": 3,
-        "接口/状态/工具": 3,
+        "接口/状态/工具": 6,
+        "首页/导航/版面": 18,
+        "活动/红包/推广/下载": 7,
         "登录/注册/验证码": 2,
-        "个人中心/账户": 10,
-        "活动/红包/推广/下载": 1,
-        "资金/充值/提现": 2,
-        "首页/导航/版面": 6,
+        "个人中心/账户": 14,
+        "资金/充值/提现": 4,
         "未归类路径": 3
       },
       "colors": [
-        "#333",
+        "#2161fe",
+        "#39e2e6",
         "#fff",
+        "#333",
         "#55b94d",
         "#f29a2e",
         "#7d51d5",
@@ -1336,9 +1374,10 @@
         "#262626",
         "#e5e5e5",
         "#f59a23",
-        "#d2b79c"
+        "#d2b79c",
+        "#f3f3f3"
       ],
-      "map": "branches/BY8361-LG.md"
+      "map": "branches/BY8361-XG.md"
     },
     {
       "branch": "origin/BY8362-YL",
@@ -1346,29 +1385,77 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "b0a87634fe7ac7f6fd46c7f78fcbc19ac78ac699",
-        "short_commit": "b0a87634f",
-        "date": "2026-06-13 18:03:46 +0900",
-        "subject": "docs: record YL merchant branch"
+        "commit": "e6decb04785b344a96338ab6086c8ed0a933af17",
+        "short_commit": "e6decb047",
+        "date": "2026-06-19 16:11:30 +0900",
+        "subject": "fix: remove auth text backgrounds on gold layout"
       },
       "endpoint_counts": {
         "其他": 2,
-        "h5-v2": 16,
+        "h5-v2": 20,
         "pc": 30
       },
       "type_counts": {
         "其他": 2,
         "路由": 1,
-        "页面": 45
+        "页面": 49
       },
       "feature_counts": {
         "未归类路径": 12,
-        "首页/导航/版面": 23,
+        "首页/导航/版面": 24,
         "彩票/投注/开奖": 11,
+        "活动/红包/推广/下载": 3,
         "接口/状态/工具": 4
       },
-      "colors": [],
+      "colors": [
+        "#2161fe",
+        "#39e2e6"
+      ],
       "map": "branches/BY8362-YL.md"
+    },
+    {
+      "branch": "origin/BY8363-DS",
+      "display_name": "BY8363-DS",
+      "source": "远端",
+      "base": "origin/BY-Demo-H5V2-PC",
+      "meta": {
+        "commit": "f0aeedde5372774ffc868052ecd2c391236acdd6",
+        "short_commit": "f0aeedde5",
+        "date": "2026-06-30 11:03:30 +0900",
+        "subject": "fix: reject login password matching account"
+      },
+      "endpoint_counts": {
+        "h5-v2": 49,
+        "pc": 37
+      },
+      "type_counts": {
+        "构建配置": 1,
+        "其他": 1,
+        "图片资源": 3,
+        "主题样式": 1,
+        "工具/混入": 5,
+        "页面": 73,
+        "组件": 2
+      },
+      "feature_counts": {
+        "主题/颜色/静态资源": 6,
+        "构建/配置": 1,
+        "未归类路径": 11,
+        "代理/报表/团队": 6,
+        "接口/状态/工具": 13,
+        "登录/注册/验证码": 15,
+        "首页/导航/版面": 36,
+        "个人中心/账户": 15,
+        "资金/充值/提现": 1,
+        "活动/红包/推广/下载": 3
+      },
+      "colors": [
+        "#666",
+        "#2161fe",
+        "#39e2e6",
+        "#fff"
+      ],
+      "map": "branches/BY8363-DS.md"
     },
     {
       "branch": "origin/jinshayule",
@@ -1376,22 +1463,35 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "76d39fe974f1da0b4c82824e9ee331e7b601284c",
-        "short_commit": "76d39fe97",
-        "date": "2024-02-03 17:32:21 +0800",
-        "subject": "1"
+        "commit": "5e61cd5ca0c4c09730e94e9af748b3b5e7197c48",
+        "short_commit": "5e61cd5ca",
+        "date": "2026-06-21 20:18:37 +0900",
+        "subject": "fix: keep blue-white promo tabs gradient"
       },
       "endpoint_counts": {
-        "h5-v2": 4
+        "h5-v2": 5
       },
       "type_counts": {
         "组件": 1,
-        "页面": 3
+        "页面": 4
       },
       "feature_counts": {
-        "首页/导航/版面": 4
+        "首页/导航/版面": 4,
+        "活动/红包/推广/下载": 1
       },
-      "colors": [],
+      "colors": [
+        "#fff",
+        "#e6e6e6",
+        "#f4fafe",
+        "#000000",
+        "#ffffff",
+        "#000",
+        "#1f6efe",
+        "#292929",
+        "#bbbbbb",
+        "#2161fe",
+        "#39e2e6"
+      ],
       "map": "branches/jinshayule.md"
     }
   ]

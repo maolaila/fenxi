@@ -1,8 +1,8 @@
 # 商户分支功能地图：BY8359-JJYL
 
-- 生成时间：2026-06-16 14:13:34 +0900
-- 来源：本地分支 `BY8359-JJYL`
-- 分支提交：`868659929` / 2026-05-05 16:17:27 +0900 / fix: 完成修改余额宝展示和后台配置不一致的问题
+- 生成时间：2026-07-15 09:30:23 +0900
+- 来源：远端分支 `origin/BY8359-JJYL`
+- 分支提交：`7742830f1` / 2026-06-19 16:11:15 +0900 / fix: remove auth text backgrounds on gold layout
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
@@ -30,7 +30,7 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 330 | 100658 | 58843 | pc/.gitignore<br>pc/README.md<br>pc/build/webpack.dev.conf.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>...另 322 个路径见完整清单 |
-| h5-v2 | 741 | 39681 | 33028 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/App.vue<br>h5-v2/src/api/agent.js<br>h5-v2/src/api/app.js<br>h5-v2/src/api/betting.js<br>h5-v2/src/api/chat.js<br>...另 733 个路径见完整清单 |
+| h5-v2 | 741 | 39707 | 33036 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/App.vue<br>h5-v2/src/api/agent.js<br>h5-v2/src/api/app.js<br>h5-v2/src/api/betting.js<br>h5-v2/src/api/chat.js<br>...另 733 个路径见完整清单 |
 | 其他 | 1 | 2 | 1 | .gitignore |
 
 ## 功能域地图
@@ -189,6 +189,8 @@
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 7742830f1 | 2026-06-19 | fix: remove auth text backgrounds on gold layout |
+| 37a95a2ed | 2026-06-19 | fix: keep active tabs gradient fixed |
 | 868659929 | 2026-05-05 | fix: 完成修改余额宝展示和后台配置不一致的问题 |
 | 3acf8e2d0 | 2026-05-05 | feat: 完成定期理财改版 |
 | 793ee755d | 2026-05-01 | 更新 vue.config.js |
@@ -217,8 +219,6 @@
 | 75edddf9e | 2026-03-19 | fix: 聊天室 消息图片加载错误 |
 | 0b4230f6d | 2025-10-10 | fix: 邀请人账号脱敏 |
 | e3c7b79bd | 2025-10-10 | feat: 推广码添加返佣提示 |
-| 121881ef3 | 2025-09-11 | fix: 临时存储红包图状态 |
-| c87c4313b | 2025-09-09 | fix: 首页红包缩放或隐藏 提现最大额修复 |
 
 ## 完整文件级差异清单
 
@@ -830,7 +830,7 @@
 | M | h5-v2 | 页面 | 彩票/投注/开奖 | 22 | 19 |  | h5-v2/src/views2/lotteryHall/notice.vue |
 | M | h5-v2 | 页面 | 个人中心/账户 | 134 | 56 |  | h5-v2/src/views2/personal-center/personal-center.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码 | 2 | 2 |  | h5-v2/src/views2/register/register.vue |
-| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 13 | 13 |  | h5-v2/src/views3/active/active.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 21 | 13 |  | h5-v2/src/views3/active/active.vue |
 | M | h5-v2 | 页面 | 资金/充值/提现 | 30 | 29 |  | h5-v2/src/views3/fund/components/CurrencyRate.vue |
 | M | h5-v2 | 页面 | 资金/充值/提现 | 427 | 294 |  | h5-v2/src/views3/fund/components/withdrawal.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面、资金/充值/提现 | 37 | 13 |  | h5-v2/src/views3/fund/index.vue |
@@ -846,7 +846,7 @@
 | M | h5-v2 | 页面 | 资金/充值/提现 | 369 | 250 |  | h5-v2/src/views4/fund/components/withdrawal.vue |
 | M | h5-v2 | 页面 | 资金/充值/提现 | 9 | 9 |  | h5-v2/src/views4/fund/conversion-record.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 36 | 36 |  | h5-v2/src/views4/layout/index.vue |
-| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 13 | 13 |  | h5-v2/src/views5/active/active.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 21 | 13 |  | h5-v2/src/views5/active/active.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 4 | 4 |  | h5-v2/src/views5/home/banner.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 5 | 5 |  | h5-v2/src/views5/home/fastNav.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 29 | 29 |  | h5-v2/src/views5/home/gamesPlatForms.vue |
@@ -880,7 +880,7 @@
 | M | h5-v2 | 页面 | 彩票/投注/开奖 | 22 | 20 |  | h5-v2/src/views6/lotteryHall/notice.vue |
 | M | h5-v2 | 页面 | 个人中心/账户 | 32 | 29 |  | h5-v2/src/views6/personal-center/personal-center.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码 | 9 | 11 |  | h5-v2/src/views6/register/register.vue |
-| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 14 | 14 |  | h5-v2/src/views7/active/active.vue |
+| M | h5-v2 | 页面 | 活动/红包/推广/下载 | 20 | 20 |  | h5-v2/src/views7/active/active.vue |
 | M | h5-v2 | 页面 | 活动/红包/推广/下载 | 8 | 9 |  | h5-v2/src/views7/active/bcyl.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面、活动/红包/推广/下载 | 7 | 8 |  | h5-v2/src/views7/active/index.vue |
 | M | h5-v2 | 页面 | 活动/红包/推广/下载 | 36 | 18 |  | h5-v2/src/views7/active/mission.vue |
@@ -947,7 +947,7 @@
 | M | h5-v2 | 页面 | 首页/导航/版面 | 8 | 8 |  | h5-v2/src/views9/home/fastNav.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 73 | 29 |  | h5-v2/src/views9/home/gamesPlatForms.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 4 | 4 |  | h5-v2/src/views9/home/headLine.vue |
-| M | h5-v2 | 页面 | 首页/导航/版面 | 33 | 15 |  | h5-v2/src/views9/home/header.vue |
+| M | h5-v2 | 页面 | 首页/导航/版面 | 37 | 17 |  | h5-v2/src/views9/home/header.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 13 | 11 |  | h5-v2/src/views9/home/home.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面、活动/红包/推广/下载 | 10 | 10 |  | h5-v2/src/views9/home/redPacket.vue |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 22 | 14 |  | h5-v2/src/views9/layout/layout.vue |
@@ -1299,8 +1299,8 @@
 
 ## 生成依据
 
-- 分支：`BY8359-JJYL`
+- 分支：`origin/BY8359-JJYL`
 - 基准：`origin/BY-Demo-H5V2-PC`
-- 完整命令：`git diff --name-status --find-renames origin/BY-Demo-H5V2-PC...BY8359-JJYL -- .`
+- 完整命令：`git diff --name-status --find-renames origin/BY-Demo-H5V2-PC...origin/BY8359-JJYL -- .`
 - 有效端：`pc/`、`h5-v2/`
 - 废弃端：`h5/`

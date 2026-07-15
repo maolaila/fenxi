@@ -1,15 +1,15 @@
 # 商户分支功能地图：BY8318-AMXPJ
 
-- 生成时间：2026-06-16 14:13:34 +0900
+- 生成时间：2026-07-15 09:30:23 +0900
 - 来源：远端分支 `origin/BY8318-AMXPJ`
-- 分支提交：`435d7c0b6` / 2026-06-11 15:51:19 +0900 / fix: localize aliyun captcha trigger text
+- 分支提交：`80924ac8f` / 2026-06-21 20:17:24 +0900 / fix: keep blue-white promo tabs gradient
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
 
 ## 结论摘要
 
-- 有效端差异文件：213 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、登录/注册/验证码、未归类路径、个人中心/账户、构建/配置、彩票/投注/开奖。
+- 有效端差异文件：214 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、接口/状态/工具、登录/注册/验证码、未归类路径、个人中心/账户、构建/配置、彩票/投注/开奖。
 - 其他路径差异文件：2 个；通常是根配置、文档或非端目录，需要按完整清单核对。
 - 扫描到新增/变更颜色值：#fff, #ffffff, #0000, #000000, #e4393c, #000, #ddc17c, #ebf2fb, #131522, #aa8743, #333, #f5f9ff, #795d1b, #3be6e5, #1f94ff, #f5f3a9, #b79954, #eee, #f3f3f3, #f7df99。
 
@@ -30,7 +30,7 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 199 | 48842 | 15095 | pc/.gitignore<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/configstatic/pc/images/logo-icon.png<br>pc/configstatic/pc/images/logo.gif<br>pc/configstatic/pc/images/logo.png<br>...另 191 个路径见完整清单 |
-| h5-v2 | 14 | 884 | 50 | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/plugin/plugin.js<br>...另 6 个路径见完整清单 |
+| h5-v2 | 15 | 1119 | 50 | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/plugin/plugin.js<br>...另 7 个路径见完整清单 |
 | 其他 | 2 | 72 | 0 | .gitignore<br>docs/merchant-frontend-branches.md |
 
 ## 功能域地图
@@ -46,7 +46,7 @@
 | 构建/配置 | 13 | h5-v2、pc | h5-v2/src/utils/getSysConfig.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/configstatic/pc/images/logo-icon.png<br>pc/configstatic/pc/images/logo.gif<br>pc/configstatic/pc/images/logo.png<br>...另 5 个路径见完整清单 |
 | 彩票/投注/开奖 | 8 | pc | pc/src/views-v11/game/components/GameBall.vue<br>pc/src/views-v11/home/fast_betting.vue<br>pc/src/views-v11/layout/child_modal/left_lottery.vue<br>pc/src/views-v11/layout/child_modal/lottery_head.vue<br>pc/src/views/buyLottery/child_modal/shared/children_modal/TabMenu.vue<br>pc/src/views/buyLottery/css/test.css<br>pc/src/views/buyLottery/lottery_head.vue<br>pc/src/views/layout/child_modal/lottery_head.vue |
 | 聊天室/私聊 | 7 | pc | pc/src/assets/images/chat/cptt.png<br>pc/src/views/chatRoom/chatLeft/index.vue<br>pc/src/views/chatRoom/chatLeft/messageList.vue<br>pc/src/views/chatRoom/chatMain/chatFeature.vue<br>pc/src/views/chatRoom/chatMain/chatPrivate/index.vue<br>pc/src/views/chatRoom/chatMain/index.vue<br>pc/src/views/chatRoom/chatMain/topNotice.vue |
-| 活动/红包/推广/下载 | 4 | pc | pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/index.vue |
+| 活动/红包/推广/下载 | 5 | h5-v2、pc | h5-v2/src/views7/active/active.vue<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>pc/src/assets/images-v10/phone-buy/APPdownload_image.png<br>pc/src/views-v11/active/index.vue<br>pc/src/views/active/index.vue |
 | 资金/充值/提现 | 3 | pc | pc/src/views/personalCenter/child_modal/recharge/recharge.vue<br>pc/src/views/personalCenter/child_modal/recharge/step2.vue<br>pc/src/views/personalCenter/child_modal/withdraw/currencyPay.vue |
 | 代理/报表/团队 | 2 | h5-v2、pc | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue<br>pc/src/views/personalCenter/child_modal/agentReport/agentreport.vue |
 
@@ -54,7 +54,7 @@
 
 | 类型 | 文件数 |
 | --- | --- |
-| 页面 | 120 |
+| 页面 | 121 |
 | 图片资源 | 39 |
 | 主题样式 | 15 |
 | 构建配置 | 12 |
@@ -66,7 +66,7 @@
 
 ## 主题色/展示资源线索
 
-- 颜色值：#fff, #ffffff, #0000, #000000, #e4393c, #000, #ddc17c, #ebf2fb, #131522, #aa8743, #333, #f5f9ff, #795d1b, #3be6e5, #1f94ff, #f5f3a9, #b79954, #eee, #f3f3f3, #f7df99, #4c8bfe26, #e6de95, #666, #d1d4f6, #ccc, #313131, #1f6efe, #26252b, #33333a, #ff7614
+- 颜色值：#fff, #ffffff, #0000, #000000, #e4393c, #000, #ddc17c, #ebf2fb, #131522, #aa8743, #333, #f5f9ff, #795d1b, #3be6e5, #1f94ff, #f5f3a9, #b79954, #eee, #f3f3f3, #f7df99, #4c8bfe26, #e6de95, #666, #1f6efe, #d1d4f6, #ccc, #313131, #26252b, #33333a, #ff7614
 
 | 端 | 类型 | 功能域 | 状态 | 路径 |
 | --- | --- | --- | --- | --- |
@@ -142,14 +142,15 @@
 
 | 候选基准 | 有效端文件数 | 废弃 h5 文件数 | 总文件数 | 共同祖先 | 共同祖先时间 |
 | --- | --- | --- | --- | --- | --- |
-| origin/BY-Demo-H5V2-PC | 213 | 0 | 215 | ac5ce626bae8 | 2024-01-25 14:52:34 +0800 |
-| origin/BY-Demo | 348 | 0 | 350 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
-| origin/master | 3945 | 3 | 3951 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
+| origin/BY-Demo-H5V2-PC | 214 | 0 | 216 | ac5ce626bae8 | 2024-01-25 14:52:34 +0800 |
+| origin/BY-Demo | 349 | 0 | 351 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/master | 3946 | 3 | 3952 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
 
 ## 最近商户分支提交
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 80924ac8f | 2026-06-21 | fix: keep blue-white promo tabs gradient |
 | 435d7c0b6 | 2026-06-11 | fix: localize aliyun captcha trigger text |
 | 6b6f91c32 | 2026-06-06 | fix: reset pc aliyun captcha lifecycle |
 | 77bec6359 | 2026-06-05 | fix: handle aliyun captcha close in h5 requests |
@@ -179,7 +180,6 @@
 | d2889f62b | 2024-03-08 | 取消无效文件跟踪 |
 | afc83a9a9 | 2024-03-08 | UI资源依赖版本控制刷新 |
 | a075e1bf9 | 2024-03-08 | pc异常 |
-| 4e3d4389c | 2024-03-08 | pc异常 |
 
 ## 完整文件级差异清单
 
@@ -201,6 +201,7 @@
 | M | h5-v2 | 页面 | 个人中心/账户、代理/报表/团队 | 1 | 1 |  | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue |
 | M | h5-v2 | 页面 | 个人中心/账户 | 1 | 1 |  | h5-v2/src/views/personal-center/child_modal/mysetting/myPhone/myPhone.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码、接口/状态/工具 | 89 | 14 |  | h5-v2/src/views/register/registerMixin.js |
+| A | h5-v2 | 页面 | 活动/红包/推广/下载 | 235 | 0 |  | h5-v2/src/views7/active/active.vue |
 | M | pc | 其他 | 未归类路径 | 1 | 1 |  | pc/.gitignore |
 | M | pc | 其他 | 首页/导航/版面、构建/配置 | 6 | 2 |  | pc/config/index.js |
 | M | pc | 构建配置 | 主题/颜色/静态资源、构建/配置 | 123 | 78 |  | pc/configstatic/pc/control/control.js |

@@ -1,17 +1,17 @@
 # 商户分支功能地图：BY8301-DFCP
 
-- 生成时间：2026-06-16 14:13:34 +0900
+- 生成时间：2026-07-15 09:30:23 +0900
 - 来源：远端分支 `origin/BY8301-DFCP`
-- 分支提交：`c0e618274` / 2026-06-11 15:50:55 +0900 / fix: localize aliyun captcha trigger text
+- 分支提交：`95bd76986` / 2026-06-21 20:14:06 +0900 / fix: keep blue-white promo tabs gradient
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
 
 ## 结论摘要
 
-- 有效端差异文件：54 个；涉及功能域：接口/状态/工具、登录/注册/验证码、首页/导航/版面、未归类路径、个人中心/账户、构建/配置、主题/颜色/静态资源、代理/报表/团队。
+- 有效端差异文件：55 个；涉及功能域：接口/状态/工具、登录/注册/验证码、首页/导航/版面、未归类路径、个人中心/账户、构建/配置、主题/颜色/静态资源、代理/报表/团队。
 - 其他路径差异文件：1 个；通常是根配置、文档或非端目录，需要按完整清单核对。
-- 扫描到新增/变更颜色值：#fff, #000, #ee0022, #eee, #ffffff, #faf3f3, #161212, #333, #111, #123, #124, #125, #a8015a, #d8d8d8, #f7f9fa, #666, #0ecf9b, #f1fcf8, #0ece9b, #fef0f0。
+- 扫描到新增/变更颜色值：#fff, #000, #ffffff, #ee0022, #eee, #faf3f3, #161212, #333, #111, #123, #124, #125, #a8015a, #d8d8d8, #f7f9fa, #666, #0ecf9b, #f1fcf8, #0ece9b, #fef0f0。
 
 ## 客服/测试核对清单
 
@@ -30,7 +30,7 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 36 | 2289 | 311 | pc/index.html<br>pc/src/components/PhoneBindDialog/index.vue<br>pc/src/components/login_dlg.vue<br>pc/src/components/tryPlay.vue<br>pc/src/main.js<br>pc/src/mixins/register.js<br>pc/src/store/modules/sysDict.js<br>pc/src/utils/aliyunCaptcha.js<br>...另 28 个路径见完整清单 |
-| h5-v2 | 18 | 2853 | 1871 | h5-v2/public/index.html<br>h5-v2/public/static/css/color.less<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/router/index.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>...另 10 个路径见完整清单 |
+| h5-v2 | 19 | 3088 | 1871 | h5-v2/public/index.html<br>h5-v2/public/static/css/color.less<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/router/index.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>...另 11 个路径见完整清单 |
 | 其他 | 1 | 70 | 0 | docs/merchant-frontend-branches.md |
 
 ## 功能域地图
@@ -45,12 +45,13 @@
 | 构建/配置 | 2 | h5-v2、pc | h5-v2/src/utils/getSysConfig.js<br>pc/src/utils/getSysConfig.js |
 | 主题/颜色/静态资源 | 1 | h5-v2 | h5-v2/public/static/css/color.less |
 | 代理/报表/团队 | 1 | h5-v2 | h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue |
+| 活动/红包/推广/下载 | 1 | h5-v2 | h5-v2/src/views7/active/active.vue |
 
 ## 文件类型分布
 
 | 类型 | 文件数 |
 | --- | --- |
-| 页面 | 32 |
+| 页面 | 33 |
 | 工具/混入 | 8 |
 | 其他 | 5 |
 | 组件 | 4 |
@@ -61,7 +62,7 @@
 
 ## 主题色/展示资源线索
 
-- 颜色值：#fff, #000, #ee0022, #eee, #ffffff, #faf3f3, #161212, #333, #111, #123, #124, #125, #a8015a, #d8d8d8, #f7f9fa, #666, #0ecf9b, #f1fcf8, #0ece9b, #fef0f0, #efeef4, #38f, #dc3b40, #e2e2e2, #bdbdbd, #989898, #f00, #ff0000, #ff000000, #112255
+- 颜色值：#fff, #000, #ffffff, #ee0022, #eee, #faf3f3, #161212, #333, #111, #123, #124, #125, #a8015a, #d8d8d8, #f7f9fa, #666, #0ecf9b, #f1fcf8, #0ece9b, #fef0f0, #efeef4, #38f, #dc3b40, #e6e6e6, #e2e2e2, #bdbdbd, #989898, #f00, #ff0000, #ff000000
 
 | 端 | 类型 | 功能域 | 状态 | 路径 |
 | --- | --- | --- | --- | --- |
@@ -71,14 +72,15 @@
 
 | 候选基准 | 有效端文件数 | 废弃 h5 文件数 | 总文件数 | 共同祖先 | 共同祖先时间 |
 | --- | --- | --- | --- | --- | --- |
-| origin/BY-Demo-H5V2-PC | 54 | 0 | 55 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
-| origin/BY-Demo | 54 | 0 | 55 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
-| origin/master | 3799 | 3 | 3805 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
+| origin/BY-Demo-H5V2-PC | 55 | 0 | 56 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/BY-Demo | 55 | 0 | 56 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/master | 3800 | 3 | 3806 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
 
 ## 最近商户分支提交
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 95bd76986 | 2026-06-21 | fix: keep blue-white promo tabs gradient |
 | c0e618274 | 2026-06-11 | fix: localize aliyun captcha trigger text |
 | acca80080 | 2026-06-06 | fix: reset pc aliyun captcha lifecycle |
 | 0b14e7329 | 2026-06-05 | fix: handle aliyun captcha close in h5 requests |
@@ -121,6 +123,7 @@
 | M | h5-v2 | 页面 | 个人中心/账户 | 1 | 1 |  | h5-v2/src/views/personal-center/child_modal/mysetting/myPhone/myPhone.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码、接口/状态/工具 | 89 | 14 |  | h5-v2/src/views/register/registerMixin.js |
 | M | h5-v2 | 页面 | 首页/导航/版面 | 10 | 42 |  | h5-v2/src/views2/home/newfastNav.vue |
+| A | h5-v2 | 页面 | 活动/红包/推广/下载 | 235 | 0 |  | h5-v2/src/views7/active/active.vue |
 | M | pc | 其他 | 首页/导航/版面 | 41 | 44 |  | pc/index.html |
 | M | pc | 组件 | 首页/导航/版面 | 36 | 8 |  | pc/src/components/PhoneBindDialog/index.vue |
 | M | pc | 组件 | 登录/注册/验证码 | 2 | 2 |  | pc/src/components/login_dlg.vue |
