@@ -5045,6 +5045,8 @@ origin/BY8363-DS,远端,origin/BY-Demo-H5V2-PC,f0aeedde5,M,pc,页面,登录/注�
 origin/BY8363-DS,远端,origin/BY-Demo-H5V2-PC,f0aeedde5,M,pc,页面,个人中心/账户,1,1,,pc/src/views/personalCenter/child_modal/userManage/userManage.vue
 origin/BY8363-DS,远端,origin/BY-Demo-H5V2-PC,f0aeedde5,M,pc,页面,未归类路径,4,1,,pc/src/views/phoneValid/phoneValid.vue
 origin/BY8363-DS,远端,origin/BY-Demo-H5V2-PC,f0aeedde5,M,pc,页面,登录/注册/验证码、接口/状态/工具,1,1,,pc/src/views/register/registerMixin.js
+origin/BY8364-JYC,远端,origin/BY-Demo-H5V2-PC,8e59e9e74,M,h5-v2,页面,首页/导航/版面,1,21,,h5-v2/src/views2/home/newfastNav.vue
+origin/BY8364-JYC,远端,origin/BY-Demo-H5V2-PC,8e59e9e74,M,h5-v2,页面,首页/导航/版面,0,23,,h5-v2/src/views2/layout/layout.vue
 origin/jinshayule,远端,origin/BY-Demo-H5V2-PC,5e61cd5ca,M,h5-v2,组件,首页/导航/版面,1,1,,h5-v2/src/components/Header/index.vue
 origin/jinshayule,远端,origin/BY-Demo-H5V2-PC,5e61cd5ca,M,h5-v2,页面,首页/导航/版面,9,5,,h5-v2/src/views6/home/gamels/index.vue
 origin/jinshayule,远端,origin/BY-Demo-H5V2-PC,5e61cd5ca,M,h5-v2,页面,首页/导航/版面,2,2,,h5-v2/src/views6/home/gamels/otherlist.vue

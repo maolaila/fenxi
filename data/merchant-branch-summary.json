@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15 09:30:23 +0900",
+  "generated_at": "2026-07-16 13:51:07 +0900",
   "branches": [
     {
       "branch": "origin/8314-JSYL",
@@ -1456,6 +1456,29 @@
         "#fff"
       ],
       "map": "branches/BY8363-DS.md"
+    },
+    {
+      "branch": "origin/BY8364-JYC",
+      "display_name": "BY8364-JYC",
+      "source": "远端",
+      "base": "origin/BY-Demo-H5V2-PC",
+      "meta": {
+        "commit": "8e59e9e74403c8331ca4c2ec6f41ba1afe9f2e72",
+        "short_commit": "8e59e9e74",
+        "date": "2026-07-16 13:50:27 +0900",
+        "subject": "feat: customize BY8364 mobile home navigation"
+      },
+      "endpoint_counts": {
+        "h5-v2": 2
+      },
+      "type_counts": {
+        "页面": 2
+      },
+      "feature_counts": {
+        "首页/导航/版面": 2
+      },
+      "colors": [],
+      "map": "branches/BY8364-JYC.md"
     },
     {
       "branch": "origin/jinshayule",
