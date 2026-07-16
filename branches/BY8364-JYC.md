@@ -71,6 +71,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-16 | h5-v2 | 首页/导航/版面、聊天室/私聊 | h5-v2/src/views2/home/newfastNav.vue<br>h5-v2/src/views2/layout/layout.vue | `temp1/views2` 首页不渲染“聊天室”和“盈利榜”，不挂载盈利榜弹层；两套底部导航列表均移除“聊天”，不会被 `CHAT_TAB` 再次开启。 | 生产构建产物成功生成；Playwright 以 375×812、金运彩名称并强制 `CHAT_SWITCH=1`、`CHAT_TAB=1` 验证三个入口均不可见，剩余入口等宽补位。 |
 | 2026-07-16 | h5-v2 | 资金/充值/提现、主题/颜色/静态资源 | h5-v2/src/assets/images/recharge-v3/MTZC.png | “免提直充”主入口及下级非银联闪付通道共用的 `MTZC` 图标替换为商户提供的橙粉渐变人民币加号图标；充值组件逻辑与其他支付图标保持不变。 | 源文件与商户素材 SHA-256 一致；Node 14.21.3 生产构建通过，构建产物中的 `MTZC` 文件哈希与源文件一致。 |
+| 2026-07-16 | h5-v2 | 个人中心/账户 | h5-v2/src/views2/personal-center/personal-center.vue | 8364-金运彩 `temp1/views2` “我的”页隐藏礼包中心横幅；即使后台 `WEB_ACTIVITY` 开启也不渲染该横幅，其他个人中心入口和礼包路由保持不变。 | `git diff --check` 通过；按用户要求直接推送，不追加构建或浏览器验证。 |
 
 ## 生成依据
 
