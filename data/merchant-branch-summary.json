@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03 16:32:48 +0900",
+  "generated_at": "2026-08-03 17:16:38 +0900",
   "branches": [
     {
       "branch": "origin/8314-JSYL",
@@ -1182,10 +1182,10 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "7742830f1e87e1798e7433af847744b1747a2765",
-        "short_commit": "7742830f1",
-        "date": "2026-06-19 16:11:15 +0900",
-        "subject": "fix: remove auth text backgrounds on gold layout"
+        "commit": "63566461b25ae96244dd3de0262e304016898451",
+        "short_commit": "63566461b",
+        "date": "2026-08-03 17:16:12 +0900",
+        "subject": "fix: 切换8359 H5三列蓝白版面"
       },
       "endpoint_counts": {
         "其他": 1,

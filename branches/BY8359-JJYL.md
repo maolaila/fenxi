@@ -1,8 +1,8 @@
 # 商户分支功能地图：BY8359-JJYL
 
-- 生成时间：2026-08-03 16:32:48 +0900
+- 生成时间：2026-08-03 17:16:38 +0900
 - 来源：远端分支 `origin/BY8359-JJYL`
-- 分支提交：`7742830f1` / 2026-06-19 16:11:15 +0900 / fix: remove auth text backgrounds on gold layout
+- 分支提交：`63566461b` / 2026-08-03 17:16:12 +0900 / fix: 切换8359 H5三列蓝白版面
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
@@ -30,7 +30,7 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 330 | 100658 | 58843 | pc/.gitignore<br>pc/README.md<br>pc/build/webpack.dev.conf.js<br>pc/config/index.js<br>pc/configstatic/pc/control/control.js<br>pc/configstatic/pc/images/Icon-60.png<br>pc/configstatic/pc/images/favicon.ico<br>pc/configstatic/pc/images/ic_promotion_logo.png<br>...另 322 个路径见完整清单 |
-| h5-v2 | 741 | 39707 | 33036 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/App.vue<br>h5-v2/src/api/agent.js<br>h5-v2/src/api/app.js<br>h5-v2/src/api/betting.js<br>h5-v2/src/api/chat.js<br>...另 733 个路径见完整清单 |
+| h5-v2 | 741 | 39737 | 33036 | h5-v2/package.json<br>h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/App.vue<br>h5-v2/src/api/agent.js<br>h5-v2/src/api/app.js<br>h5-v2/src/api/betting.js<br>h5-v2/src/api/chat.js<br>...另 733 个路径见完整清单 |
 | 其他 | 1 | 2 | 1 | .gitignore |
 
 ## 功能域地图
@@ -189,6 +189,7 @@
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| 63566461b | 2026-08-03 | fix: 切换8359 H5三列蓝白版面 |
 | 7742830f1 | 2026-06-19 | fix: remove auth text backgrounds on gold layout |
 | 37a95a2ed | 2026-06-19 | fix: keep active tabs gradient fixed |
 | 868659929 | 2026-05-05 | fix: 完成修改余额宝展示和后台配置不一致的问题 |
@@ -218,7 +219,6 @@
 | f0b94ca07 | 2026-03-19 | feat: 注册密码添加校验规则 |
 | 75edddf9e | 2026-03-19 | fix: 聊天室 消息图片加载错误 |
 | 0b4230f6d | 2025-10-10 | fix: 邀请人账号脱敏 |
-| e3c7b79bd | 2025-10-10 | feat: 推广码添加返佣提示 |
 
 ## 完整文件级差异清单
 
@@ -226,7 +226,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | M | 其他 | 其他 | 未归类路径 | 2 | 1 |  | .gitignore |
 | M | h5-v2 | 构建配置 | 构建/配置 | 8 | 1 |  | h5-v2/package.json |
-| M | h5-v2 | 构建配置 | 主题/颜色/静态资源、构建/配置 | 8 | 7 |  | h5-v2/public/configstatic/h5/control/control.js |
+| M | h5-v2 | 构建配置 | 主题/颜色/静态资源、构建/配置 | 10 | 7 |  | h5-v2/public/configstatic/h5/control/control.js |
 | M | h5-v2 | 其他 | 首页/导航/版面 | 1 | 1 |  | h5-v2/public/index.html |
 | M | h5-v2 | 其他 | 未归类路径 | 14 | 14 |  | h5-v2/src/App.vue |
 | M | h5-v2 | 接口 | 代理/报表/团队、接口/状态/工具 | 1 | 1 |  | h5-v2/src/api/agent.js |
@@ -376,7 +376,7 @@
 | M | h5-v2 | 状态 | 接口/状态/工具 | 28 | 28 |  | h5-v2/src/store/modules/rongyun.js |
 | M | h5-v2 | 路由 | 接口/状态/工具 | 17 | 20 |  | h5-v2/src/store/modules/routeHistory.js |
 | M | h5-v2 | 状态 | 接口/状态/工具 | 28 | 18 |  | h5-v2/src/store/modules/sysDict.js |
-| M | h5-v2 | 状态 | 主题/颜色/静态资源、接口/状态/工具 | 27 | 32 |  | h5-v2/src/store/modules/theme.js |
+| M | h5-v2 | 状态 | 主题/颜色/静态资源、接口/状态/工具 | 28 | 32 |  | h5-v2/src/store/modules/theme.js |
 | M | h5-v2 | 状态 | 个人中心/账户、接口/状态/工具 | 14 | 8 |  | h5-v2/src/store/modules/user.js |
 | M | h5-v2 | 状态 | 接口/状态/工具 | 8 | 6 |  | h5-v2/src/store/mutation_types.js |
 | M | h5-v2 | 工具/混入 | 接口/状态/工具 | 2 | 2 |  | h5-v2/src/utils/H5GameSDK.js |
@@ -404,7 +404,7 @@
 | M | h5-v2 | 构建配置 | 构建/配置、接口/状态/工具 | 8 | 9 |  | h5-v2/src/utils/getSysConfig.js |
 | M | h5-v2 | 图片资源 | 主题/颜色/静态资源、接口/状态/工具 | 59 | 41 |  | h5-v2/src/utils/img.js |
 | M | h5-v2 | 工具/混入 | 接口/状态/工具 | 40 | 41 |  | h5-v2/src/utils/jsBridge.js |
-| M | h5-v2 | 工具/混入 | 主题/颜色/静态资源、接口/状态/工具 | 91 | 79 |  | h5-v2/src/utils/less.js |
+| M | h5-v2 | 工具/混入 | 主题/颜色/静态资源、接口/状态/工具 | 118 | 79 |  | h5-v2/src/utils/less.js |
 | M | h5-v2 | 工具/混入 | 接口/状态/工具 | 59 | 49 |  | h5-v2/src/utils/logger.js |
 | M | h5-v2 | 工具/混入 | 接口/状态/工具 | 288 | 280 |  | h5-v2/src/utils/md5.js |
 | M | h5-v2 | 工具/混入 | 接口/状态/工具 | 1 | 1 |  | h5-v2/src/utils/merge.js |
