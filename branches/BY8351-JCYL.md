@@ -1,16 +1,16 @@
 # 商户分支功能地图：BY8351-JCYL
 
-- 生成时间：2026-07-15 09:30:23 +0900
+- 生成时间：2026-08-03 16:32:48 +0900
 - 来源：远端分支 `origin/BY8351-JCYL`
-- 分支提交：`8a4001205` / 2026-06-19 16:35:40 +0900 / fix: keep active tabs gradient fixed
+- 分支提交：`a6d33ad96` / 2026-07-29 16:31:21 +0900 / test: 移除密码规则测试的额外依赖
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
 - 废弃端说明：`h5/` 已废弃，只记录历史差异，不作为后续开发依据。
 
 ## 结论摘要
 
-- 有效端差异文件：119 个；涉及功能域：登录/注册/验证码、接口/状态/工具、首页/导航/版面、个人中心/账户、未归类路径、彩票/投注/开奖、聊天室/私聊、资金/充值/提现。
-- 其他路径差异文件：1 个；通常是根配置、文档或非端目录，需要按完整清单核对。
+- 有效端差异文件：120 个；涉及功能域：登录/注册/验证码、接口/状态/工具、首页/导航/版面、个人中心/账户、未归类路径、彩票/投注/开奖、聊天室/私聊、资金/充值/提现。
+- 其他路径差异文件：2 个；通常是根配置、文档或非端目录，需要按完整清单核对。
 - 扫描到新增/变更颜色值：#fff, #2b323d, #e4393c, #ffd9db, #dfbf67, #eb3434, #ff464c, #d2b79c, #ee0022, #f5dc8b, #1f6efe, #dcc9b7, #d3b69a, #2161fe, #39e2e6, #ff464b, #ddc17c, #f5e6bf, #dde8ff, #3be6e5。
 
 ## 客服/测试核对清单
@@ -30,18 +30,18 @@
 | 端/范围 | 文件数 | 新增行 | 删除行 | 代表路径 |
 | --- | --- | --- | --- | --- |
 | pc | 43 | 1319 | 78 | pc/index.html<br>pc/src/components/PhoneBindDialog/index.vue<br>pc/src/components/login_dlg.vue<br>pc/src/components/tryPlay.vue<br>pc/src/main.js<br>pc/src/mixins/register.js<br>pc/src/store/modules/sysDict.js<br>pc/src/utils/aliyunCaptcha.js<br>...另 35 个路径见完整清单 |
-| h5-v2 | 76 | 1767 | 330 | h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/components/checkin/index.vue<br>h5-v2/src/components/dappandroid/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>...另 68 个路径见完整清单 |
-| 其他 | 1 | 70 | 0 | docs/merchant-frontend-branches.md |
+| h5-v2 | 77 | 1798 | 330 | h5-v2/public/configstatic/h5/control/control.js<br>h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/components/checkin/index.vue<br>h5-v2/src/components/dappandroid/index.vue<br>h5-v2/src/main.js<br>h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>...另 69 个路径见完整清单 |
+| 其他 | 2 | 212 | 0 | docs/merchant-frontend-branches.md<br>"docs/superpowers/plans/2026-07-29-\\347\\231\\273\\345\\275\\225\\345\\257\\206\\347\\240\\201\\345\\217\\226\\346\\266\\210\\345\\244\\247\\345\\260\\217\\345\\206\\231\\345\\274\\272\\345\\210\\266\\345\\256\\236\\346\\226\\275\\350\\256\\241\\345\\210\\222.md" |
 
 ## 功能域地图
 
 | 功能域 | 文件数 | 涉及端 | 代表路径 |
 | --- | --- | --- | --- |
-| 登录/注册/验证码 | 34 | h5-v2、pc | h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/loginPasswordRule.js<br>h5-v2/src/views/login/loginMixin.js<br>h5-v2/src/views/password/indexNew.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/reset_login_pwd/reset_login_pwd.vue<br>h5-v2/src/views/register/registerMixin.js<br>h5-v2/src/views7/login/login.vue<br>h5-v2/src/views7/register/register.vue<br>...另 26 个路径见完整清单 |
+| 登录/注册/验证码 | 35 | h5-v2、pc | h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/loginPasswordRule.js<br>h5-v2/src/views/login/loginMixin.js<br>h5-v2/src/views/password/indexNew.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/reset_login_pwd/reset_login_pwd.vue<br>h5-v2/src/views/register/registerMixin.js<br>h5-v2/src/views7/login/login.vue<br>h5-v2/src/views7/register/register.vue<br>...另 27 个路径见完整清单 |
 | 接口/状态/工具 | 29 | h5-v2、pc | h5-v2/src/mixins/initGtCapthca.js<br>h5-v2/src/store/modules/sysDict.js<br>h5-v2/src/store/modules/theme.js<br>h5-v2/src/utils/aliyunCaptcha.js<br>h5-v2/src/utils/customerService.js<br>h5-v2/src/utils/getSysConfig.js<br>h5-v2/src/utils/less.js<br>h5-v2/src/utils/loginPasswordRule.js<br>...另 21 个路径见完整清单 |
 | 首页/导航/版面 | 26 | h5-v2、pc | h5-v2/public/index.html<br>h5-v2/src/components/YiDun/index.vue<br>h5-v2/src/components/checkin/index.vue<br>h5-v2/src/components/dappandroid/index.vue<br>h5-v2/src/views/free-play/index.vue<br>h5-v2/src/views/grab-village/gaming-room/roomScrollIndicator.vue<br>h5-v2/src/views/home/go_app.vue<br>h5-v2/src/views/password/indexNew.vue<br>...另 18 个路径见完整清单 |
 | 个人中心/账户 | 18 | h5-v2、pc | h5-v2/src/views/personal-center/child_modal/agency_center/agency_center.vue<br>h5-v2/src/views/personal-center/child_modal/agency_center/tgMgr.vue<br>h5-v2/src/views/personal-center/child_modal/agency_center/userAdd.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingAliPay.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingDigiccy.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingWechat.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingbank.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/myPhone/myPhone.vue<br>...另 10 个路径见完整清单 |
-| 未归类路径 | 13 | h5-v2、pc、其他 | docs/merchant-frontend-branches.md<br>h5-v2/src/main.js<br>h5-v2/src/views8/game/components/searchPage.vue<br>h5-v2/src/views8/game/game.vue<br>h5-v2/src/views9/game/components/searchPage.vue<br>h5-v2/src/views9/game/game.vue<br>pc/src/components/tryPlay.vue<br>pc/src/main.js<br>...另 5 个路径见完整清单 |
+| 未归类路径 | 14 | h5-v2、pc、其他 | docs/merchant-frontend-branches.md<br>"docs/superpowers/plans/2026-07-29-\\347\\231\\273\\345\\275\\225\\345\\257\\206\\347\\240\\201\\345\\217\\226\\346\\266\\210\\345\\244\\247\\345\\260\\217\\345\\206\\231\\345\\274\\272\\345\\210\\266\\345\\256\\236\\346\\226\\275\\350\\256\\241\\345\\210\\222.md"<br>h5-v2/src/main.js<br>h5-v2/src/views8/game/components/searchPage.vue<br>h5-v2/src/views8/game/game.vue<br>h5-v2/src/views9/game/components/searchPage.vue<br>h5-v2/src/views9/game/game.vue<br>pc/src/components/tryPlay.vue<br>...另 6 个路径见完整清单 |
 | 彩票/投注/开奖 | 11 | h5-v2 | h5-v2/src/views7/lotteryHall/notice.vue<br>h5-v2/src/views8/lottery/components/games/games.vue<br>h5-v2/src/views8/lottery/components/games/gamesForm.vue<br>h5-v2/src/views8/lottery/lottery.vue<br>h5-v2/src/views8/lottery/lotteryType.vue<br>h5-v2/src/views8/lotteryHall/notice.vue<br>h5-v2/src/views9/lottery/components/games/games.vue<br>h5-v2/src/views9/lottery/components/games/gamesForm.vue<br>...另 3 个路径见完整清单 |
 | 聊天室/私聊 | 7 | h5-v2 | h5-v2/src/views/chat/chat/chatHeader.vue<br>h5-v2/src/views/chat/chat/child_modal/scrollIndictor.vue<br>h5-v2/src/views/chat/withdrawChat/withdrawChat.vue<br>h5-v2/src/views8/chat/chatMain/components/chatGroup.vue<br>h5-v2/src/views8/chat/chatMain/index.vue<br>h5-v2/src/views9/chat/chatMain/components/chatGroup.vue<br>h5-v2/src/views9/chat/chatMain/index.vue |
 | 资金/充值/提现 | 6 | h5-v2 | h5-v2/src/views/chat/withdrawChat/withdrawChat.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingAliPay.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingDigiccy.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingWechat.vue<br>h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingbank.vue<br>h5-v2/src/views/personal-center/child_modal/takefee_list/bankPay.vue |
@@ -57,8 +57,8 @@
 | --- | --- |
 | 页面 | 89 |
 | 工具/混入 | 13 |
+| 其他 | 7 |
 | 组件 | 6 |
-| 其他 | 5 |
 | 构建配置 | 3 |
 | 状态 | 3 |
 | 主题样式 | 1 |
@@ -78,14 +78,16 @@
 
 | 候选基准 | 有效端文件数 | 废弃 h5 文件数 | 总文件数 | 共同祖先 | 共同祖先时间 |
 | --- | --- | --- | --- | --- | --- |
-| origin/BY-Demo-H5V2-PC | 119 | 0 | 120 | ec81b30eba04 | 2026-05-25 09:47:34 +0900 |
-| origin/BY-Demo | 949 | 0 | 951 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
-| origin/master | 4194 | 3 | 4200 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
+| origin/BY-Demo-H5V2-PC | 120 | 0 | 122 | ec81b30eba04 | 2026-05-25 09:47:34 +0900 |
+| origin/BY-Demo | 950 | 0 | 953 | e7bcc7ad0a61 | 2023-12-12 17:15:34 +0800 |
+| origin/master | 4195 | 3 | 4202 | b7335bc10372 | 2020-08-03 10:12:19 +0800 |
 
 ## 最近商户分支提交
 
 | 提交 | 日期 | 说明 |
 | --- | --- | --- |
+| a6d33ad96 | 2026-07-29 | test: 移除密码规则测试的额外依赖 |
+| ec371029c | 2026-07-29 | fix: 放宽登录密码字母大小写限制 |
 | 8a4001205 | 2026-06-19 | fix: keep active tabs gradient fixed |
 | fa106a250 | 2026-06-08 | fix: align h5 agency center with template theme |
 | 0cc033d8d | 2026-06-08 | fix: default BY8351 h5 to gold template |
@@ -114,14 +116,13 @@
 | 3d0267f85 | 2026-05-25 | fix(h5): normalize bare download domains |
 | 11e7fef86 | 2026-05-25 | fix(h5): open raw cms download target |
 | 9911d306f | 2026-05-25 | fix(h5): open cms download target in new tab |
-| f85aa376f | 2026-05-25 | fix(h5): use cms download target first |
-| 8c66ac5f6 | 2026-05-25 | fix(h5): remove temp9 auth button backgrounds |
 
 ## 完整文件级差异清单
 
 | 状态 | 端 | 类型 | 功能域 | 新增行 | 删除行 | 原路径 | 路径 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | A | 其他 | 其他 | 未归类路径 | 70 | 0 |  | docs/merchant-frontend-branches.md |
+| A | 其他 | 其他 | 未归类路径 | 142 | 0 |  | "docs/superpowers/plans/2026-07-29-\\347\\231\\273\\345\\275\\225\\345\\257\\206\\347\\240\\201\\345\\217\\226\\346\\266\\210\\345\\244\\247\\345\\260\\217\\345\\206\\231\\345\\274\\272\\345\\210\\266\\345\\256\\236\\346\\226\\275\\350\\256\\241\\345\\210\\222.md" |
 | M | h5-v2 | 构建配置 | 主题/颜色/静态资源、构建/配置 | 9 | 8 |  | h5-v2/public/configstatic/h5/control/control.js |
 | M | h5-v2 | 其他 | 首页/导航/版面 | 1 | 3 |  | h5-v2/public/index.html |
 | M | h5-v2 | 组件 | 首页/导航/版面 | 5 | 1 |  | h5-v2/src/components/YiDun/index.vue |
@@ -197,6 +198,7 @@
 | M | h5-v2 | 页面 | 彩票/投注/开奖 | 5 | 5 |  | h5-v2/src/views9/lotteryHall/notice.vue |
 | M | h5-v2 | 页面 | 个人中心/账户 | 8 | 8 |  | h5-v2/src/views9/personal-center/personal-center.vue |
 | M | h5-v2 | 页面 | 登录/注册/验证码 | 13 | 11 |  | h5-v2/src/views9/register/register.vue |
+| A | h5-v2 | 其他 | 登录/注册/验证码 | 31 | 0 |  | h5-v2/tests/loginPasswordRule.test.js |
 | M | h5-v2 | 主题样式 | 主题/颜色/静态资源 | 3 | 3 |  | h5-v2/theme/v9-var.less |
 | M | pc | 其他 | 首页/导航/版面 | 0 | 7 |  | pc/index.html |
 | M | pc | 组件 | 首页/导航/版面 | 1 | 1 |  | pc/src/components/PhoneBindDialog/index.vue |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16 13:51:07 +0900",
+  "generated_at": "2026-08-03 16:32:48 +0900",
   "branches": [
     {
       "branch": "origin/8314-JSYL",
@@ -393,36 +393,38 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "237293f8337e7efeee3c50fb0a8dbafbbf4da15b",
-        "short_commit": "237293f83",
-        "date": "2026-06-21 20:14:40 +0900",
-        "subject": "fix: keep blue-white promo tabs gradient"
+        "commit": "7bdd04d08fabbaa3251e9c70fa2682b629ce9c91",
+        "short_commit": "7bdd04d08",
+        "date": "2026-08-03 10:17:32 +0900",
+        "subject": "fix(h5): label live game platforms"
       },
       "endpoint_counts": {
-        "其他": 1,
-        "h5-v2": 27,
+        "其他": 3,
+        "h5-v2": 41,
         "pc": 43
       },
       "type_counts": {
-        "其他": 5,
+        "其他": 8,
         "构建配置": 4,
         "主题样式": 1,
         "组件": 5,
         "工具/混入": 13,
         "状态": 4,
-        "页面": 39
+        "页面": 52
       },
       "feature_counts": {
-        "未归类路径": 9,
+        "未归类路径": 12,
         "主题/颜色/静态资源": 4,
         "构建/配置": 4,
-        "首页/导航/版面": 15,
+        "首页/导航/版面": 16,
         "接口/状态/工具": 28,
-        "登录/注册/验证码": 25,
+        "登录/注册/验证码": 26,
         "客服/反馈/帮助": 2,
-        "个人中心/账户": 6,
+        "活动/红包/推广/下载": 5,
+        "彩票/投注/开奖": 1,
+        "个人中心/账户": 14,
         "代理/报表/团队": 1,
-        "活动/红包/推广/下载": 3,
+        "资金/充值/提现": 5,
         "聊天室/私聊": 2
       },
       "colors": [
@@ -920,22 +922,30 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "3f9ba2b1193c13214bc0eaefbb6976a551403646",
-        "short_commit": "3f9ba2b11",
-        "date": "2026-06-29 13:51:52 +0900",
-        "subject": "fix: play private chat notice for BY8321"
+        "commit": "22e5e5d719a6d0664e60fb50f4866561fecbd063",
+        "short_commit": "22e5e5d71",
+        "date": "2026-07-20 10:33:11 +0900",
+        "subject": "修复系统公告翻页加载卡住问题"
       },
       "endpoint_counts": {
-        "pc": 1
+        "pc": 9
       },
       "type_counts": {
-        "页面": 1
+        "工具/混入": 2,
+        "页面": 5,
+        "其他": 2
       },
       "feature_counts": {
-        "首页/导航/版面": 1,
-        "聊天室/私聊": 1
+        "个人中心/账户": 3,
+        "聊天室/私聊": 4,
+        "接口/状态/工具": 2,
+        "首页/导航/版面": 2,
+        "未归类路径": 2
       },
-      "colors": [],
+      "colors": [
+        "#ddd",
+        "#ec0022"
+      ],
       "map": "branches/BY8321-AOK.md"
     },
     {
@@ -944,18 +954,18 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "8a400120584cb11f0242010d2a68ba55f708445f",
-        "short_commit": "8a4001205",
-        "date": "2026-06-19 16:35:40 +0900",
-        "subject": "fix: keep active tabs gradient fixed"
+        "commit": "a6d33ad9600df62270052674fe0e70f42e2e4272",
+        "short_commit": "a6d33ad96",
+        "date": "2026-07-29 16:31:21 +0900",
+        "subject": "test: 移除密码规则测试的额外依赖"
       },
       "endpoint_counts": {
-        "其他": 1,
-        "h5-v2": 76,
+        "其他": 2,
+        "h5-v2": 77,
         "pc": 43
       },
       "type_counts": {
-        "其他": 5,
+        "其他": 7,
         "构建配置": 3,
         "组件": 6,
         "工具/混入": 13,
@@ -964,12 +974,12 @@
         "主题样式": 1
       },
       "feature_counts": {
-        "未归类路径": 13,
+        "未归类路径": 14,
         "主题/颜色/静态资源": 4,
         "构建/配置": 3,
         "首页/导航/版面": 26,
         "接口/状态/工具": 29,
-        "登录/注册/验证码": 34,
+        "登录/注册/验证码": 35,
         "客服/反馈/帮助": 2,
         "聊天室/私聊": 7,
         "资金/充值/提现": 6,
@@ -1324,14 +1334,14 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "2b64aabcb7262c4cc49571b4ba5651c6a704faa6",
-        "short_commit": "2b64aabcb",
-        "date": "2026-07-15 09:29:32 +0900",
-        "subject": "fix: align BY8361 XG h5 theme details"
+        "commit": "e5750919d8c5b800d8977fb901c5c889d0004c7b",
+        "short_commit": "e5750919d",
+        "date": "2026-07-16 13:43:16 +0900",
+        "subject": "fix: hide BY8361 XG PC quick entries"
       },
       "endpoint_counts": {
-        "h5-v2": 42,
-        "pc": 10
+        "h5-v2": 44,
+        "pc": 13
       },
       "type_counts": {
         "构建配置": 2,
@@ -1339,17 +1349,17 @@
         "状态": 1,
         "主题样式": 2,
         "工具/混入": 4,
-        "页面": 41
+        "页面": 46
       },
       "feature_counts": {
         "主题/颜色/静态资源": 8,
         "构建/配置": 2,
         "代理/报表/团队": 3,
         "接口/状态/工具": 6,
-        "首页/导航/版面": 18,
+        "首页/导航/版面": 21,
         "活动/红包/推广/下载": 7,
         "登录/注册/验证码": 2,
-        "个人中心/账户": 14,
+        "个人中心/账户": 16,
         "资金/充值/提现": 4,
         "未归类路径": 3
       },
@@ -1463,22 +1473,81 @@
       "source": "远端",
       "base": "origin/BY-Demo-H5V2-PC",
       "meta": {
-        "commit": "8e59e9e74403c8331ca4c2ec6f41ba1afe9f2e72",
-        "short_commit": "8e59e9e74",
-        "date": "2026-07-16 13:50:27 +0900",
-        "subject": "feat: customize BY8364 mobile home navigation"
+        "commit": "b2099742c3e74fe85abb9d4ba5c276ece8a18caf",
+        "short_commit": "b2099742c",
+        "date": "2026-08-01 11:52:41 +0900",
+        "subject": "pc 去掉聊天室"
       },
       "endpoint_counts": {
-        "h5-v2": 2
+        "h5-v2": 23,
+        "pc": 11
       },
       "type_counts": {
-        "页面": 2
+        "其他": 3,
+        "图片资源": 6,
+        "主题样式": 1,
+        "工具/混入": 3,
+        "页面": 21
       },
       "feature_counts": {
-        "首页/导航/版面": 2
+        "客服/反馈/帮助": 4,
+        "构建/配置": 1,
+        "代理/报表/团队": 5,
+        "主题/颜色/静态资源": 8,
+        "资金/充值/提现": 1,
+        "接口/状态/工具": 3,
+        "彩票/投注/开奖": 2,
+        "首页/导航/版面": 11,
+        "个人中心/账户": 9,
+        "活动/红包/推广/下载": 1,
+        "聊天室/私聊": 1
+      },
+      "colors": [
+        "#cccccc",
+        "#ffffff",
+        "#333333"
+      ],
+      "map": "branches/BY8364-JYC.md"
+    },
+    {
+      "branch": "origin/BY8365-YDSJ",
+      "display_name": "BY8365-YDSJ",
+      "source": "远端",
+      "base": "origin/BY-Demo-H5V2-PC",
+      "meta": {
+        "commit": "1276afdfd6ee957a14e9a262564318235ba66e64",
+        "short_commit": "1276afdfd",
+        "date": "2026-08-03 16:32:19 +0900",
+        "subject": "fix: 修复8365反馈图标和聊天入口"
+      },
+      "endpoint_counts": {
+        "h5-v2": 31,
+        "pc": 6
+      },
+      "type_counts": {
+        "构建配置": 5,
+        "图片资源": 1,
+        "组件": 3,
+        "状态": 2,
+        "工具/混入": 2,
+        "页面": 24
+      },
+      "feature_counts": {
+        "主题/颜色/静态资源": 8,
+        "构建/配置": 5,
+        "首页/导航/版面": 13,
+        "未归类路径": 2,
+        "接口/状态/工具": 5,
+        "登录/注册/验证码": 2,
+        "彩票/投注/开奖": 4,
+        "聊天室/私聊": 2,
+        "资金/充值/提现": 3,
+        "个人中心/账户": 5,
+        "代理/报表/团队": 2,
+        "客服/反馈/帮助": 1
       },
       "colors": [],
-      "map": "branches/BY8364-JYC.md"
+      "map": "branches/BY8365-YDSJ.md"
     },
     {
       "branch": "origin/jinshayule",

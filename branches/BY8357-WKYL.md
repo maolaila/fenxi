@@ -1,6 +1,6 @@
 # 商户分支功能地图：BY8357-WKYL
 
-- 生成时间：2026-07-15 09:30:23 +0900
+- 生成时间：2026-08-03 16:32:48 +0900
 - 来源：远端分支 `origin/BY8357-WKYL`
 - 分支提交：`016d9502a` / 2026-06-19 16:11:02 +0900 / fix: remove auth text backgrounds on gold layout
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
