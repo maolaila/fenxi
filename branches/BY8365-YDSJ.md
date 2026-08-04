@@ -12,6 +12,10 @@
 - 有效端差异文件：37 个；涉及功能域：首页/导航/版面、主题/颜色/静态资源、构建/配置、接口/状态/工具、个人中心/账户、彩票/投注/开奖、资金/充值/提现、未归类路径。
 - 未在变更行中扫描到明确的十六进制颜色值。
 
+## 手工补充记录
+
+- 2026-08-04：PC 数字货币提现申请页新增“实出金额”，仅在手续费实际生效时展示，计算口径与 H5 一致。代码提交：`7330d39d6`。影响路径：`pc/src/views/personalCenter/child_modal/withdraw/currencyPay.vue`。详见 [`../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md`](../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md)。
+
 ## 客服/测试核对清单
 
 | 功能域 | 建议核对点 |
