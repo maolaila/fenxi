@@ -15,6 +15,7 @@
 ## 手工补充记录
 
 - 2026-08-04：PC 数字货币提现申请页新增“实出金额”，仅在手续费实际生效时展示，计算口径与 H5 一致。代码提交：`7330d39d6`。影响路径：`pc/src/views/personalCenter/child_modal/withdraw/currencyPay.vue`。详见 [`../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md`](../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md)。
+- 2026-08-04：H5 views9 底部导航按 `CHAT_TAB` 切换理财图标：值为 `1` 时保留五项导航和中间大图 `home/licai.png`；值为 `0` 时隐藏聊天、使用四项导航，并将理财改为与其他项同尺寸的小图 `yeb-money.png`（当前为占位图）。代码提交：`5ec577e7a`。影响路径：`h5-v2/src/views9/layout/layout.vue`。
 
 ## 客服/测试核对清单
 
