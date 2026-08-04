@@ -15,7 +15,7 @@
 ## 手工补充记录
 
 - 2026-08-04：PC 数字货币提现申请页新增“实出金额”，仅在手续费实际生效时展示，计算口径与 H5 一致。代码提交：`7330d39d6`。影响路径：`pc/src/views/personalCenter/child_modal/withdraw/currencyPay.vue`。详见 [`../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md`](../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md)。
-- 2026-08-04：H5 views9 底部导航按 `CHAT_TAB` 切换理财图标：值为 `1` 时保留五项导航和中间大图 `home/licai.png`；值为 `0` 时隐藏聊天、使用四项导航，理财固定使用小图 `home/icon_licai_inactive.png`，跳转前后不切换激活图。代码提交：`5ec577e7a`、`f2eae066f`。影响路径：`h5-v2/src/views9/layout/layout.vue`、`h5-v2/src/assets/images/home/icon_licai_inactive.png`。
+- 2026-08-04：H5 views9 底部导航按 `CHAT_TAB` 切换理财图标：值为 `1` 时保留五项导航和原中间大图 `home/licai.png`；值为 `0` 时隐藏聊天、使用四项导航，理财固定使用 `home/icon_licai_inactive.png` 小图，跳转前后不切换激活图。小图布局占位与其他导航图标一致为 `36×36`，仅图像视觉放大 `15%`，不挤占文案和间隔；大图模式不受影响。代码提交：`5ec577e7a`、`f2eae066f`、`9c5bf74d3`。影响路径：`h5-v2/src/views9/layout/layout.vue`、`h5-v2/src/assets/images/home/icon_licai_inactive.png`。
 
 ## 客服/测试核对清单
 
