@@ -14,6 +14,7 @@
 
 ## 手工补充记录
 
+- 2026-08-07：H5 偏好设置隐藏“红包”“聊天室弹幕”“私信通知”“彩票头条”四个开关，保留“高级投注模式”“中奖通知”“购彩助手”。仅隐藏设置入口，不修改已有 localStorage/Vuex 偏好状态及底层通知功能；该路由组件由各 H5 版面共用。代码提交：`895076192`。影响路径：`h5-v2/src/views/personal-center/child_modal/mysetting/personal_hobby/personal_hobby.vue`。
 - 2026-08-04：PC 数字货币提现申请页新增“实出金额”，仅在手续费实际生效时展示，计算口径与 H5 一致。代码提交：`7330d39d6`。影响路径：`pc/src/views/personalCenter/child_modal/withdraw/currencyPay.vue`。详见 [`../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md`](../pc/manual-BY8365-YDSJ-withdraw-actual-amount-2026-08-03.md)。
 - 2026-08-04：H5 views9 底部导航按 `CHAT_TAB` 切换理财图标：值为 `1` 时保留五项导航和原中间大图 `home/licai.png`；值为 `0` 时隐藏聊天、使用四项导航，理财固定使用托手圆形人民币样式的小图 `home/icon_licai_inactive.png`，跳转前后不切换激活图。小图布局占位与其他导航图标一致为 `36×36`，仅图像视觉放大 `15%`，不挤占文案和间隔；大图模式不受影响。代码提交：`5ec577e7a`、`f2eae066f`、`9c5bf74d3`、`f03d318df`。影响路径：`h5-v2/src/views9/layout/layout.vue`、`h5-v2/src/assets/images/home/icon_licai_inactive.png`。
 
