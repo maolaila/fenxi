@@ -14,6 +14,7 @@
 
 ## 手工补充记录
 
+- 2026-08-12：H5 当前 views9 顶部 APP 下载条恢复关闭按钮，并将 Logo 区左侧预留从 `18 / @vw` 恢复为 `48 / @vw`，避免按钮与商户 Logo 重叠；点击后沿用既有 `setShowTip` 逻辑隐藏下载条。仅修改共享下载条组件，独立的 views2/views6/views7 下载条不受影响。代码提交：`faa2af914`。影响路径：`h5-v2/src/views/home/go_app.vue`。
 - 2026-08-10：H5“立即下载”补齐下载地址竞态兜底并修正数据源优先级：已有 CMS 地址时直接使用；CMS 尚未回填时先等待/补拉 CMS 并再次读取；仅当 CMS 请求失败或确实无配置时，才使用已缓存或现拉的 APP 接口地址。下载使用当前页跳转，避免 iOS Safari 拦截异步新窗口；无可用地址时显示提示。代码提交：`5d971dc10`、`65bd4cbc8`。影响路径：`h5-v2/src/views/home/go_app.vue`、`h5-v2/src/components/dappandroid/index.vue`。
 - 2026-08-10：H5 公司入款的数字货币充值下拉将汇率文案从“1+通道名”调整为“通道名+1”，例如“当前汇率：云顶世界财务1 = 6.74元”。仅调整展示顺序，不修改汇率、金额换算、通道选择或充值提交。代码提交：`5d971dc10`。影响路径：`h5-v2/src/views/personal-center/child_modal/recharge_list/components/digital-currency-tab.vue`。
 - 2026-08-07：H5 偏好设置隐藏“红包”“聊天室弹幕”“私信通知”“彩票头条”四个开关，保留“高级投注模式”“中奖通知”“购彩助手”。仅隐藏设置入口，不修改已有 localStorage/Vuex 偏好状态及底层通知功能；该路由组件由各 H5 版面共用。代码提交：`895076192`。影响路径：`h5-v2/src/views/personal-center/child_modal/mysetting/personal_hobby/personal_hobby.vue`。
