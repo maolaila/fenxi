@@ -14,6 +14,7 @@
 
 ## 手工补充记录
 
+- 2026-08-17：PC 前台团队报表仅在“团队报表”口径下隐藏“提现金额”和“彩票投注人数”；“直属报表”口径保持原有字段与数据展示，彩票/第三方平台切换均沿用同一团队过滤规则。影响路径：`pc/src/views/personalCenter/child_modal/agentReport/agentreport.vue`。
 - 2026-08-17：H5 前台团队报表仅在“团队”口径下隐藏“提现金额”和“彩票投注人数”；“直属”口径保持原有字段与数据展示，彩票/第三方平台切换均沿用同一团队过滤规则。影响路径：`h5-v2/src/views/personal-center/child_modal/agency_center/agentReport.vue`。
 - 2026-08-12：H5 当前 views9 顶部 APP 下载条恢复关闭按钮，并将 Logo 区左侧预留从 `18 / @vw` 恢复为 `48 / @vw`，避免按钮与商户 Logo 重叠；点击后沿用既有 `setShowTip` 逻辑隐藏下载条。仅修改共享下载条组件，独立的 views2/views6/views7 下载条不受影响。代码提交：`faa2af914`。影响路径：`h5-v2/src/views/home/go_app.vue`。
 - 2026-08-10：H5“立即下载”补齐下载地址竞态兜底并修正数据源优先级：已有 CMS 地址时直接使用；CMS 尚未回填时先等待/补拉 CMS 并再次读取；仅当 CMS 请求失败或确实无配置时，才使用已缓存或现拉的 APP 接口地址。下载使用当前页跳转，避免 iOS Safari 拦截异步新窗口；无可用地址时显示提示。代码提交：`5d971dc10`、`65bd4cbc8`。影响路径：`h5-v2/src/views/home/go_app.vue`、`h5-v2/src/components/dappandroid/index.vue`。
