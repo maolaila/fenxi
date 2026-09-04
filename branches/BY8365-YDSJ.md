@@ -14,6 +14,10 @@
 
 ## 手工补充记录
 
+- 2026-09-02：补齐 PC/H5 同客服账号多设备私聊同步。PC 不再在会话列表初始化期间丢弃发送/接收事件，按 `receiveUser` 将同账号其他设备发出的同步消息归入真实会员；乱序旧消息会合入原会话但不错误置顶。H5 按 `senderUser`、`receiveUser` 和当前账号解析真实对话会员，覆盖当前 views2 父级、会话列表及共用私聊窗口，并继续按 `messageUId` 幂等合并。影响路径：`pc/src/store/modules/chat.js`、`pc/src/utils/chatList.js`、`pc/test/regression/by8365-private-chat-cache.regression.js`、`h5-v2/src/utils/chatList.js`、`h5-v2/src/views2/chat/chatMain/index.vue`、`h5-v2/src/views2/chat/chatMain/components/privateMsgList.vue`、`h5-v2/src/views/chat/chat/privateRoom/privateRoom.vue`。
+- 2026-09-02：修复 PC/H5 私聊切换后消息变空。线上 PC 包在打开联系人时先清空 `msgList` 再拉融云历史，H5 views9 会话入口同样先清空会话缓存，导致历史为空或请求失败时实时消息丢失。现改为保留本地实时缓存，并与历史消息按 `messageUId` 幂等合并；PC 同时补齐联系人 `targetId` 并阻止同一联系人重复插入。影响路径：`pc/src/store/modules/chat.js`、`pc/src/utils/chatList.js`、`h5-v2/src/views2/chat/chatMain/components/privateMsgList.vue`、`h5-v2/src/views/chat/chat/privateRoom/privateRoom.vue`、`h5-v2/src/utils/chatList.js`、`pc/test/regression/by8365-private-chat-cache.regression.js`。
+- 2026-08-31：H5 views9 首页快捷入口将“在线客服”改为“聊天室”，点击后进入站内 `/chatMain`；保持原四宫格位置、聊天气泡图标和金色样式不变。影响路径：`h5-v2/src/views9/home/fastNav.vue`。
+- 2026-08-31：PC 聊天室左侧“活跃人数”页签隐藏其后的具体人数，只保留页签名称；活跃会员列表、查询及页签切换逻辑保持不变。影响路径：`pc/src/views/chatRoom/chatLeft/index.vue`。
 - 2026-08-17：PC 前台团队报表仅在“团队报表”口径下隐藏“提现金额”和“彩票投注人数”；“直属报表”口径保持原有字段与数据展示，彩票/第三方平台切换均沿用同一团队过滤规则。影响路径：`pc/src/views/personalCenter/child_modal/agentReport/agentreport.vue`。
 - 2026-08-17：H5 前台团队报表仅在“团队”口径下隐藏“提现金额”和“彩票投注人数”；“直属”口径保持原有字段与数据展示，彩票/第三方平台切换均沿用同一团队过滤规则。影响路径：`h5-v2/src/views/personal-center/child_modal/agency_center/agentReport.vue`。
 - 2026-08-12：H5 当前 views9 顶部 APP 下载条恢复关闭按钮，并将 Logo 区左侧预留从 `18 / @vw` 恢复为 `48 / @vw`，避免按钮与商户 Logo 重叠；点击后沿用既有 `setShowTip` 逻辑隐藏下载条。仅修改共享下载条组件，独立的 views2/views6/views7 下载条不受影响。代码提交：`faa2af914`。影响路径：`h5-v2/src/views/home/go_app.vue`。
