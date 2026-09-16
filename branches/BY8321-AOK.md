@@ -17,6 +17,7 @@
 | 端 | 功能域 | 已确认功能 | 影响路径 | 记录 |
 | --- | --- | --- | --- | --- |
 | pc | 彩票/投注/开奖、个人中心/账户 | 投注记录点击可撤注单后直接撤单，不再弹出二次确认；保留禁撤配置、跟单限制、防连点和成功刷新。 | pc/src/views/personalCenter/child_modal/record/record.vue | ../pc/manual-BY8321-AOK-direct-cancel-bet-2026-08-05.md |
+| pc、h5-v2 | 彩票/投注/开奖 | 有元/角/分选择的投注界面按当前用户记住上次选择；再次打开/投注后沿用，缺失或非法值仍为元。PC 常规彩票与六合彩独立玩法、H5-v2 高级投注均覆盖；不改投注金额换算与接口。 | pc/src/utils/bettingUnitPreference.js、pc/src/views/buyLottery/child_modal/shared/children_modal/add_note.vue、pc/src/views/buyLottery/child_modal/liuhe/child_modal/{hexiao,lianma,lianwei,lianxiao,zhongyi}.vue、h5-v2/src/utils/bettingUnitPreference.js、h5-v2/src/views/buy-lottery/child_modal/balls/share/balls_modal.vue | Node 14 定向回归及 PC/H5-v2 生产构建通过；线上待验收。 |
 
 ## 客服/测试核对清单
 
