@@ -1,15 +1,15 @@
 # 商户分支功能地图：BY8366-QHYL
 
 - 商户：8366-青禾娱乐。
-- 代码分支：`BY8366-QHYL`；基于演示站 `origin/BY-Demo-H5V2-PC` 的 `286514bfc` 建立。提交 `aff3861f1a6f97f9adc05165daa90192eba209aa` 已推送并核对远端引用。后续“彩票直达快三” `f5a8cd2ef` 和“活动分类居中修复” `7e94d0125` 已在本地；代码远端 `47.52.90.110:80` 连接失败，仍待推送。
+- 代码分支：`BY8366-QHYL`；基于演示站 `origin/BY-Demo-H5V2-PC` 的 `286514bfc` 建立。“彩票直达快三” `f5a8cd2ef` 和“活动分类居中修复” `7e94d0125` 已推送；核对 `origin/BY8366-QHYL` 与本地 `HEAD` 均为 `7e94d0125906c1bc1d745b52bc997ec5ae5584e5`。
 - 有效端：`h5-v2/`、`pc/`；`h5/` 已废弃。
 - 主题与颜色：沿用演示站配置；未改商户 Logo、主题色或版面默认选择。截图中的金色娱乐城为 H5 可切换版面（views9）。
 - 功能开关：不改后台 `CHAT_SWITCH`、`CHAT_TAB`、`ACTIVITY_VIEW`，仅在此商户分支隐藏指定前台入口。
 
 ## 定制内容
 
-- 2026-09-18 / H5 金色娱乐城（views9）首页“彩票”游戏平台卡片：点击整张卡片时直接进入 `/lotteryHall/ksan`，卡片内“快三”快捷文字也进入同一分类。复用彩票大厅已存在的路由参数选中逻辑；其他彩票分类、投注接口和后台配置不变。影响 `h5-v2/src/views9/home/gamesPlatForms.vue`，本地提交 `f5a8cd2ef`。Node 14 H5-v2 生产构建与差异检查通过；实际分类数据和登录后页面待新版部署验证，远端推送待网络恢复。
-- 2026-09-18 / H5 优惠活动“全部”居中线上复查：`https://qingheyulec.com/#/active` 的 H5 包已有 `single-category` 居中样式，但 `/api/v2/cms/discountInternational` 返回一条 `status=1` 且 `code`、`typeName` 均为空的占位分类，页面将其追加为第二个空标签，导致居中条件失效。当前分支在 views7 活动列表和活动任务版同时过滤无效分类；有效分类仍正常显示，只有“全部”时沿用居中样式。影响 `h5-v2/src/views7/active/active.vue`、`h5-v2/src/views7/active/organization.vue`，本地提交 `7e94d0125`。Node 14 生产构建、差异检查和线上 CMS 返回值针对性核对通过；新代码尚未部署到线上。
+- 2026-09-18 / H5 金色娱乐城（views9）首页“彩票”游戏平台卡片：点击整张卡片时直接进入 `/lotteryHall/ksan`，卡片内“快三”快捷文字也进入同一分类。复用彩票大厅已存在的路由参数选中逻辑；其他彩票分类、投注接口和后台配置不变。影响 `h5-v2/src/views9/home/gamesPlatForms.vue`，提交 `f5a8cd2ef` 已推送。Node 14 H5-v2 生产构建与差异检查通过；实际分类数据和登录后页面待新版部署验证。
+- 2026-09-18 / H5 优惠活动“全部”居中线上复查：`https://qingheyulec.com/#/active` 的 H5 包已有 `single-category` 居中样式，但 `/api/v2/cms/discountInternational` 返回一条 `status=1` 且 `code`、`typeName` 均为空的占位分类，页面将其追加为第二个空标签，导致居中条件失效。当前分支在 views7 活动列表和活动任务版同时过滤无效分类；有效分类仍正常显示，只有“全部”时沿用居中样式。影响 `h5-v2/src/views7/active/active.vue`、`h5-v2/src/views7/active/organization.vue`，提交 `7e94d0125` 已推送。Node 14 生产构建、差异检查和线上 CMS 返回值针对性核对通过；新代码尚未部署到线上。
 
 | 端 | 功能与路径 | 处理 | 验证状态 |
 | --- | --- | --- | --- |
