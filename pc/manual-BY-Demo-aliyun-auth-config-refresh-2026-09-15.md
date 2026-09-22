@@ -15,3 +15,8 @@
 - 演示站实测显示阿里云开启后仍保留数字验证码，原因是页面初始化读取的认证配置可能来自旧缓存。现同步 `BY8315-6688-h5` 的二选一规则：配置到达前隐藏数字验证码；阿里云开启时 PC/H5-v2 登录和注册仅展示行为验证并提交 `aliCaptchaValidate`；关闭时展示、加载并提交数字验证码。
 - PC v6/v8/v10 登录与注册共用最新开关状态，切换到数字验证码模式立即加载图片；H5-v2 登录与注册每次进入强制读取开关。保留现有阿里云弹窗、数字码接口、主题、路由、表单规则及 `h5/` 废弃端。
 - 影响路径：`pc/src/{api/sysDict.js,store/modules/sysDict.js,utils/getSysConfig.js,utils/request.js,components/YiDun/index.vue,components/login_dlg.vue,mixins/captcha.js,mixins/popupCaptcha.js,mixins/register.js,views/login/loginMixin.js,views-v6,views-v8,views-v10}`；`h5-v2/src/{api/sysDict.js,store/modules/sysDict.js,utils/request.js,mixins/initGtCapthca.js,views/login/loginMixin.js,views/register/registerMixin.js}`；定向检查 `h5-v2/tests/captchaVisibility.test.js`。
+
+## 2026-09-22 取消强复杂密码
+
+- 演示站 PC 与 H5-v2 取消密码的大写/小写/数字组合、常见弱密码、重复字符、顺逆序和键盘连续字符拦截，保留非空、6～14 位及字母数字基础规则；H5 注册页额外的纯数字密码拦截同步移除。
+- 仅合入密码规则相关路径，注册验证码、阿里云开关、邀请码、协议及其他后台注册字段不变。`123456` 已在 PC/H5 本地注册页验证通过前端密码校验，并继续进入原有行为验证提示。
