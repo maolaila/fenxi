@@ -1,18 +1,25 @@
-# 商户分支功能地图：BY8364-JYC
+# 商户分支功能地图：BY8364-YLGJ
+
+## 手工补充：2026-09-24 商户更名与独立新 APP
+
+- 商户/分支：8364-赢乐国际 / `BY8364-YLGJ`；原分支 `BY8364-JYC`（8364-金运彩）改名保留既有提交历史。2026-09-24 本地新分支已建立；`origin` 因连接失败尚未完成新分支推送及旧分支删除。
+- 端/版面：有效 H5 `h5-v2/`、PC `pc/`；H5 `configText.main`、下载页名称和 PWA `name`/`short_name`，以及 PC `configText.main` 已统一为“赢乐国际”。
+- APP 线路：前端下载入口在运行时调用 `/api/v2/app/getUrlForDownload`，不内置下载域名；admin/api 必须将赢乐国际的新 Android/iOS 下载配置指向 `yingleapp.shop`，并禁用/下架 8364 旧包下载记录。旧 APP 无法打开还要求 DNS/网关停止旧线路域名解析及原生包服务端校验/发布侧失效，均不由本前端仓库控制。
+- 发布边界：H5 新构建包须仅部署到新赢乐国际站点；不覆盖旧金运彩站点或复用旧原生包标识。原生应用包名、签名、商店发布配置在本仓库外，待 admin/api 发布后联调验证。
 
 ## 手工补充：2026-09-09 H5 绑定数字货币须手动选择币种
 
-- 商户/分支：8364-金运彩 / `BY8364-JYC`；本次修改基于已拉取的 `origin/BY8364-JYC` 提交 `b2099742c`。
+- 商户/分支：8364-赢乐国际（历史名称：金运彩）/ `BY8364-YLGJ`；本次修改基于原 `origin/BY8364-JYC` 提交 `b2099742c`。
 - 端/版面：有效 H5 `h5-v2/`，共用绑定数字货币页面 `/bandingDigiccy`，覆盖进入该页面的各版面入口；PC 不涉及。
 - 行为：获取币种列表后保持未选择，显示“请选择货币类型”；保存前校验币种配置 ID，未选择或无有效币种时提示“请选择货币类型”，不上传二维码、不发送绑定请求。手动选择后仍校验收币地址，并提交所选币种的 `takeFeeDigiccyConfigId`。
 - 主题色/功能开关：沿用现有主题与开关，无新增开关；数字货币充值共用下拉组件未修改。
 - 影响路径：`h5-v2/src/views/personal-center/child_modal/mysetting/bank/bandingDigiccy.vue`。
-- 分支核对：修改前上述页面及 `recharge_list/components/digital-currency-tab.vue` 与当前演示站 `origin/BY-Demo-H5V2-PC` 无文件差异。本次仅修改金运彩工作区。
+- 分支核对：修改前上述页面及 `recharge_list/components/digital-currency-tab.vue` 与当前演示站 `origin/BY-Demo-H5V2-PC` 无文件差异。本次仅修改该商户工作区。
 - 参考：用户提供的 `01.mp4` 中 App 初始币种为空、保存提示不能为空；`02.mp4` 中 H5 默认选中 USDT-TRC20 并可直接绑定。
-- 验证：Node `v14.21.3` 下 Vue 模板编译及组件逻辑回归通过，覆盖列表未加载/空列表/单币种/多币种、未选择拦截上传与绑定、收币地址必填、手动选择首项/其他项的提交参数、切换及无效选择；`git diff --check` 通过。绑定接口使用桩验证，未做登录真机或线上绑定验证，未执行整站构建；代码已提交并推送至 `origin/BY8364-JYC`：`dfaf3bd05736919fd2805381d48ba17f37967c85`，已核对远端分支与本地 HEAD 一致。
+- 验证：Node `v14.21.3` 下 Vue 模板编译及组件逻辑回归通过，覆盖列表未加载/空列表/单币种/多币种、未选择拦截上传与绑定、收币地址必填、手动选择首项/其他项的提交参数、切换及无效选择；`git diff --check` 通过。绑定接口使用桩验证，未做登录真机或线上绑定验证，未执行整站构建；历史代码 `dfaf3bd05736919fd2805381d48ba17f37967c85` 已由新分支继承。
 
 - 生成时间：2026-08-03 16:32:48 +0900
-- 来源：远端分支 `origin/BY8364-JYC`
+- 来源：本地分支 `BY8364-YLGJ`；远端当前仍为 `origin/BY8364-JYC`，待网络恢复后推送新分支并删除旧名。
 - 分支提交：`b2099742c` / 2026-08-01 11:52:41 +0900 / pc 去掉聊天室
 - 对照基准：`origin/BY-Demo-H5V2-PC`（三点 diff，记录共同祖先到商户分支 tip 的变化）
 - 有效端覆盖：pc、h5-v2
@@ -158,8 +165,8 @@
 
 ## 生成依据
 
-- 分支：`origin/BY8364-JYC`
+- 分支：本地 `BY8364-YLGJ`（目标远端 `origin/BY8364-YLGJ`；历史远端 `origin/BY8364-JYC`）
 - 基准：`origin/BY-Demo-H5V2-PC`
-- 完整命令：`git diff --name-status --find-renames origin/BY-Demo-H5V2-PC...origin/BY8364-JYC -- .`
+- 完整命令：`git diff --name-status --find-renames origin/BY-Demo-H5V2-PC...origin/BY8364-YLGJ -- .`
 - 有效端：`pc/`、`h5-v2/`
 - 废弃端：`h5/`
