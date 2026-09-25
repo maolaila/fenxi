@@ -8,6 +8,8 @@
 
 ## 定制内容
 
+- 2026-09-25 / H5-v2 彩票快捷投注：初始“每注金额”留空，不再从玩法默认额或会话缓存自动填充；选号清空及清空注单后金额仍为空。输入后保留现有最低／最高额限制；未输入或输入非正数时，沿用“请输入投注金额”拦截，不生成投注单。只影响快捷投注页 `h5-v2/src/views/buy-lottery/child_modal/bottomSImple/bottom.vue`；预设投注和 PC 不变。Node 14 下 Vue 模板编译及 `git diff --check` 通过；未执行整站构建或页面复验。
+
 - 2026-09-21 / 重新确认的 H5 底栏：金色娱乐城（views9）保持“首页／游戏大厅／红包／代理中心／个人中心”五项及中间红包大图；聊天项替换为代理中心，灰色与金色图标使用 Figma 节点 `7:739`、`7:713` 导出的原始 SVG，点击沿用快捷菜单的登录、试玩账号和代理身份检查。红包弹窗移除“排行榜”入口及其独立弹层，保留红包、礼包、代理和客服等原有入口。影响 `h5-v2/src/views9/layout/layout.vue`、`h5-v2/src/views/home/redPacketPop.vue`、`h5-v2/src/components/HomePackPop/index.vue`。
 - 2026-09-21 / 前台推广海报：H5 使用业主 `切图 (2).zip` 中 750×1334 背景和 470×470 分享图，保留动态邀请码、二维码、分享链接及商户配置 Logo；PC 使用包内 756×677 Web 背景，保留现有动态码与信息。影响 `h5-v2/src/views/personal-center/child_modal/agency_center/promotion/typeone.vue`、`pc/src/views/personalCenter/child_modal/expand/expand_me.vue` 及新增资源图。Node 14 PC/H5 生产构建通过；H5 本地金色版底栏、红包弹窗和海报在手机宽度下已视觉检查，未登录代理入口验证通过；PC 登录态海报及商户线上页面待验。提交 `5a7981c86` 已推送并核对远端引用。
 
