@@ -7,6 +7,14 @@
 - APP 线路：前端下载入口在运行时调用 `/api/v2/app/getUrlForDownload`，不内置下载域名；admin/api 必须将赢乐国际的新 Android/iOS 下载配置指向 `yingleapp.shop`，并禁用/下架 8364 旧包下载记录。旧 APP 无法打开还要求 DNS/网关停止旧线路域名解析及原生包服务端校验/发布侧失效，均不由本前端仓库控制。
 - 发布边界：H5 新构建包须仅部署到新赢乐国际站点；不覆盖旧金运彩站点或复用旧原生包标识。原生应用包名、签名、商店发布配置在本仓库外，待 admin/api 发布后联调验证。
 
+## 手工补充：2026-09-26 PC/H5 品牌图片替换
+
+- 商户资料：使用商户提供的 `赢乐国际盘口设计规范.zip` 中现成图片；没有使用生成素材。压缩包里的 H5/PC `control.js` 和 H5 `manifest.json` 名称字段为空，因此保留分支现有“赢乐国际”名称配置，不覆盖配置文件。
+- H5-v2：替换首页/下载入口 Logo、登录注册 Logo、分享/推广 Logo、PWA 图标和网站图标，以及当前入口引用的启动图。`a_logo.png` 使用资料包中的 `logo.png`，覆盖 views7 回退 Logo。影响 `h5-v2/public/configstatic/h5/images/` 下 `a_logo.png`、`logo.png`、`mb-logo.png`、`ic_reg_logo.png`、`ic_promotion_logo.png`、`appIcon-58.png`、`appIcon-80.png`、`appIcon-144.png`、`favicon.ico`、`startup-640.png`、`startup-640x2.png`、`startup-750.png`、`startup-1125.png`、`startup-1242.png`。
+- PC：替换页头 Logo、手机购彩入口应用图标、反馈页 Logo、推广 Logo 和网站图标。影响 `pc/configstatic/pc/images/` 下 `logo.gif`、`logo.png`、`logo/logo.png`、`Icon-60.png`、`ic_promotion_logo.png`、`favicon.ico`。
+- 推广海报：动态分享/推广海报引用的 Logo 与二维码中心图标已更新，H5 推广页背景 `h5-v2/src/assets/images/agency/9/bg2.png` 使用 `切图.zip` 的 `web/pcbg.png`（756×677）；动态二维码和邀请码逻辑不变。压缩包内原生 Android/iOS 安装包资源不由本前端仓库替换。
+- 验证：Node `v14.21.3` 下 PC 生产构建通过；H5 本地开发编译成功，H5 推广页已在本地预览；PC 构建产物的本地预览已显示新 Logo。依赖后端的动态数据不在本地预览范围。代码提交 `2a870731b33fd74a0e9e14b2233344f40d420abb` 已推送到 `origin/BY8364-YLGJ`；本功能地图更新仅本地修改，未推送。
+
 ## 手工补充：2026-09-09 H5 绑定数字货币须手动选择币种
 
 - 商户/分支：8364-赢乐国际（历史名称：金运彩）/ `BY8364-YLGJ`；本次修改基于原 `origin/BY8364-JYC` 提交 `b2099742c`。
