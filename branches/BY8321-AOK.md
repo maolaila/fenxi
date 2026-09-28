@@ -99,3 +99,12 @@
 - 完整命令：`git diff --name-status --find-renames origin/BY-Demo-H5V2-PC...origin/BY8321-AOK -- .`
 - 有效端：`pc/`、`h5-v2/`
 - 废弃端：`h5/`
+
+## 2026-09-28 PC/H5 融云旧 token 有限重连
+
+- 按用户本轮更正，仅同步 8321-澳客网 `BY8321-AOK`；未操作 8315 分支。
+- 从演示站 `402a97bc1` cherry-pick，生成 `475d669e0`；补充旧 SDK 兼容提交 `8571c86dc`。已推送，`git ls-remote origin refs/heads/BY8321-AOK` 与本地 HEAD 均为 `8571c86dc73a4ef3efc0217985b699979c255eee`。
+- PC/H5 断开后优先复用已有 token，按 5/10/20 秒最多重试三次；只在 SDK 明确返回 token 无效或过期时限一次补取。并发连接合并，主动退出/被踢/封禁停止，退出取消旧身份恢复任务。
+- 保留 PC 5.7.7、本商户 H5 5.4.3 SDK；兼容旧 ConnectionStatus 的断开/被踢/封禁码，过滤未定义的 token 错误码，避免普通网络失败被误判为 token 过期。未升级 SDK。
+- 影响：两端 `src/utils/rongyun.js`、`src/store/modules/rongyun.js`，H5 Socket/刷新 mixin/房间列表，PC 全局 Socket/聊天室连接生命周期，以及定向回归脚本。商户主题、版面、功能开关、私聊静音和投注定制不变。
+- 验证：专用 Node v14.21.3 严格未处理拒绝模式下，新旧 SDK 定向回归全部通过；8 个修改脚本 Babel 编译及刷新 mixin 语法检查通过，范围 diff 检查通过。未做整站生产构建、真实融云/用户网络复验或部署。原有未提交的 PC theme.less 保留。
