@@ -1,5 +1,12 @@
 # 商户分支功能地图：BY8364-YLGJ
 
+## 手工补充：2026-09-28 H5 活动页「全部」居中
+
+- 商户/分支：8364-赢乐国际 / `BY8364-YLGJ`；有效 H5 `h5-v2/`，活动路由实际进入 `views7/active/index.vue` 的 `Active` 组件（`ACTIVITY_VIEW=0`）。
+- 行为：活动分类固定为「全部」一个标签，不再将后台 `cmsCurDiscounts` 追加到标签栏；在该页面明确设置单标签宽度为导航栏的 100% 并水平居中，使文字和下划线位于栏中央。活动列表仍调用 `queryCmsDiscountActivityList`，`frontType=h5`、`platType=""`，详情入口不变。
+- 主题色/功能开关：沿用当前 H5 主题色和 `ACTIVITY_VIEW`，无新增开关。影响路径：`h5-v2/src/views7/active/active.vue`；演示站仍保留动态平台分类，未修改。
+- 验证：Node `v14.21.3` 下 Vue 模板、脚本语法、Less 与单标签/列表参数定向检查通过；补齐本地依赖后 H5 开发服务编译成功，`http://localhost:9000/` 返回 200，`git diff --check` 通过。浏览器实际居中效果和线上真机、发布状态未验证。
+
 ## 手工补充：2026-09-24 商户更名与独立新 APP
 
 - 商户/分支：8364-赢乐国际 / `BY8364-YLGJ`；原分支 `BY8364-JYC`（8364-金运彩）改名保留既有提交历史。2026-09-24 已推送 `origin/BY8364-YLGJ`，并在确认同 SHA 后删除旧远端分支。
