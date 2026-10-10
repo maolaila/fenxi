@@ -9,4 +9,4 @@
 - 2026-10-10 已通过已登录的宝塔面板发布：PC 包解压到 `/usr/local/nginx/html/pc`；实际共享配置文件是 `/usr/local/nginx/html/configstatic/pc/control/control.js`，只补齐三个颜色字段。默认版面、Logo、客服及其他配置保留，H5 未发布。
 - 服务器回滚包：`/usr/local/nginx/html/pc/_rollback_before_classic_blue_20261010.tar.gz`（当前 index/static，41.83 MB）；原配置及原入口备份在本地 `output/demo-classic-blue-20261010/control.before.js`、`index.before.html`，宝塔编辑器也保留保存历史。
 - 发布包 `output/demo-classic-blue-20261010/pc-blue-20261010.zip`（30,256,670 字节）只含 index/static，不整份覆盖 configstatic。线上入口与包内入口逐字核对一致；当前主包 `app.5fac92d8b7f7655dd248.js`。1280px 经典登录页标题、忘记密码和登录按钮均为 `rgb(31, 110, 254)`，顶部客服也为蓝色。截图 `output/demo-classic-blue-20261010/login-blue-published.png`；未执行登录/投注/资金交易。
-- 本地提交：资源库 `dev` 为 `d537791`（仅 bydemo PC 配置）；演示站为 `e669b4c26`（规则、配置同步说明、缓存参数及登录主题规则）。用户最新顺序：先修改并发布，推送等用户切换网络后继续；两仓库均未推送，资料仓库记录同样待推送。
+- 提交与推送：资源库 `dev` 为 `d53779192392ff9855e3eecc4b2ad2e1cfef5311`（仅 bydemo PC 配置）；演示站为 `e669b4c264bef849ad28671ac3d1ce0eb543c1f5`（规则、配置同步说明、缓存参数及登录主题规则）。先发布，收到用户“推送代码”后于 2026-10-10 成功推送两仓库，`git ls-remote` 核对两个远端分支 SHA 均与本地 HEAD 一致。资料仓库规则及发布记录另行推送至 `origin/main`，既有其他商户未提交修改保留。
