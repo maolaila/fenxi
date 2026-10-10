@@ -13,3 +13,11 @@
 - 同组件影响经典、views2、views7、views8、views9个人中心；PC签到组件已有正确格式，本次不改。演示站与8367相关源码原无差异。
 - 演示站提交 `0f77f7a62`，8367仅 cherry-pick 该提交为 `d5f8889db`。全年12个月及12月／1月跨年切换回归通过；未使用线上账户实际领取签到奖励。
 - 交付状态：代码已本地提交；Git服务器 `47.52.90.110:80` 连续连接超时，推送未成功，未部署。Node 14 H5生产构建退出码0，检查在8367分支完成；演示站同提交经cherry-pick后源码一致。构建存在既有Sass和包体积警告，未扩展处理。未进行登录态线上签到或新页面浏览器验收。
+
+## 2026-10-10 后续：演示站 H5 已发布
+
+- 用户授权先发布演示站，仅发布 `BY-Demo-H5V2-PC` 的 H5 `0f77f7a62b9f365834e4223983f6e966f1f3e430`；8367及PC本次未部署。
+- 重新使用Node14构建演示站 `h5-v2/`，退出码0；通过已登录宝塔面板发布到 `/usr/local/nginx/html/wap`。包 `output/demo-checkin-20261010/h5-checkin-0f77f7a62.zip`（762个条目）排除全部configstatic，未覆盖线上商户配置。包SHA256：`56B1C7BFA0238777D767100C893078613DE56AAD42C2A89BB4A4052C3A795D43`。
+- 服务器旧index/static/service-worker/robots/favicon回滚包：`/usr/local/nginx/html/wap/_rollback_before_0f77f7a62_20261010.tar.gz`，宝塔显示42.70MB。
+- 浏览器移动UA加载主包 `app.e489a634.js`；在已有登录态打开签到日历，实际 `POST https://biyingbaowang.cc/api/v2/user/getUserSignMonth` 请求 `{"month":"2026-10"}`，HTTP200、code0、消息「获取当月签到列表成功」、列表 `[]`。日历正常显示，没有月份格式错误。
+- 仅打开日历取签到记录，未点击「立即签到」领取奖励；真实手机／实际领取未测。截图与无凭据的请求响应证据在 `output/demo-checkin-20261010/`，不提交到代码仓库。Git推送仍是连接超时未成功状态，不能把已发布表述为已推送。
