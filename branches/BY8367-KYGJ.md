@@ -1,5 +1,66 @@
 # 商户分支功能地图：8367-开云国际
 
+- 2026-10-14 个人中心签到说明问号移除提交 8cbe2ae0c 已推送 origin/BY8367-KYGJ，并核对远端一致；此前推送失败状态已解除。只移除 H5 指定入口，未发布商户生产环境。
+
+
+- 2026-10-14 最新推送成功：8367 PC 活动全部居中提交 e2324bb5479179af0139d899d90d6d492ab0beea 已推送 origin/BY8367-KYGJ，git ls-remote 确认远端 SHA 与本地 HEAD 完全一致；此前超时已恢复。未部署此补改，需发布新提交后复验。
+
+
+- 2026-10-14 8367 PC 活动全部居中：用户补充 PC 截图（前一轮仅 H5 复核不适用）。桌面 UA 在 kaiyungjc.cloud/#/active 确认经典页 active-tab 仍追加后台分类，渲染全部及一个空白分类；仅 BY8367-KYGJ 的 pc/src/views/active/active.vue 固定单项全部并加 justify-content:center，活动请求／全部 code空值／分页／详情保持原样。Vue／LESS、不同后台分类数据回归及1280px本地预览通过，导航与全部中心均640px。提交 e2324bb5479179af0139d899d90d6d492ab0beea，连续三次 push 因47.52.90.110:80连接超时失败，仍待推送；未整站构建、未部署，其他版面和 H5 未改。
+
+
+- 2026-10-14 8367 活动全部居中再次核查：本地 views7/active/active.vue 已由 0cf54d0a8 限定单项全部并占满导航居中；通过手机 UA 与390px浏览器只读复核 https://kaiyungjc.cloud/#/active，实际仅一个全部，标签中心187.496px与导航中心187.5px一致，活动列表及详情入口正常显示。没有重复修改／提交／发布；用户截图域名未提供，若来自其他商户域名需分别复验；未点击详情或操作会员数据。
+
+
+- 2026-10-14 提交推送补充：本轮源码／回归提交 `5336bf06078e184a4a0327f3b8df883bbf440706` 已推送到 `origin/BY8367-KYGJ`；git ls-remote 验证远端 SHA 与本地 HEAD 完全一致，同时带上此前待推送的 `e483293e9`。本轮定向回归和 diff 检查重新通过；临时 .tmp 未暂存／提交，未部署。以下较早「未提交／推送」是当时状态，以此补充为准。
+
+
+## 2026-10-14 后台已完成：按 roomId 获取房间彩种
+
+- 用户补充确认后台已完成，要求彩种请求传业务聊天室 `roomId`；此前「需后台新增字段，暂不处理」的待办被本次接入取代，不新增或猜测房间响应字段。仅 `BY8367-KYGJ` / `C:\works\tgproject-BY8367-KYGJ` 修改。
+- PC 开奖区 `queryLotterySelectList` 请求 `/api/v2/lottery/queryLotteryList`，保留 `lotteryType: "-2"`，增加当前 `rootState.chatRoomId` 为 `roomId`；按返回 `lotteryTypeList[0].lotteryList` 顺序展示并默认选第一项。房间不配置时展示范围和排序、配置后返回彩种由后台决定，前端不硬编码。
+- H5 开奖条请求 `/api/v2/lottery/queryChatPrizeList`，增加 `currChatRoomInfo.roomId`；不使用融云 `ryChatRoomId`，保持后端 `lotteryList` 顺序。
+- PC 右侧面板、H5 开奖条按房间 ID 重建，进入／切换房间后重新请求，PC 原手动彩种选择仍保留；旧房间延迟列表响应不覆盖新房间。PC 彩种开奖详情提交前校验当前房间与选中彩种，避免旧详情覆盖；空列表清空选中项，H5 空列表不初始化 Swiper。销毁时清理 H5 Swiper／计时器，PC 销毁后不继续重试或处理旧倒计时回调。
+- 影响路径：PC `src/store/modules/lottery.js`、`src/views/chatRoom/chatRight/index.vue`、`src/views/chatRoom/chatRight/drawAlottery/index.vue`；H5 `src/views/chat/chat/chatRoom.vue`、`src/views/chat/chat/child_modal/scrollNotice.vue`。保留上一轮聊天室排行榜入口删除；8368 验证码待办不涉及，演示站／其他商户／control.js／资源库／后台均未改。
+- 验证：Node v14.21.3，`h5-v2/tests/chatRoomLottery.test.js` 覆盖业务 roomId、PC 原 lotteryType、后端顺序／单彩种／空列表、旧房间延迟响应、失败响应及旧开奖详情隔离，通过；4 个改动 Vue 模板编译及房间 key 检查通过，git diff --check 通过。构建状态见下方补充；没有真实会员登录、生产接口取数或线上发布验证。尚未提交／推送／部署。
+- 构建补充：最终 PC Node14 生产构建成功，并检查生成 JS 已包含本次房间隔离及销毁拦截；生成的 theme.less 已还原。H5 构建被现有 pnpm 依赖缺失阻塞（picocolors，进程级 NODE_PATH 回退后仍缺 @babel/code-frame），未改依赖清单／全局 PATH，不宣称 H5 整站构建通过。临时日志及模板检查在 .tmp，不提交。
+
+
+## 2026-10-14 聊天室去除排行榜及默认彩种责任边界
+
+- 用户确认保留聊天室，只移除聊天室内排行榜入口；仅 `BY8367-KYGJ` 的 PC 共用聊天室侧栏 `pc/src/views/chatRoom/chatMain/components/aside.vue` 和 H5 共用侧栏 `h5-v2/src/views/chat/chat/child_modal/asideList.vue` 删除入口。聊天室、长龙、红包、礼包及首页榜单保留；排行榜接口和弹层不扩展删除。
+- 当前工作区 `C:\works\tgproject-BY8367-KYGJ`，原 managed worktree 在本轮排查期间被外部移除，重新 checkout 既有商户分支；既有提交 `e483293e9` 保留。经典版、主题色、功能开关、control.js 和资源库均未改。
+- 房间默认彩种：用户明确仅处理现有业务可独立完成的前端项，需后台的先告知、不修改。本轮未改默认彩种逻辑或后台。后台房间编辑需要新增可空的彩种配置，候选按彩票游戏管理排序保存；房间接口需返回已约定的彩种 ID。当前 PC `queryLotterySelectList` 使用 `queryLotteryList({lotteryType: "-2"})` 首个彩种，H5 开奖展示直接使用 `queryChatPrizeList` 返回的 `lotteryList`；没有凭空新增或猜测房间字段。空值回退及选中后展示范围待后台对接明确。
+- 验证：Node v14.21.3，两个改动 Vue 模板编译通过；入口删除和红包保留静态检查、git diff --check 通过。未做真实登录聊天室、整站构建、推送或线上发布；代码改动留在该商户工作区。
+
+
+## 2026-10-12 PC 投注金额留空与未登录赔率核查
+
+- 用户补充要求 PC 彩票投注默认金额也留空；赔率截图当时未登录，用户确认保持现有逻辑，只需确认登录后显示。
+- PC 共用投注页 `pc/src/views/buyLottery/child_modal/shared/children_modal/add_note.vue`：首次进入、未启用主动预设时切换玩法／刷新／清空金额不再填玩法默认 2 或最低额；缓存的预设金额只恢复编辑框设置，不自动勾选或填入实际投注金额。保留用户主动预设、手动输入、筹码选择、单位、赔率／返利及原上下限。空值不绑定最低额，筹码取消选择回到空值。
+- PC 注单／随机投注组件 `.../shared/children_modal/result_page.vue`：初始化及完成提交后金额留空，不再从预设缓存或最低额填充；接收共用金额状态时保留空值，计算金额以 0 处理，避免空值调用 numeral.divide 报错；未填额的随机添加注单提示「请输入投注金额」，不生成空额注单。投注 API、赔率、追号计算和服务端金额判定未改。
+- 赔率取值链：`POST /api/v2/sysDict/querySystemConfig` 的 `data` 数组 → `h5-v2/src/utils/plugin/plugin.js` 中 `systemConfigData[item.key] = item.value` → `shareSimple.vue` 的 `this.SHOW_ODDS_WHEN_NOT_LOGIN = data.SHOW_ODDS_WHEN_NOT_LOGIN || 0`；渲染条件为 `SHOW_ODDS_WHEN_NOT_LOGIN == 1 || userExist`，其中 `userExist` 取 `user.userCode`。值 0 隐藏未登录赔率，值 1 显示未登录赔率，登录态均显示；不是读取资源库 control.js。
+- 2026-10-12 实际只读请求核对：首次 `https://kaiyungjc.cloud/api/v2/sysDict/querySystemConfig` 返回 HTTP 200、业务 code 0，`PLATFORM_FLAG=by367`、`SHOW_ODDS_WHEN_NOT_LOGIN="0"`；交付前重新请求时，8367 该值已变为 "1"，当前应显示未登录赔率。演示站 `https://biyingbaowang.cc` 同接口为 `PLATFORM_FLAG=tgdemo`、该值仍为 "0"。本轮没有修改后端、商户配置或 H5 赔率业务代码。仅保存三个选定字段及请求路径，不保存会员身份或登录凭据；以最新接口响应为准。
+- 验证：Node 14.21.3 PC 生产构建成功；`by8367-lottery-blank-amount.regression.js` 覆盖缓存不自动填额、两种限额权限、手动金额、清空／刷新、状态同步及空额随机注单拦截。`h5-v2/tests/loginOddsDisplay.test.js` 使用真实 Vue 模板和实际 userExist getter，在开关 0/1、未登录／登录四种组合中确认登录态渲染全部 20 个快三赔率。PC 本地实际输入组件确认初始为空，存在缓存预设 20 时实际金额仍为空，手动输入／清空及失焦后保持空值；合成数据不代表生产投注／扣款验证。
+- 本地提交 `e483293e98bbf8e1d83511ed18b94b0e0993330c`；连续三次推送均因 Git 服务器连接超时失败，仍待推送，未部署。工作区干净、相对缓存远端领先 1 提交。构建生成的 theme.less 已还原；临时接口核查、预览、日志和截图均在工作区 `.tmp/8367-20261012/`，不提交。资料仓库本地记录尚未提交／推送，其他商户及演示站代码不变。
+
+## 2026-10-12 前端定制补齐与提现方式排序
+
+- 2026-10-12 最新需求再次确认：取消充值提示改为「请联系管理」的方案，以去除充值内页下方整段「如有问题，请联系在线客服」为准，不新增跳转。已核对 `rechargeType3.vue`、`rechargeType4.vue` 的整段提示及客服链接均在已推送的 `e27a01b9e` 中删除，其他有效 H5 充值类型没有该固定提示；本次无需新增业务代码修改。其他充值结果／到账时间说明不扩展删除，线上仍待发布后复验。
+
+- 分支及工作区：`BY8367-KYGJ` / `C:\Users\maola\.codex\worktrees\by8367-kygj\tgproject`。本轮只改商户分支；演示站和其他商户分支、废弃 `h5/` 不变。代码提交 `e27a01b9e` 已于 2026-10-12 推送至 `origin/BY8367-KYGJ`，未部署。
+- 推送后 `git ls-remote` 确认远端与本地 HEAD 均为 `e27a01b9e91a50d0631182dc1853c5878330657e`，商户工作区干净。本次推送同时包含此前未推送的页脚说明 `4d8ec5451` 和签到月份修复 `d5f8889db`；演示站分支和资源库未推送。地图记录已本地更新，资料仓库尚未提交／推送。
+- 最新首页确认优先于 2026-10-09 三入口记录：经典 H5 首页上方为「充值存款／聊天室／天天礼包／代理中心」，下方仍为「首页／游戏大厅／优惠活动／个人中心」。代理图标使用业主 Figma `6DmMdeki7fgoTnXsYrpMPJ` 的 `55:4` 节点原始 PNG 导出（75×75）；入口复用既有登录、试玩、代理身份限制，未登录进入 `/login`，正式代理进入 `/agencyCenter`。影响 `h5-v2/src/views/home/fastNav.vue`、`h5-v2/src/assets/images/home/agency-center.png`。
+- 签到：移除 H5 `views`、`views2`、`views3`、`views6`、`views7`、`views8`、`views9` 个人中心及 `views/home/redPacketPop.vue` 的签到入口；PC `personalCenter/child_modal/account/material.vue` 移除签到标题和日历按钮。经验值显示保留，签到后端机制未改；优惠活动中的签到活动图片和内容不属于按钮隐藏范围。
+- H5 快捷投注：`buy-lottery/child_modal/bottomSImple/bottom.vue` 每注金额初始为空，选号不再填入默认 2，不恢复旧会话金额，清空后仍为空；保留原输入金额上下限及空值投注拦截。复用已核对的 8366 同类实现，未合并整个商户分支；预设投注、PC 金额输入与投注接口不改。
+- PC 在线客服：共用顶部菜单此前已隐藏；本轮移除经典左横幅、聊天室左栏、回馈活动、红包活动顶部与浮动客服入口，以及可切换版面的常规客服导航／悬浮按钮。彩票投注页头保留列表下标和现有取数，仅隐藏客服项，避免其他菜单路由改变。主路径为 `views/layout/child_modal/FloatBanner.vue`、`views/chatRoom/chatLeft/index.vue`、`views/buyLottery/lottery_head.vue`、`views/feedbackActive/feedbackActive.vue`、`views/redPacket/redPacket.vue`；其他版面涉及 `views-v2/v3/v4/v5/v6/v8/v10/v11` 的顶部导航和悬浮组件。帮助正文、账户解绑提示、维护／访问受限页应急链接和 QQ/BBM 等独立入口未扩展处理。
+- H5 红包活动：移除 `views/redPacket/redPacket.vue` 下方在线客服，保留人品榜单和我的红包，既有 flex 布局自动等宽。充值内页 `rechargeType3.vue`、`rechargeType4.vue` 移除「如有问题，请联系在线客服」提示，其他充值状态说明和流程保留。
+- 提现排序：按用户提供的《提现方式排序 — 前端对接说明.pdf》接入 `POST /api/v2/user/queryLotUserBankInfo` 的 `data.takeTypeList`。PC 提现页、H5 卡片页及 H5 综合提现组件按后端字符串类型码顺序展示，存在数组时不再次过滤旧开关；缺字段回退各页面原顺序，未知码跳过、重复码仅显示第一次，空数组显示「暂无可用提现方式」。PC 切换币种后不保留已不可用的标签。H5 传统卡片页的 `04` 支付卡入口复用既有 `/withdrawal?takeType=04` 综合提现／绑定流程。影响两端 `src/utils/takeTypeList.js`、PC `personalCenter/child_modal/withdraw/withdraw.vue`、H5 `personal-center/child_modal/takefee_list/takefee.vue` 和 `views3/fund/components/withdrawal.vue`。实际数字货币优先顺序取决于后端下发，前端没有硬编码商户排序或修改后台配置。
+- 登录锁定提示：确认 PC `src/utils/request.js` 的 `getResponseDataMsg()` 及 H5 请求拦截器直接显示后端 `response.data.msg`。用户明确仅改前端写死文案、后端返回则告知，因此本轮不改提示映射、错误逻辑、登录 API 或锁定次数。目标文案「密码错误次数过多，请联系管理！」应由后端返回。
+- 配置和资源：本轮没有 `control.js` 字段改动，无需修改资源库 `by367`；既有 PC/H5 经典版、主题色、Logo、`CHAT_SWITCH`、`WEB_ACTIVITY` 等配置保留。代理 PNG 是 Webpack 打包资产，加入商户源码；未覆盖统一资源库配置。
+- 验证：Node `v14.21.3` / npm `6.14.18`；PC、H5 生产构建均通过。H5 初次构建遇到现有 pnpm 依赖缺少 `picocolors`，最终使用本机完整依赖目录及仅对该进程生效的 `NODE_PATH` 完成构建；依赖清单、系统 Node 和全局 PATH 未改。新增 `merchantWithdrawalOrder.test.js` 覆盖顺序、旧接口、空态、未知／重复码、旧标签失效、支付卡入口、代理权限；`lotteryBlankAmount.test.js` 覆盖初始／选号／清空留空、旧会话隔离、空额拦截和手动输入。既有快三 216 种组合与首页分类回归通过，`git diff --check` 通过；PC 构建生成的 theme.less 已还原。
+- 375px 本地源组件预览已确认四个首页入口、代理原图及跳转、数字货币／银行卡／支付宝／微信／支付卡顺序、数字货币进入原 `/currencyPay`、空列表空态。预览使用本地合成接口数据，未做真实会员提现、投注或线上发布。脚本、构建日志和截图在工作区 `.tmp/8367-20261012/`，不提交。生产配置、真实登录状态及线上效果待发版复验。
+
 ## 2026-10-10 PC 页脚说明补齐与 H5 签到月份
 
 - PC经典页脚仅商户新增每栏四条静态主题说明，CMS无文章时展示纯文字，有文章时仍显示真实标题链接；不补后台正文，不改变其他版面。提交 `4d8ec5451`，PC构建和回归通过。
