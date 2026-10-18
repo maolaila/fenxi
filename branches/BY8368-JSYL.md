@@ -1,5 +1,12 @@
 # 商户分支功能地图：8368-金沙娱乐
 
+## 2026-10-18 PC/H5 默认邀请码禁止前台删除
+
+- 仅 `BY8368-JSYL`：PC 共用 `pc/src/views/personalCenter/child_modal/expand/expand_list.vue` 和 H5 共用 `h5-v2/src/views/personal-center/child_modal/agency_center/tgMgr.vue`，邀请码与当前登录账号完全相同时不显示删除入口，删除方法也在请求前拦截；账号或邀请码尚未读取时不允许删除。后台默认邀请码生成规则、链接、复制、修改及其他邀请码的删除流程保留。
+- 沿用已登记版面对应的共用会员中心/推广管理实现，不更改版面、主题、功能开关、路由、资源库 control.js、演示站或其他商户。账号比较保留字符串及前导零，不依赖行位置、昵称或首次记录。
+- Node v14.21.3 / 实际 Vue 与模板编译器 2.5.21：新增 `h5-v2/tests/merchantDefaultExpand.test.js`，覆盖 PC/H5 实际删除控件渲染、直接调用拦截、00001234、账号未就绪、账号切换及其他邀请码请求参数；回归和 git diff --check 通过。本轮未整站构建、未操作生产邀请码、未部署或线上验收。
+- 代码 `ff8ce9482c1af52ea59b1364fa8c7fc82f242495` 已推送，git ls-remote 与本地 HEAD 一致；此前待推的 `9413f6cd3` 购彩大厅文案和 `db7b22a5c` 交付规则也已随分支推送。本轮地图记录在独立资料仓库提交/推送，商户发布仍由发布负责人处理。
+
 ## 2026-10-15 H5 底栏「游戏大厅」改为「购彩大厅」
 
 - 仅 BY8368-JSYL 的有效 H5 temp1 / views2：`h5-v2/src/views2/layout/layout.vue` 默认列表及 `LOBY_TYPE=1` 列表的底栏文案均改为「购彩大厅」，复用现有翻译键；彩票入口 `/lottery/lottery`、图标、布局、主题及开关保持原样。PC、演示站、其他商户及资源库 control.js 无改动。
