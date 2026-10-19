@@ -1,5 +1,13 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-19 PC 活动全部居中及个人中心问号再次核验
+
+- 用户再次要求 PC 活动顶部仅保留居中「全部」，附经典 PC 活动页及 H5 个人中心截图。核对当前 BY8367-KYGJ / d934b2b94 已包含 PC 修复 e2324bb5479179af0139d899d90d6d492ab0beea 和 H5 问号移除 8cbe2ae0c515258d808bbb6926c6237a741aaa05；本轮无需重复业务代码修改。
+- PC /active 路由经 views/active/index.vue 分流，截图经典版使用 views/active/active.vue；activeTab 固定单项全部，code 空值保留原查询语义，active-tab 使用 justify-content:center。Node v14.21.3 下模板与 LESS 编译、四种后台分类数据均通过；当前源码编译样式的 1280px 本地浏览器预览为单项，按钮和内容中心均 640px。
+- 线上只读复核 https://kaiyungjc.cloud/#/active：实际仅显示全部，但按钮中心 224px、内容中心 640px，justify-content 为 normal，仍未体现商户现有居中样式。HTML 配置版本 2026.1014.113712，app.38ff50fca70349a18ce0.js；发布负责人需重新构建发布包含 e2324bb54 的 PC 包后复验。未代部署生产、未操作会员数据。
+- H5 经典个人中心源码已移除经验值旁 handleSignHelp / icon-bangzhu 入口，网页和使用该 H5 页的 APP WebView 共用此模板；未做 APP 真机／登录态页面复验，不据此声明原生 APP 已更新。
+- 代码无新增提交／推送，沿用此前已确认推送的商户提交；本次 git ls-remote 因 47.52.90.110:80 连接超时，未重新确认当前远端。PC/H5 业务逻辑、主题／资源／control.js 和其他商户／演示站未改，未整站重建。资料仓库只提交本次新增核验段落，其他任务未提交内容保留。
+
 ## 2026-10-17 H5 快捷投注请求异常后恢复提交
 
 - 用户授权先修复已在本地复现的提交锁缺陷。有效端为 h5-v2，共用 bottomSImple/bottom.vue，影响引用该组件的快捷投注入口（bettingOption/option、balls/share、liuheSimple）；本次不改预设投注、PC、其他商户或演示站。已核对演示站同路径及商户金额留空差异，保留 8367 原定制。
