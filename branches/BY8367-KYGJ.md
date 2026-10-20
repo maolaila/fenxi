@@ -1,5 +1,14 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-20 H5 聊天室投注彩种列表补传 roomId
+
+- 用户要求核查聊天室房间展示彩种，后台约定需要按房间取数时传业务 `roomId`，不需要时传空。核对商户源码和 kaiyungjc.cloud 当前公开包：PC `app.38ff50fca70349a18ce0.js` 的开奖区 `queryLotteryList` 已带 `lotteryType:"-2"` 与业务 `roomId`；H5 `chatRoom.15678bbe.js` 顶部开奖条 `queryChatPrizeList` 也已带 `currChatRoomInfo.roomId`。这两处既有接入没有漏传，本次未重复修改。
+- 确认遗漏在 H5 聊天室底部「投注」彩种选择弹层：源码及同一线上 H5 包仍请求 `POST /api/v2/lottery/queryLotteryList`，参数仅 `lotteryType:null`，未带 `roomId`；列表只在组件创建时查询，切换聊天室也没有重新取数。该遗漏可使投注选择列表沿用全量／旧房间彩种；不据此断言客服所指一定是底部弹层或后端配置已正确生效。
+- 仅 `BY8367-KYGJ` 的 `h5-v2/src/views/chat/chat/game/index.vue` 与 `game.vue` 修改：父组件将 `chatRoomInfo.roomId || ''` 传给列表，并用该 ID 作 key，房间确认／切换后重建并重新查询；请求保留 `lotteryType:null`，增加同一业务 `roomId`。无聊天室 ID 的调用默认传空；不借用融云 `ryChatRoomId` 或其他房间缓存。不扩展为后端字段／全站功能开关。
+- 结果保持后端顺序和每页八项分页；空房间彩种不初始化 Swiper，切换后忽略旧组件／旧房间延迟响应并销毁旧 Swiper。PC、H5 顶部开奖条、其他商户／演示站、主题色、资源、control.js 和后端均未改。
+- 验证：Node v14.21.3；新增 `h5-v2/tests/chatRoomGameLottery.test.js` 覆盖业务 roomId、空 ID 回退、顺序／分页、空列表、旧房间／销毁响应及轮播清理，修改前回放明确检出 roomId 缺失，修改后通过；既有 `chatRoomLottery.test.js` 通过。实际 Vue 2.5.21 编译两个完整模板并挂载父子组件，初始房间确认／连续切换／乱序响应／列表顺序／空房间／重新进入／空 ID 回退及 Swiper 清理均通过；HTTP 为测试响应，未真实投注。
+- H5 Node14 整站构建仍被既有依赖 `picocolors` 缺失阻塞；未更改依赖或全局运行时，未生成本轮可交付整站包。代码提交 `3533218bfdc5c4e391b9f50e6772e84470b0c22c` 本地完成；商户远端查询／推送连接 47.52.90.110:80 超时，仍待推送（同时保留此前待推的 `52c036b3d`）。未商户生产部署或获授权登录现场抓包，后台具体房间配置、实际接口返回及线上效果仍待发布后确认。资料仓库仅提交本轮核查／修复记录，其他任务未提交内容保留。
+
 ## 2026-10-20 PC 计划机器人跟投单注金额默认留空
 
 - 用户截图对应 PC 聊天室「一键跟投」弹窗；仅在 `BY8367-KYGJ` 商户分支、`C:\works\tgproject-BY8367-KYGJ` 修改 `pc/src/views/chatRoom/chatMain/components/chaseBetting.vue`。计划机器人消息 `TG:BetplanBotMsg` 每次打开清空单注金额，不再带入机器人原单金额；空框失焦保持为空，总金额按 0 计算。普通跟单 `TG:BettingMsg` 和手动晒单 `TG:ShareBetMsg` 仍保留原单默认金额。
