@@ -1,5 +1,14 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-20 H5 顶部开奖条登录态只读接口排查
+
+- 用户补充 kaiyungjc.cloud、获授权测试账号及独立房间密码，要求先线上排查截图中的顶部开奖条。凭据仅用于本次登录／入房，不记录到资料、证据文件或代码。浏览器使用手机 UA 与 390×844 模拟，完成账号登录与目标房间密码验证；无投注、生产配置修改或发布。
+- 当前线上资源为 H5 control.js 版本 2026.1020.090724、app.3efb6628.js、chatRoom.6df93439.js。实际线上顶部 getData 仍从 currChatRoomInfo.roomId 取业务 ID 并请求 queryChatPrizeList({roomId})，保留接口列表顺序并 initSwiper(0)；不是顶部源码漏传 roomId。
+- 房间列表 queryChatRooms 实际下发「【75秒快三】财源广进」roomId="1"、defaultLotteryId=85。登录态只读诊断调用 POST /api/v2/lottery/queryChatPrizeList，分别发送 {"roomId":"1"} 和 {"roomId":""}，均 HTTP 200、业务 code=0，各返回 51 项且彩种 ID／名称顺序完全相同：第一项 21／极速快三，第三项 85／75秒快三。
+- 对照同一登录态 POST /api/v2/lottery/queryLotteryList，roomId="1"，lotteryType 分别为 null 和 "-2"，两次业务 code=0、各 51 项，第一项均为 85／75秒快三。证据指向 queryChatPrizeList 未应用该房间的默认彩种优先排序；不据此断言该房间应只显示一个彩种。请后端核对该接口对 roomId 的处理并与 queryLotteryList 的房间排序语义对齐，前端不凭空改造接口或硬编码彩种。
+- 现场验证边界：本排查浏览器融云 SDK 连接超时 35008，joinState=0，完整房间标题／顶部开奖条未初始化；自然页面仅在入房前发出 roomId="" 的底部列表请求。因此上述带 roomId 的调用是使用页面现有 Vuex/API 链发出的只读诊断请求，不是完整顶部 UI 复现或业务验收。未伪造入房状态、修改页面列表或规避房间密码。
+- 脱敏证据保存在商户工作区 .tmp/8367-room-live-20261020/sanitized-evidence.json，仅包含房间 ID／默认彩种、接口方法／参数／列表摘要、线上代码片段及测试边界，不含登录凭据、用户 token 或请求头；临时证据和截图不提交。业务代码保持 3533218bfdc5c4e391b9f50e6772e84470b0c22c，本轮无业务修改／新业务提交／发布，仅在独立资料仓库补充核查记录。
+
 ## 2026-10-20 两项定制代码推送完成
 
 - 按用户本轮「两项一起推送，只推代码、不发布」指令，已将 PC 计划机器人跟投金额留空 `52c036b3d81188982e9002bbaf02fd6ad83eb57f` 与 H5 聊天室投注彩种列表补传 roomId `3533218bfdc5c4e391b9f50e6772e84470b0c22c` 一起推送至 origin/BY8367-KYGJ。git ls-remote 确认远端完整 SHA 与本地 HEAD 均为 `3533218bfdc5c4e391b9f50e6772e84470b0c22c`；以下两项较早的待推送记录已解除。仅推送既有提交，无新增业务修改／构建／生产发布／线上验收；既有 H5 构建依赖缺失说明保留。
