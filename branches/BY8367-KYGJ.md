@@ -1,5 +1,9 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-20 两项定制代码推送完成
+
+- 按用户本轮「两项一起推送，只推代码、不发布」指令，已将 PC 计划机器人跟投金额留空 `52c036b3d81188982e9002bbaf02fd6ad83eb57f` 与 H5 聊天室投注彩种列表补传 roomId `3533218bfdc5c4e391b9f50e6772e84470b0c22c` 一起推送至 origin/BY8367-KYGJ。git ls-remote 确认远端完整 SHA 与本地 HEAD 均为 `3533218bfdc5c4e391b9f50e6772e84470b0c22c`；以下两项较早的待推送记录已解除。仅推送既有提交，无新增业务修改／构建／生产发布／线上验收；既有 H5 构建依赖缺失说明保留。
+
 ## 2026-10-20 H5 聊天室投注彩种列表补传 roomId
 
 - 用户要求核查聊天室房间展示彩种，后台约定需要按房间取数时传业务 `roomId`，不需要时传空。核对商户源码和 kaiyungjc.cloud 当前公开包：PC `app.38ff50fca70349a18ce0.js` 的开奖区 `queryLotteryList` 已带 `lotteryType:"-2"` 与业务 `roomId`；H5 `chatRoom.15678bbe.js` 顶部开奖条 `queryChatPrizeList` 也已带 `currChatRoomInfo.roomId`。这两处既有接入没有漏传，本次未重复修改。
