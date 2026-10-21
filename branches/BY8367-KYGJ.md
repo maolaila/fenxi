@@ -1,5 +1,14 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-21 PC／H5 保存头像后同步聊天室 portrait
+
+- 用户转述后端线索，要求 8367 修改头像后更新 chatUser.portrait。已核对商户与演示站相关差异：PC、H5 融云连接初始化均从会员 user.imgUrl 取 portrait 写入 SET_CHAT_USER，并非从 Token 响应读取头像；后续消息组装中的 getUserPortrait 动态读取 chatUser.portrait。两端修改头像成功链路原来只更新会员头像／本地 user 缓存，没有更新聊天状态。
+- 仅 BY8367-KYGJ 修改：PC pc/src/views/personalCenter/child_modal/account/material.vue 的 choiceAvatar，以及 H5 h5-v2/src/views/personal-center/child_modal/set_sculpture/set_sculpture.vue 的 confirm，在 POST /api/v2/user/updateUserImg 返回业务 code=0 后，通过现有 SET_CHAT_USER 提交合并后的聊天用户对象，仅替换 portrait，保留 uid／name 及其他字段。未完成请求、业务失败或网络异常均不提交新聊天头像。
+- H5 固定使用本次请求提交的 imgUrl 更新会员和聊天状态，再返回上一页，避免等待响应时另选头像造成保存结果与展示值不一致；PC 沿用原有请求内局部 avatarUrl。使用整体对象替换兼容 Vue 2.5.21，即使聊天用户尚为空对象也能响应式添加 portrait；无需重取融云 Token 或重连。历史消息既存头像快照未重写，后续消息读取更新后的字段。
+- 有效端／范围为 PC 共用个人资料头像设置、H5-v2 共用修改头像页及其聊天室身份数据。保留 8367 既有签到隐藏等差异；未同步演示站或其他商户，主题色／版面／资源／control.js／接口协议及后端均未改。
+- 验证：显式 Node v14.21.3，新增 h5-v2/tests/chatAvatarSync.test.js，在实际 Vue 2.5.21 下调用两端真实保存方法、SET_CHAT_USER mutation 和聊天头像 getter，覆盖成功／请求等待／业务失败／网络失败／未初始化聊天用户／uid-name保留／保存期间重新选择及响应式更新。原始代码负向回放在 PC 头像未同步断言失败，最终回归通过；两端完整模板用实际 Vue 2.5.21 编译通过，git diff --check 通过。接口均使用测试响应，没有发送真实聊天或改生产会员头像。
+- 代码提交 ab31fd83e68404802cdf9129f2c26ff11a64c3c3 已本地完成；本轮 fetch／push 因 47.52.90.110:80 连接超时失败，仍待推送，不能视为远端交付。未整站重建／生成发布包，未商户生产部署或真机／线上头像验收。地图／PC与H5总览／总索引独立提交推送，仅收录本轮记录，其他任务未提交内容保留。
+
 ## 2026-10-20 H5 顶部开奖条登录态只读接口排查
 
 - 用户补充 kaiyungjc.cloud、获授权测试账号及独立房间密码，要求先线上排查截图中的顶部开奖条。凭据仅用于本次登录／入房，不记录到资料、证据文件或代码。浏览器使用手机 UA 与 390×844 模拟，完成账号登录与目标房间密码验证；无投注、生产配置修改或发布。
