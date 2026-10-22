@@ -1,5 +1,12 @@
 # 商户分支功能地图：8368-金沙娱乐
 
+## 2026-10-22 PC/H5 默认邀请码删除接入接口总开关
+
+- 后端已确认 `/api/v2/user/queryUserExpandList` 的 `protectDefaultExpandCode` 与 `expandList`、`total` 同级。PC/H5 每次成功查询列表均保存本次开关，数值 `1` 或字符串 `"1"` 时隐藏并拦截「邀请码等于当前账号」的删除；其他值（含字段缺失）保留原删除流程，非默认邀请码仍可删除。此条取代 2026-10-18 无条件按账号保护的实现。
+- 仅 `BY8368-JSYL`：`pc/src/views/personalCenter/child_modal/expand/expand_list.vue` 和 `h5-v2/src/views/personal-center/child_modal/agency_center/tgMgr.vue`。开关开启时仍保留账号/邀请码未就绪保护与前导零比较；版面、主题、路由、control.js、链接/修改/复制及其他商户未改。
+- Node v14.21.3，实际 Vue 和模板编译器 2.5.21：接口同级字段读取、PC 删除控件/H5 详情按钮渲染、开关刷新响应式更新、开启时直接调用拦截、关闭及缺失字段的删除请求、非默认邀请码删除、账号切换及前导零回归通过；现有 H5 商户前端/彩票路由回归和 git diff --check 通过（路由测试有既存重复命名警告）。未整站构建、未生产删除邀请码、未线上联调或部署。
+- 代码提交 `85a3bd4790067abaf5f6ab23d7382383df846615` 已推送 `origin/BY8368-JSYL`，git ls-remote 与本地 HEAD 完全一致。地图/PC/H5 总览/总索引独立提交推送并核对远端；商户发布由发布负责人处理，代码推送不代表线上已生效。
+
 ## 2026-10-18 PC/H5 默认邀请码禁止前台删除
 
 - 仅 `BY8368-JSYL`：PC 共用 `pc/src/views/personalCenter/child_modal/expand/expand_list.vue` 和 H5 共用 `h5-v2/src/views/personal-center/child_modal/agency_center/tgMgr.vue`，邀请码与当前登录账号完全相同时不显示删除入口，删除方法也在请求前拦截；账号或邀请码尚未读取时不允许删除。后台默认邀请码生成规则、链接、复制、修改及其他邀请码的删除流程保留。
