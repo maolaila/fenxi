@@ -1,5 +1,15 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-22 保存头像后强制重取融云 Token 并重连
+
+- 用户授权按后端「清 Token 后可获取新头像」的思路实现。仅 BY8367-KYGJ 的 PC／H5 在 updateUserImg 业务成功并同步本地会员／chatUser.portrait 后，调用新增 refreshRongYunAfterAvatar；保存失败或网络失败不触发刷新。此实现按后端提供的刷新机制接入，不将其表述为已完成具体机器人现场验收。
+- 两端 api/rongyun.js 的 getRongYunToken 支持请求配置；新流程以 forceRefresh:true 请求 POST /api/v2/rongyun/getToken，绕过前端 2 秒重复请求复用。先取得并验证响应 code=0、token 和 userId，成功后才调用现有 RongYun.disconnect 清空连接封装内部 Token，再将本次 tokenInfo 交给现有 connectRongYun 重建连接；避免重复获取第二次 Token。服务端可返回相同 Token 字符串，前端不保证或强造新字符串，也不清除后端 Redis 缓存。
+- 新刷新任务串行处理连续保存，前一任务失败不阻塞下一任务。取 Token 前后、断开后及 Vue.nextTick 后均检查当前会员身份，已退出／切账号则终止旧任务。DISCONNECTED 状态先经 Vue 2.5.21 的 nextTick 交给页面 watcher，再连接，防止快速重连将断开／连接批次合并、遗漏聊天室恢复。保持房间 ID／当前房间配置并沿用原有连接成功／入房流程，普通登录和断线恢复不使用强制刷新参数。
+- 保留本地即时头像同步与缓存更新；刷新 Token／断开／重连失败时提示「头像已保存，聊天头像刷新失败，请刷新页面重试」，不回滚已保存头像、不将其误报为头像保存失败。H5 等刷新处理完成后返回上一页。重连固定使用本次已保存头像，后续未保存预览不覆盖它；未重写已接收的历史消息 portrait 快照；机器人新消息自身头像／服务端绑定账号刷新效果待真实现场联调。
+- 影响路径：PC／H5 的 src/api/rongyun.js、src/store/modules/rongyun.js，以及 PC personalCenter/child_modal/account/material.vue、H5 personal-center/child_modal/set_sculpture/set_sculpture.vue。未更改会员登录 Token、游客 ryUuid、主题色／版面／资源／control.js、后端或其他商户／演示站。
+- 验证：显式 Node v14.21.3；新增 h5-v2/tests/avatarTokenRefresh.test.js，在实际 Vue 2.5.21 下加载两端 API、store action／mutation，验证强制请求、旧连接保留至新 Token 成功、先断后连、单次取 Token、断连／连通响应式状态顺序、API／网络／Token缺失／断开／连接失败、退出／切账号取消、串行任务及失败恢复、房间字段保留、普通连接不强刷。扩展 chatAvatarSync.test.js 覆盖成功才触发更新与刷新失败后本地头像保留及提示，通过；原 rongyunReconnect.test.js 的 Socket／聊天室 watcher、SDK 恢复／注销及真实 store 回归均通过。git diff --check 通过；HTTP／SDK 为测试桩，没有真实聊天发送或修改生产账号。
+- 代码本地提交 3afdd9776baed2b98e1fea4c6c236e233c685cc6；push origin/BY8367-KYGJ 因 47.52.90.110:80 连接超时失败，仍待推送。未整站构建／生成发布包、未商户生产发布或真机／线上机器人头像验收。资料仓库仅提交本轮地图和端总览／总索引，保留其他任务未提交修改。
+
 ## 2026-10-22 头像同步功能已实现及线上包核验
 
 - 用户再次反馈除「75秒带赚」外机器人绑定账号改头像仍旧，并补充要求「查一下功能是否已实现」。本轮以只读核查为准，没有重复修改代码或生产会员资料。既有 ab31fd83e 在 PC／H5 的头像保存成功回调中均调用 SET_CHAT_USER，合并原聊天用户并更新 portrait；商户本地 HEAD 为 f29a70d24efc22306f1918e255e2365746e635ab，包含该提交。
