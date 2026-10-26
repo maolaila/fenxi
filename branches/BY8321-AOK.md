@@ -14,6 +14,8 @@
 
 ## 手工补充记录
 
+- 2026-10-26 / PC 个人报表预设日期切换：个人报表为 `HistorySelect` 补上受控 `v-model` 状态。此前子组件的默认选项一直停留在“今天”，选择昨天/本周后再次点“今天”被 Select 视为未变化，未触发日期区间更新，页面仍查询旧范围。修改 `pc/src/views/personalCenter/child_modal/report/report.vue`；未改接口和统计口径。静态 diff 检查通过；未运行构建/测试，未推送/部署。
+
 - 2026-09-25 / H5-v2 修改资金密码：接口返回 `207` 时不再触发全局 `/503` 维护页；仅此请求跳过全局维护跳转，由页面弹窗提示“旧密码连续输入错误，请联系客服”。其他接口仍沿用原 `207` 维护处理；仅提交成功码 `0` 才提示成功并返回个人信息页。影响 `h5-v2/src/api/user.js`、`h5-v2/src/utils/request.js`、`h5-v2/src/views/personal-center/child_modal/mysetting/reset_pay_pwd/reset_pay_pwd.vue`。Node 14 下 Vue 模板编译/脚本语法及 `git diff --check` 通过；未执行整站构建或真实接口验证。
 
 | 端 | 功能域 | 已确认功能 | 影响路径 | 记录 |
