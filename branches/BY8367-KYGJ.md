@@ -1,5 +1,13 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-29 H5 聊天室隐藏入场提示及下级报表复制
+
+- 2026-10-29 `BY8367-KYGJ`：H5 下级报表两个页签新增会员账号复制；所有下级保留 firstLevelAgentUserCode 展示及复制。代码 `1d916c7c8` 已推送，包含此前 `6d1d504f3`；资源 dev `43a1dbb` 仅 by367 H5 启用 isCloseJoinRoomMsg 隐藏入场欢迎提示，两仓库远端 SHA 已核对一致。实际 Vue 2.5.21 定向验证及 LESS／diff 检查通过；未整站构建、未生产部署或真机验收。
+- 会员账号复制覆盖直属下级／所有下级，按 report.userCode 原样复制并保留前导零；一级代理账号仅在所有下级且 firstLevelAgentUserCode 有值时展示和复制。复用 Utils.copyText，提示成功或手动复制，@click.stop 防止触发卡片展开。现有一级代理实现 6d1d504f3 本次一并成功推送，此前待推送状态解除。
+- 提示开关修改源为统一资源仓库 by367/configstatic/h5/control/control.js 的 configText.isCloseJoinRoomMsg=true；沿用商户与演示站相同的聊天组件显示条件，未修改公共逻辑、PC、其他商户、版面／主题或其他资源字段。
+- 路径：h5-v2/src/views/personal-center/child_modal/agency_center/subReport.vue；业务完整 SHA 1d916c7c831f4d7d266b0157c25e07b9420b017f，资源完整 SHA 43a1dbbe2ac6ffe52207d30c61609cfa7f29140a，均经 git ls-remote 核对。
+- 验证使用 Node v14.21.3 和实际 Vue 2.5.21 编译／挂载报表模板，覆盖两页签按钮、会员／一级代理账号精确复制、阻止冒泡、失败提示、空一级代理隐藏与响应式更新，LESS 编译通过；配置脚本执行及两处聊天室显示条件验证通过。复制工具和外围组件为测试替身，未真实手机剪贴板验收；临时验证文件未提交。发布由商户负责人处理。
+
 ## 2026-10-26 H5 所有下级展示一级代理账号
 
 - 仅 `BY8367-KYGJ` 有效 H5-v2「代理中心 → 下级报表 → 所有下级」：每条报表在会员账号右侧展示后端 `POST /api/v2/agent/listTeamSubusers` 返回的 `firstLevelAgentUserCode`，并提供复制按钮。字段名由用户确认；仅字段有值时显示，直属下级页不显示。复制使用现有工具并阻止卡片展开事件；账号原样展示和复制，保留前导零。
