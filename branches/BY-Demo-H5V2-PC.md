@@ -11,3 +11,12 @@
 - 验证：Node v14.21.3、实际 Vue 2.5.21 定向回归共 57 项通过，包含 19 个修改文件的脚本/模板解析及非空/空串/缺字段/优先级/旧跳转标志/刷新/切房间拦截；定向 diff 检查通过。PC/H5 生产构建均通过，发布产物内已验证 enterStatusDesc 拦截与 Vue 2.5.21，未夹带较新 Vue 运行时。测试脚本、构建快照/产物仅保存在本地 output/chat-entry-restriction-20261029，不进入业务提交。
 - 发布：发布前只读 GetDir 被宝塔 API 出口 IP 白名单拒绝，未备份、上传或修改服务器文件；未线上联调或验收，不宣称演示站已生效。
 - 地图：独立仓库提交推送状态以交付时远端核验为准。
+
+## 2026-10-29 演示站发布完成及推送补充
+
+- 代码已推送；本地 HEAD 与 origin/BY-Demo-H5V2-PC 完整 SHA 均为 5667e291f8c30bada78684d175930967d26049e7，此前待推送解除。
+- 通过既有宝塔面板登录，将既有单条 API 白名单轮换为当前客户端出口；未改密钥或扩大白名单。随后发布 PC 555 个文件与 H5 759 个文件，保留运行时配置。
+- 回滚备份：PC /usr/local/nginx/html/pc/_rollback_before_5667e291f_20261029-212608；H5 /usr/local/nginx/html/wap/_rollback_before_5667e291f_20261029-212643。
+- H5 原发布脚本最终校验因 static/js 累积文件超过 2000，第一页未列到新 app，误报校验失败；已按完整路径读取服务器 H5 index/app 并比对，index 相同，app SHA256 为 92f6b53325d68c1142743d90e49c88355503dbb4efc9c03b811aa265901ac4a3，与发布包一致。未再次覆盖发布或删除旧资源。
+- 公网桌面/手机 UA 的入口及入口引用脚本 SHA256 全部与本地产物一致：PC app.0fb9c542a75c1262a10f.js，H5 app.9bf4de79.js。浏览器 PC/H5 首页正常打开，截图和校验依据在本地 output/chat-entry-restriction-20261029。
+- H5 游客聊天页仍报 RongYun connection stopped，并见 discovery~helpCenter~home chunk 的 undefined is not iterable；受限账号非空 enterStatusDesc 的实际线上 toast 未验收，不能将发布/首页成功写成聊天室业务联调通过。未改变用户权限或发送消息。
