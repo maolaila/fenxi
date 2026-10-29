@@ -1,5 +1,12 @@
 # 商户分支功能地图：8367-开云国际
 
+## 2026-10-29 线上一级代理账号重复的接口证据
+
+- 2026-10-29 `BY8367-KYGJ` 线上一级代理重复账号排查：获授权在 kaiyungjc.cc 手机端登录并复现；POST /api/v2/agent/listTeamSubusers 的 userType="1"、日期 2026-10-29、current=1、size=10，HTTP200／业务code0／total399。原始响应首屏10条 firstLevelAgentUserCode 均等于该条 userCode，包含2／3／4／5／7级代理。前端直接展示 firstLevelAgentUserCode，未回填或覆盖；需后端修正所属一级代理账号取值，前端无业务代码修改／无部署，问题待后端处理。
+- 样例：userCode=a17776148168、firstLevelAgentUserCode=a17776148168、agentLevel=2级代理；userCode=edcrfv888、firstLevelAgentUserCode=edcrfv888、agentLevel=5级代理。原始响应外层 code=200，data 是 JSON 字符串，解析后业务 code=0。接口完整地址 https://kaiyungjc.cc/api/v2/agent/listTeamSubusers。
+- 已核对 H5 api/agent.js、store/modules/agent.js 和 subReport.vue：请求 userType=1，store原样返回，列表仅添加展开状态／整理统计布局，模板与复制均取 report.firstLevelAgentUserCode；无 userCode 回退。真实界面与原始响应一致。后端需核对字段关联／代理链查询，返回目标会员所属1级代理账号；不能用前端隐藏相同账号冒充修复。
+- 只读证据保存在商户工作区 .tmp/8367-first-agent-20261029/sanitized-evidence.json 与 online-report.png，不含登录凭据，不提交到代码或资料仓库。仅查询报表，无投注／资金／会员资料修改。
+
 ## 2026-10-29 H5 聊天室隐藏入场提示及下级报表复制
 
 - 2026-10-29 `BY8367-KYGJ`：H5 下级报表两个页签新增会员账号复制；所有下级保留 firstLevelAgentUserCode 展示及复制。代码 `1d916c7c8` 已推送，包含此前 `6d1d504f3`；资源 dev `43a1dbb` 仅 by367 H5 启用 isCloseJoinRoomMsg 隐藏入场欢迎提示，两仓库远端 SHA 已核对一致。实际 Vue 2.5.21 定向验证及 LESS／diff 检查通过；未整站构建、未生产部署或真机验收。
