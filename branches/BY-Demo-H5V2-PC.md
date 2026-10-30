@@ -1,5 +1,13 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-10-30 演示站 PC 游戏空弹窗只读排查
+
+- 蓝白版 /#/game/BALL：POST /party/v2/game/queryPlatformGames 参数 code=BWSPORT_BALL，HTTP200、外层code200／内层code0，正常返回足球列表。
+- 线上 Vue 2.5.21；共用 modal 包装组件有 content 插槽，内部 iView Modal 的 $slots 为空，DOM 仅有“棋牌游戏”标题/关闭图标。渲染函数将插槽 fallback 编译成 function，而实际 2.5.21 的 _t helper 不调用该函数，确认存在编译产物与运行时兼容问题。
+- 其他游戏同样异常为用户反馈，共用组件路径支持共同根因；未逐一点击游戏。未调用游戏登录接口、未触发钱包转换或真实投注。业务代码、资源配置无修改，无构建/部署；仍待修复与复验。
+- 本地证据：C:/works/tgproject/output/game-modal-capture-20261030/REPORT.md；含脱敏请求摘要、列表原始响应及线上插槽/渲染函数证据。线上脚本 app.0fb9c542a75c1262a10f.js。
+
+
 ## 2026-10-29 PC/H5 聊天室进入限制文案
 
 - 范围：演示站 BY-Demo-H5V2-PC 的有效 pc/、h5-v2/；未同步至任何独立商户分支。已先核对功能地图及 8315 相关入口差异，未合并商户差异。
