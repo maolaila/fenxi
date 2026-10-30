@@ -6,10 +6,10 @@
 - 差异核对：动手前核对 8367、8315 与演示站的共用 modal/build 配置差异；仅提交演示站，不合并或同步商户差异。版面/主题色/功能开关/control.js 无变更。
 - 检查：Node v14.21.3；实际 Vue/compiler 2.5.21、真实 iView 组件的 14 项渲染/事件/响应式检查通过；错误 2.7.14 依赖被构建门槛拒绝；完整 PC 生产构建通过；最终产物检查无 2.7.14/2.7.16 混入。
 - 完整页面复验发现第一版隔离依赖解析仍混入两份 Vue，已恢复发布前入口，再用绝对 alias 解决。本地完整首页使用真实只读接口数据正常渲染后，重新构建并发布最终版。浏览器调试需跳过既有 diswatch debugger 暂停，不修改业务调试逻辑。
-- 代码提交：ca09a5107828911bfc946245f7bb5649f2dd7c65、a2bb1b50e7caa12579185e28ab4615321edc41a5，均已本地提交。多次推送 origin/BY-Demo-H5V2-PC 均因 47.52.90.110:80 连接超时失败，仍待推送，无法完成远端 SHA 核对。Git bundle 已保存于本地 output/game-modal-fix-20261030/demo-modal-source.bundle。
+- 代码提交：ca09a5107828911bfc946245f7bb5649f2dd7c65、a2bb1b50e7caa12579185e28ab4615321edc41a5，均已提交；此前因服务器连接超时待推送，本轮重试成功推送 origin/BY-Demo-H5V2-PC，git ls-remote 核对远端与本地 HEAD 完整 SHA 均为 a2bb1b50e7caa12579185e28ab4615321edc41a5，待推送状态解除。Git bundle 已保存于本地 output/game-modal-fix-20261030/demo-modal-source.bundle。
 - 发布连接：通过已登录面板将既有单条 API IP 白名单轮换为当前出口，未重置密钥或扩大白名单范围。
 - 最终发布：PC 560 文件，/usr/local/nginx/html/pc；备份 /usr/local/nginx/html/pc/_rollback_before_a2bb1b50e_20261030-142232。运行时资源配置不在 ZIP 内，不删除历史资源。
 - 最终公网：默认桌面入口、manifest.2059410faaafc164edbc.js、app.e735f19d9e6f6f7b8130.js 均 HTTP200 且 SHA256 与本地相同；app SHA256 ef9eb932f960c941a1ea239ca535654bd5c6d7bfbe933c90bdc671ec2067a90b。线上实测 Vue 2.5.21。
 - 线上业务范围：BW 体育列表、体育页共用提示及电子游戏共用提示渲染检查通过；为避免触发钱包转换，以受控前端状态显示现网真实提示组件，并实际点击取消关闭。未调用 loginGame、未实际转换额度或投注；不将显示验证描述为第三方游戏登录验收。
 - 证据：C:/works/tgproject/output/game-modal-fix-20261030，含构建日志、14 项检查、版本/公网哈希、两次发布记录及 online-ball-fixed.png/online-slot-fixed.png。临时文件/产物未提交业务仓库。
-- 资料仓库提交与推送状态以最终交付远端核对结果为准，业务代码仍待推送。
+- 业务代码已推送并核对远端一致；本轮仅补推送和更新交付记录，未重复构建或部署。资料仓库提交与推送状态以最终交付远端核对结果为准。
