@@ -112,7 +112,7 @@
 - 验证：专用 Node v14.21.3 严格未处理拒绝模式下，新旧 SDK 定向回归全部通过；8 个修改脚本 Babel 编译及刷新 mixin 语法检查通过，范围 diff 检查通过。未做整站生产构建、真实融云/用户网络复验或部署。原有未提交的 PC theme.less 保留。
 
 
-## 2026-11-02 PC/H5 会员资料查询数字用户 ID
+## 2026-11-02 PC/H5 会员资料查询数字用户 ID（已撤回）
 
 - 用户反馈 `/api/v2/user/queryUserInfo` 收到 `userId="kf"`，后台 NumberFormatException。源码确认 PC/H5 聊天资料弹窗直接使用 `content.user.id`，其生成来源为聊天身份 `chatUser.uid`；H5 私聊资料页也直接使用资料对象 `id`。
 - 修复：资料查询优先读取发送者/用户对象明确的正整数 `userId`，兼容原有纯数字 `id`；无合法数字 ID 时不请求，不把账号/别名转换成数字或替换为当前登录用户。数字字符串保留原值，避免长 ID 精度损失。PC 无可查询 ID 时不显示无限加载。
@@ -121,10 +121,16 @@
 - 代码已提交推送 `62ec16d1172e6a4a694d21537df672267b990439`，`git ls-remote` 与本地 HEAD 一致。商户生产发布由发布负责人处理。原有 `pc/static/css/theme.less` 未提交内容保留。
 
 
-## 2026-11-02 H5 未登录不初始化融云
+## 2026-11-02 H5 未登录不初始化融云（已撤回）
 
 - 用户提供 okw8a.com H5 未登录首页抓包截图：POST `/api/v2/chat/registerRongYunAccount` 请求携带 UUID 形式 rongYunUserId，外层 code=200，内层 code=500/msg=userId不能为空。源码确认 Socket.created 无条件连接；store 对空用户执行游客注册，标识来自缓存或 window.uuid()，不是平台会员 userId。不能仅据截图推断后端数据库查询过程。
 - 按用户要求，仅 8321 H5 改为取得登录用户 userId 后才启动融云：Socket 按 userId 监听身份变化，未登录不 dispatch 连接；store 连接/游客注册/取 Token 入口拦截无 userId，正常连接只取会员 Token。退出断开后不重连游客，Token 与系统配置等待期间身份变化取消旧连接，旧 Token 响应不提交；连接成功后的入房/会话列表处理增加登录判断。
 - 路径：h5-v2/src/components/Socket/index.vue、h5-v2/src/store/modules/rongyun.js、h5-v2/tests/rongyunReconnect.test.js。已核对演示站差异，未更改 PC、其他商户、主题/版面/control.js 或后端；此前资料查询修复独立保留。
 - 验证：Node v14.21.3 的融云恢复回归通过，覆盖游客无请求/无 SDK 连接、登录/退出、有限重连与失效 Token 刷新、旧身份响应取消；实际 Vue 2.5.21 初始化/登录/退出响应式及模板编译通过；本次范围 diff 检查通过。未整站构建、未生产部署或线上验收，生产发布由商户负责人处理。
 - 代码 e5ab8a6226872a2949a1c422a93b90887fe5107c 已推送 origin/BY8321-AOK，远端 SHA 已核对一致。原有 pc/static/css/theme.less 未提交内容保留。
+
+
+## 2026-11-02 按用户要求撤回 userId 前端改动
+
+- 用户确认 userId 为空由后端处理，要求撤回本次前端改动。已完整撤回 62ec16d11（资料查询数字 ID 校验）与 e5ab8a622（H5 登录后才初始化融云），上方两节仅保留历史记录，不代表当前功能。
+- 撤回提交 5796e9ba1 已推送 BY8321-AOK；提交树与改动前 e8270dff0 完全一致，范围 diff 检查通过。恢复原资料查询和游客注册流程；未重新构建或生产部署。原有 pc/static/css/theme.less 未提交内容保留。8367 旧期计划限制未撤回。
