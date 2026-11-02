@@ -134,3 +134,12 @@
 
 - 用户确认 userId 为空由后端处理，要求撤回本次前端改动。已完整撤回 62ec16d11（资料查询数字 ID 校验）与 e5ab8a622（H5 登录后才初始化融云），上方两节仅保留历史记录，不代表当前功能。
 - 撤回提交 5796e9ba1 已推送 BY8321-AOK；提交树与改动前 e8270dff0 完全一致，范围 diff 检查通过。恢复原资料查询和游客注册流程；未重新构建或生产部署。原有 pc/static/css/theme.less 未提交内容保留。8367 旧期计划限制未撤回。
+
+
+## 2026-11-02 H5 中奖通知移至屏幕中部
+
+- 用户要求中奖弹框下移，避免遮挡开奖号码和倒计时。前后端/配置判断：Socket 通知样式写死 top:20%，未发现后台或 control.js 位置配置；属于前端展示问题。已核对演示站差异，仅本商户调整。
+- 仅 LOTTERY_ORDER 通知调用 openNotice(extra.message,false,true)，新增 noticeIsPrize 响应式标记及 prize-notice 类，以 position:fixed/top:50%/translate3d(-50%,-50%,0) 居中。其他 openNotice 调用默认清除标记，仍保持原 20% 位置；未改标题、点击详情、关闭按钮、5 秒自动关闭及今日不再提示逻辑。
+- 影响 h5-v2/src/components/Socket/index.vue；PC、其他商户、公共 MyDialog、后台/资源配置不改。此前撤回的 userId/游客流程保持原状。
+- 验证：Node14/实际 Vue2.5.21 模板编译与中奖/普通通知标记切换、LESS 编译及范围 diff 通过；使用实际组件样式的本地布局 mock 在 320×568、375×667、390×844、414×896 居中且不与模拟顶部开奖区重叠。mock 背景为简化投注布局，不是线上完整页面或真实融云验收；未整站构建/生产部署。
+- 代码 31925104cb60afdd725ba0eb66ef2ea50348d994 已推送 origin/BY8321-AOK，远端 SHA 与本地一致。商户发布负责人发布 H5 包后需实机复验。原有 pc/static/css/theme.less 未提交内容保留。
