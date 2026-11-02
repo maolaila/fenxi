@@ -110,3 +110,12 @@
 - 保留 PC 5.7.7、本商户 H5 5.4.3 SDK；兼容旧 ConnectionStatus 的断开/被踢/封禁码，过滤未定义的 token 错误码，避免普通网络失败被误判为 token 过期。未升级 SDK。
 - 影响：两端 `src/utils/rongyun.js`、`src/store/modules/rongyun.js`，H5 Socket/刷新 mixin/房间列表，PC 全局 Socket/聊天室连接生命周期，以及定向回归脚本。商户主题、版面、功能开关、私聊静音和投注定制不变。
 - 验证：专用 Node v14.21.3 严格未处理拒绝模式下，新旧 SDK 定向回归全部通过；8 个修改脚本 Babel 编译及刷新 mixin 语法检查通过，范围 diff 检查通过。未做整站生产构建、真实融云/用户网络复验或部署。原有未提交的 PC theme.less 保留。
+
+
+## 2026-11-02 PC/H5 会员资料查询数字用户 ID
+
+- 用户反馈 `/api/v2/user/queryUserInfo` 收到 `userId="kf"`，后台 NumberFormatException。源码确认 PC/H5 聊天资料弹窗直接使用 `content.user.id`，其生成来源为聊天身份 `chatUser.uid`；H5 私聊资料页也直接使用资料对象 `id`。
+- 修复：资料查询优先读取发送者/用户对象明确的正整数 `userId`，兼容原有纯数字 `id`；无合法数字 ID 时不请求，不把账号/别名转换成数字或替换为当前登录用户。数字字符串保留原值，避免长 ID 精度损失。PC 无可查询 ID 时不显示无限加载。
+- 影响：`pc/src/utils/profileUserId.js`、`h5-v2/src/utils/profileUserId.js`、PC `chatRoom/chatMain/components/userInfo.vue`、H5 `chat/chat/dialog/detailMsg.vue` 和 `vipInfo/index.vue`；覆盖引用这些组件的版面，主题色/开关/配置未改。与演示站核对三个调用组件原实现一致，仅向 8321 分支交付。
+- 验证：Node v14.21.3、实际 Vue 2.5.21 初始化/响应式定向回归、三组件 Vue 2.5.21 模板编译、Babel 脚本检查及本次范围 diff 检查通过。覆盖别名拒绝、数字 ID 优先、旧数字 id、长整数及非法值。未整站构建、未生产部署或真实接口联调；现场消息中的 kf→业务数字 ID 映射待用户提供脱敏消息确认，不能宣称现场资料查询已验收。
+- 代码已提交推送 `62ec16d1172e6a4a694d21537df672267b990439`，`git ls-remote` 与本地 HEAD 一致。商户生产发布由发布负责人处理。原有 `pc/static/css/theme.less` 未提交内容保留。
