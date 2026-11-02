@@ -119,3 +119,12 @@
 - 影响：`pc/src/utils/profileUserId.js`、`h5-v2/src/utils/profileUserId.js`、PC `chatRoom/chatMain/components/userInfo.vue`、H5 `chat/chat/dialog/detailMsg.vue` 和 `vipInfo/index.vue`；覆盖引用这些组件的版面，主题色/开关/配置未改。与演示站核对三个调用组件原实现一致，仅向 8321 分支交付。
 - 验证：Node v14.21.3、实际 Vue 2.5.21 初始化/响应式定向回归、三组件 Vue 2.5.21 模板编译、Babel 脚本检查及本次范围 diff 检查通过。覆盖别名拒绝、数字 ID 优先、旧数字 id、长整数及非法值。未整站构建、未生产部署或真实接口联调；现场消息中的 kf→业务数字 ID 映射待用户提供脱敏消息确认，不能宣称现场资料查询已验收。
 - 代码已提交推送 `62ec16d1172e6a4a694d21537df672267b990439`，`git ls-remote` 与本地 HEAD 一致。商户生产发布由发布负责人处理。原有 `pc/static/css/theme.less` 未提交内容保留。
+
+
+## 2026-11-02 H5 未登录不初始化融云
+
+- 用户提供 okw8a.com H5 未登录首页抓包截图：POST `/api/v2/chat/registerRongYunAccount` 请求携带 UUID 形式 rongYunUserId，外层 code=200，内层 code=500/msg=userId不能为空。源码确认 Socket.created 无条件连接；store 对空用户执行游客注册，标识来自缓存或 window.uuid()，不是平台会员 userId。不能仅据截图推断后端数据库查询过程。
+- 按用户要求，仅 8321 H5 改为取得登录用户 userId 后才启动融云：Socket 按 userId 监听身份变化，未登录不 dispatch 连接；store 连接/游客注册/取 Token 入口拦截无 userId，正常连接只取会员 Token。退出断开后不重连游客，Token 与系统配置等待期间身份变化取消旧连接，旧 Token 响应不提交；连接成功后的入房/会话列表处理增加登录判断。
+- 路径：h5-v2/src/components/Socket/index.vue、h5-v2/src/store/modules/rongyun.js、h5-v2/tests/rongyunReconnect.test.js。已核对演示站差异，未更改 PC、其他商户、主题/版面/control.js 或后端；此前资料查询修复独立保留。
+- 验证：Node v14.21.3 的融云恢复回归通过，覆盖游客无请求/无 SDK 连接、登录/退出、有限重连与失效 Token 刷新、旧身份响应取消；实际 Vue 2.5.21 初始化/登录/退出响应式及模板编译通过；本次范围 diff 检查通过。未整站构建、未生产部署或线上验收，生产发布由商户负责人处理。
+- 代码 e5ab8a6226872a2949a1c422a93b90887fe5107c 已推送 origin/BY8321-AOK，远端 SHA 已核对一致。原有 pc/static/css/theme.less 未提交内容保留。
