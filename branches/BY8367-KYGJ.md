@@ -247,3 +247,13 @@
 - 前三栏显示 CMS 帮助文章标题链接，最多四条；右侧「平台优势」是固定文案。8367 注册、充值、提现文章接口均成功返回空数组，需要后台核对并补齐／发布对应商户文章，前端不编造静态业务描述。
 - 前端另有「充值购彩」误查账号安全的问题，演示站已修为查询充值文章并链接充值帮助页。8367 仅 cherry-pick 演示站提交 `1afdd1a60b45e3c9b2c012a911df461789c35c8e`，商户提交 `6894f6c39e5652f8d90fbd8c9eb22e946f5bf856`。
 - 只改 `pc/src/views/layout/child_modal/footer.vue` 一行，PC 构建及查询／链接／空数据行为检查通过；已推送并核对远端 SHA。未部署，后台数据未修改。具体现场数据见[核查记录](../pc/manual-BY-Demo-footer-recharge-2026-10-09.md)。
+
+
+## 2026-11-02 PC 旧期计划禁止跟投
+
+- 用户明确要求：旧期计划禁止跟投，点击显示“注单已失效”；当期计划正常跟投。
+- 仅 8367 PC 聊天室机器人计划（`TG:BetplanBotMsg`）：将原消息完整 periodNo 与 `/api/v2/betting/follow` 返回 bettingRecordList 首条当前 periodNo 对照；期号不一致或缺失时提示“注单已失效”，设置 followDisabled，跟单提交入口不发送 `/api/v2/lottery/betting`。兼容数字/字符串期号，不只比较展示的后三位。
+- 复用现有失效提示与禁用弹窗行为，保留 by317/by321 原有期号限制；8367 普通晒单跟单逻辑、计划金额默认留空、主题色、版面、功能开关及 control.js 未改。H5/演示站/其他商户分支未修改。
+- 路径：`pc/src/views/chatRoom/chatMain/components/chaseBetting.vue`；扩展 `pc/test/regression/by8367-plan-follow-blank-amount.regression.js`。已核对演示站差异，保留此前 8367 金额定制。
+- 验证：专用 Node v14.21.3 + 实际 Vue 2.5.21 回归通过，覆盖旧期、跨日期同尾号、缺期号阻止投注、数字当期期号恢复、普通跟单不受影响、金额留空/手输/限额；Vue 2.5.21 模板编译、Babel 脚本及 diff 检查通过。接口使用测试桩，未整站构建、未真实投注或线上验收。
+- 代码提交 `ea61e6f841d909fb23e4535fe7c18ebc00793823` 已推送 `origin/BY8367-KYGJ`，远端完整 SHA 与本地一致。未部署商户生产环境，由商户发布负责人发布。原有 `.tmp/` 保留且未提交。
