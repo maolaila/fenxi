@@ -20,3 +20,11 @@
   - 在 `output/8315-jackpot-20261104/` 隔离目录完成生产构建，Vue 别名指向 2.5.21。
   - 浏览器：本地 dev（8315 源码 + 6688 `by315` configstatic + 演示站后端 `biyingbaowang.cc`）实际渲染 temp6 首页，确认 Jackpot 替换 banner、真实游戏图标、20 条中 13 条三方；375/320 宽度下数字对齐。
 - 交付边界：8315 只完成代码提交和推送，商户生产部署由商户发布负责人处理；未发布演示站。业主/客户的实机验收以及最终金额范围待确认。
+
+## 2026-11-05 补充：中奖条点击进游戏
+
+- 彩种：跳 `/buyLottery/{lotteryId}`，与首页彩票列表 `gamels/cplist.vue` 一致。
+- 三方游戏：按 `gameId` 调 `loginGame`，确认后 PT_GAME/SG_GAME 用新窗口，其他用全屏 iframe（url 或 html），左上角返回按钮可拖动，与首页 `gamels/otherlist.vue` 一致。
+- 拖动与点击：`hold()` 记录按下时 `scrollLeft`，点击时位移超过 8px 视为拖动不触发；`buildWinners` 条目新增 `id`。
+- 宽屏下卡片变大是 vw 等比缩放（卡片固定 260/750 屏宽），与数据无关，与整页一致，按用户确认不处理。
+- 代码 `877463ba2` 已推送且远端一致。验证：Node v14.21.3 + Vue 2.5.21 `homeJackpot.test.js`（轻点选中、拖动不触发、彩种路由、三方 loginGame→iframe、空结果不打开）与 `homeBannerPriority.test.js` 通过；本地 dev 页面实测彩种跳 `#/buyLottery/48`、拖动后不跳转、未登录点三方弹"你还没有登录"。已登录进三方游戏待实机验收；未生产部署。
