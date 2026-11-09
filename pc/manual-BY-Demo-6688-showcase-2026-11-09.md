@@ -23,3 +23,8 @@
 - 现象：用户桌面 Chrome 手机模式打开 `https://biyingbaowang.cc/#/home/lottery` 仍为原演示站 temp7 首页（轮播、无 Jackpot）。
 - 原因（前端既有逻辑，已复现）：H5 `store/modules/theme.js` `getCurrentTemplate()` 与 `utils/less.js` 优先使用 localStorage `themeColor`/`themeColorList` 中保存的模板，其次才用 control.js `selected`。曾访问演示站的浏览器存有 temp7，即使已加载 `app.9c6dee2c.js` 与 by315 配置也走 temp7 首页；清除这两项后为 temp6 `home05` 且开关 `jackpot`、Jackpot 正常显示。线上后台 `H5_SWIPER_TYPE` 实测已为 1。
 - 处理：用户决定不修改商户分支代码。查看方式：无痕窗口，或在 DevTools Application → Local Storage 删除上述两项后刷新；新访客不受影响。
+
+## 补充：H5 更新至 8175b49f2（阿里云场景修复、Jackpot 缩小）
+
+- 依次发布 H5 `ea0bbbf7b`（中奖条被裁的过渡版）与 `8175b49f2`；中间的 `0882a0fbe`、`e3ad09354` 未发布。CLI 每次均因异步解压超时报校验失败，事后逐文件核对 759 个文件一致；CLI 增量回退 `wap/_rollback_before_ea0bbbf7b_20261109-163115`、`wap/_rollback_before_8175b49f2_20261109-164601`。每次发布后重新写入 `?v=0.1.9-6688-20261109` 入口页。
+- 线上复验：手机 UA 入口、app、首页分包与构建一致（`app.d415a0b2.js`）；登录、注册点验证条弹出阿里云滑块；首页 Jackpot 整块 217px。完整备份与回退脚本不变。
