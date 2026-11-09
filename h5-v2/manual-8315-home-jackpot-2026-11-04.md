@@ -58,3 +58,9 @@
 - 星星：`reel` 新增 `mark` 属性（`winnerCount`），序号变化才 `celebrate()`（24 颗大金星 + pulse + flash）；序号不变的小涨走 `twinkle()`，3～4 颗 `SMALL_BURST` 小星星，无 pulse/flash；两者共用 `spray()`，页面隐藏不触发，结束清理。
 - `index.vue`：TICK 5000→2000。
 - 代码 `04ffcacad` 已推送且远端一致；Node v14.21.3 + Vue 2.5.21 测试通过，本地页面实测小涨/新中奖两档效果；未实机、未生产部署、未发布演示站。
+
+## 2026-11-09 补充：首页顶部轮播/Jackpot 后端开关
+
+- `homeTopMode.js`：`requestHomeTopMode` mock（默认 `jackpot`，`localStorage.mockHomeTopMode` 可本地切换），`fetchHomeTopMode` 归一化为 `jackpot`/`banner`，失败回退 `banner`；后端接口到位只替换该函数。
+- `home.vue`：`topMode` 为 `jackpot` 显示奖池，否则显示原轮播（含加载占位）；只在轮播模式请求轮播，恢复原重试/keep-alive。
+- 代码 `707f59ebb` 已推送且远端一致；Vue 2.5.21 测试与本地两种模式页面实测通过；后端接口待提供，未实机、未生产部署。
