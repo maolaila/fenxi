@@ -64,3 +64,8 @@
 - `homeTopMode.js`：`requestHomeTopMode` mock（默认 `jackpot`，`localStorage.mockHomeTopMode` 可本地切换），`fetchHomeTopMode` 归一化为 `jackpot`/`banner`，失败回退 `banner`；后端接口到位只替换该函数。
 - `home.vue`：`topMode` 为 `jackpot` 显示奖池，否则显示原轮播（含加载占位）；只在轮播模式请求轮播，恢复原重试/keep-alive。
 - 代码 `707f59ebb` 已推送且远端一致；Vue 2.5.21 测试与本地两种模式页面实测通过；后端接口待提供，未实机、未生产部署。
+
+## 2026-11-09 补充：开关接入后台 H5_SWIPER_TYPE
+
+- 取代上条 mock：`querySystemConfig` 的 `H5_SWIPER_TYPE`，`1` = Jackpot，`0`/未配置/其他 = 轮播图；首页以 `$systemConfig(true)` 读取，失败或 5 秒无结果回退轮播。
+- 代码 `1e13fbb14` 已推送且远端一致；Vue 2.5.21 测试与本地页面两种取值实测通过；6688 后台设为 `1` 才显示 Jackpot。未实机、未生产部署。
