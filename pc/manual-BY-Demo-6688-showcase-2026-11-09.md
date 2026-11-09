@@ -7,3 +7,8 @@
 - 完整备份（发布前）：服务器 `pc/_full_backup_before_6688_20261109-145950/`（index.html、static、pc、`_shared_configstatic`）与 `wap/_full_backup_before_6688_20261109-145950/`（index.html、static、configstatic、service-worker、robots、favicon、全部 precache-manifest），逐目录核对文件数/字节一致；本地 `output/demo-backup-before-6688-20261109-145950/` 有三个 tar.gz（pc 69,893,242 B、wap 69,288,403 B、共享 configstatic 3,081,954 B）及回退脚本 `rollback-demo-to-before-6688.ps1`（`-DryRun` 已演练）。
 - 线上复验：桌面/手机 UA 入口 HTML 与 dist 逐字节一致；PC `configstatic/pc/control/control.js` 与图片已是 by315。H5 `configstatic/h5/control/control.js?v=0.1.9` 及图片被源站前置代理缓存（响应头 `Nginx-Cache: HIT`，缓存键含参数，Last-Modified 2026-10-22），仍返回原演示站配置（temp7 蓝白版本），H5 未呈现 6688 temp6，需清前置缓存；该缓存不在面板管理范围。演示站后台 `H5_SWIPER_TYPE` 当前为 `0`（轮播，且演示站 `bannerList` 为空），需设为 `1` 才显示 Jackpot。浏览器面板隐藏，未完成页面截图复验。
 - 回退注意：回退后 `/configstatic/` 同样可能命中前置缓存，需同步清理。
+
+## 补充：H5 入口版本号绕过前置缓存（用户选择）
+
+- 将线上 `wap/index.html` 中 10 处 `?v=0.1.9` 改为 `?v=0.1.9-6688-20261109`（其余字节与 dist 一致），文件留存 `output/8315-demo-release-20261109/h5-index-6688-cachebust.html`。HTTPS 复验：手机 UA 入口与该文件一致；新地址 `control.js` 为 by315（`Nginx-Cache: MISS`），带版本号的图标/启动图为 by315；PC 入口未变。
+- 仍为旧缓存：页面不带版本号引用的 `configstatic/h5/images/logo.png`、`mb-logo.png`、`ic_reg_logo.png`、`appIcon-58/80/144.png`，待前置缓存过期或清理。回退脚本会还原发布前的 `index.html`。
