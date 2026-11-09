@@ -17,3 +17,9 @@
 
 - 仅 H5：同一临时目录换入 `246ded86f` 源码（与提交逐文件一致）重新构建，`h5-6688-246ded86f.zip` 759 个文件，CLI 同样因异步解压超时报校验失败，事后逐文件核对全部存在且大小一致；CLI 增量回退 `wap/_rollback_before_246ded86f_20261109-153656`。随后重新写入版本号 `?v=0.1.9-6688-20261109` 的入口页（`output/8315-demo-release-20261109/h5-index-6688-246ded86f-cachebust.html`）。
 - HTTPS 复验：手机 UA 入口为该文件（`app.9c6dee2c.js`），首页分包 `home5.013e73ae.js` 与构建一致，H5 配置仍为 by315；PC 入口未变。完整备份与回退脚本不变，仍回到 6688 发布前状态。
+
+## 补充：曾访问过演示站的浏览器看不到 Jackpot
+
+- 现象：用户桌面 Chrome 手机模式打开 `https://biyingbaowang.cc/#/home/lottery` 仍为原演示站 temp7 首页（轮播、无 Jackpot）。
+- 原因（前端既有逻辑，已复现）：H5 `store/modules/theme.js` `getCurrentTemplate()` 与 `utils/less.js` 优先使用 localStorage `themeColor`/`themeColorList` 中保存的模板，其次才用 control.js `selected`。曾访问演示站的浏览器存有 temp7，即使已加载 `app.9c6dee2c.js` 与 by315 配置也走 temp7 首页；清除这两项后为 temp6 `home05` 且开关 `jackpot`、Jackpot 正常显示。线上后台 `H5_SWIPER_TYPE` 实测已为 1。
+- 处理：用户决定不修改商户分支代码。查看方式：无痕窗口，或在 DevTools Application → Local Storage 删除上述两项后刷新；新访客不受影响。
