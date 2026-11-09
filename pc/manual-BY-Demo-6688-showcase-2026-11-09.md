@@ -12,3 +12,8 @@
 
 - 将线上 `wap/index.html` 中 10 处 `?v=0.1.9` 改为 `?v=0.1.9-6688-20261109`（其余字节与 dist 一致），文件留存 `output/8315-demo-release-20261109/h5-index-6688-cachebust.html`。HTTPS 复验：手机 UA 入口与该文件一致；新地址 `control.js` 为 by315（`Nginx-Cache: MISS`），带版本号的图标/启动图为 by315；PC 入口未变。
 - 仍为旧缓存：页面不带版本号引用的 `configstatic/h5/images/logo.png`、`mb-logo.png`、`ic_reg_logo.png`、`appIcon-58/80/144.png`，待前置缓存过期或清理。回退脚本会还原发布前的 `index.html`。
+
+## 补充：H5 更新为 246ded86f（小涨四到五位数）
+
+- 仅 H5：同一临时目录换入 `246ded86f` 源码（与提交逐文件一致）重新构建，`h5-6688-246ded86f.zip` 759 个文件，CLI 同样因异步解压超时报校验失败，事后逐文件核对全部存在且大小一致；CLI 增量回退 `wap/_rollback_before_246ded86f_20261109-153656`。随后重新写入版本号 `?v=0.1.9-6688-20261109` 的入口页（`output/8315-demo-release-20261109/h5-index-6688-246ded86f-cachebust.html`）。
+- HTTPS 复验：手机 UA 入口为该文件（`app.9c6dee2c.js`），首页分包 `home5.013e73ae.js` 与构建一致，H5 配置仍为 by315；PC 入口未变。完整备份与回退脚本不变，仍回到 6688 发布前状态。
