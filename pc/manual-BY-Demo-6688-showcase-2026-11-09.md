@@ -1,0 +1,9 @@
+# 2026-11-09 演示站临时切换为 6688（8315）展示
+
+- 目的：给 6688 客户在演示站 `https://biyingbaowang.cc` 看 PC/H5 效果，看完回退到原演示站。
+- 代码：`BY8315-6688-h5` `1e13fbb144e06f103d54bc29c3fff9d84ea53a92`，在主工作区 `output/8315-demo-release-20261109/` 临时构建（Node v14.21.3）。H5 产物 Vue 2.5.21（与 8315 锁文件一致）；PC 产物 Vue 2.7.14（8315 PC 锁文件即 2.7.14，未合入演示站 `ca09a5107`/`a2bb1b50e` 的 2.5.21 锁定）。
+- 发布：CLI `bt-demo.cmd publish` 发 PC `app.bed6d2b31fe2f283db4d.js`、H5 `app.ad1bd2b8.js`（H5 CLI 因异步解压超时报校验失败，事后逐文件核对 759 个文件均存在且大小一致）。CLI 自带增量回退：`pc/_rollback_before_1e13fbb14_20261109-151418`、`wap/_rollback_before_1e13fbb14_20261109-151503`。
+- 运行时配置：nginx `location /configstatic/` alias `/usr/local/nginx/html/configstatic/`，PC 与 H5 页面都从这里读 `control.js` 与图片（不是 `pc/pc/`、`wap/configstatic/`）。已将资源仓库 `dev` `43a1dbb` 的 `by315/configstatic` 覆盖到该共享目录；另外覆盖到 `pc/pc/`、`wap/configstatic/` 的两份不被页面使用。
+- 完整备份（发布前）：服务器 `pc/_full_backup_before_6688_20261109-145950/`（index.html、static、pc、`_shared_configstatic`）与 `wap/_full_backup_before_6688_20261109-145950/`（index.html、static、configstatic、service-worker、robots、favicon、全部 precache-manifest），逐目录核对文件数/字节一致；本地 `output/demo-backup-before-6688-20261109-145950/` 有三个 tar.gz（pc 69,893,242 B、wap 69,288,403 B、共享 configstatic 3,081,954 B）及回退脚本 `rollback-demo-to-before-6688.ps1`（`-DryRun` 已演练）。
+- 线上复验：桌面/手机 UA 入口 HTML 与 dist 逐字节一致；PC `configstatic/pc/control/control.js` 与图片已是 by315。H5 `configstatic/h5/control/control.js?v=0.1.9` 及图片被源站前置代理缓存（响应头 `Nginx-Cache: HIT`，缓存键含参数，Last-Modified 2026-10-22），仍返回原演示站配置（temp7 蓝白版本），H5 未呈现 6688 temp6，需清前置缓存；该缓存不在面板管理范围。演示站后台 `H5_SWIPER_TYPE` 当前为 `0`（轮播，且演示站 `bannerList` 为空），需设为 `1` 才显示 Jackpot。浏览器面板隐藏，未完成页面截图复验。
+- 回退注意：回退后 `/configstatic/` 同样可能命中前置缓存，需同步清理。
