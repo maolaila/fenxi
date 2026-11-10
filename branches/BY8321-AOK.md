@@ -143,3 +143,14 @@
 - 影响 h5-v2/src/components/Socket/index.vue；PC、其他商户、公共 MyDialog、后台/资源配置不改。此前撤回的 userId/游客流程保持原状。
 - 验证：Node14/实际 Vue2.5.21 模板编译与中奖/普通通知标记切换、LESS 编译及范围 diff 通过；使用实际组件样式的本地布局 mock 在 320×568、375×667、390×844、414×896 居中且不与模拟顶部开奖区重叠。mock 背景为简化投注布局，不是线上完整页面或真实融云验收；未整站构建/生产部署。
 - 代码 31925104cb60afdd725ba0eb66ef2ea50348d994 已推送 origin/BY8321-AOK，远端 SHA 与本地一致。商户发布负责人发布 H5 包后需实机复验。原有 pc/static/css/theme.less 未提交内容保留。
+
+
+## 2026-11-10 PC/H5 修改资金密码旧密码连续错误改为弹窗
+
+- 需求：前台修改资金密码时旧密码多次输错会跳维护页、提示错误；要求 PC/H5 不跳转，弹窗提示“旧密码连续输入错误，请联系客服”。
+- 归属判断：该场景接口 `/api/v2/user/setPayPwd` 返回 `207`（见 2026-09-25 记录），PC/H5 公共响应拦截器写死把 `207` 当系统维护跳 `/503`；未发现后台或 control.js 配置控制该跳转，属前端处理。后端以 207 表示锁定的语义未改。
+- H5-v2：2026-09-25 已实现（`skipMaintenanceRedirect` + `reset_pay_pwd.vue` 弹窗），本次核对当前分支仍生效，未改动。H5 首次设置资金密码 `set_pay_pwd.vue` 无旧密码，不涉及。
+- PC：`pc/src/utils/request.js` 的 207 分支支持请求级 `skipMaintenanceRedirect`；`pc/src/views/personalCenter/child_modal/account/modify_password.vue` 仅资金密码修改请求带该标记，返回 207 时 `$Modal.warning` 弹窗提示上述文案，不跳转、不清表单；成功码 0 才提示成功。登录密码修改及其他接口 207 维护处理不变；`modifyFundPwd.vue`（首次设置）不涉及。
+- 未覆盖：提现等场景输错资金密码是否也返回 207 未确认，未改动；如现场仍跳维护页需提供抓包。
+- 验证：Node v14.21.3 下模板编译（模板未改）、脚本解析、axios 0.17.1 自定义 config 透传 mock（带标记 207 不跳、未带标记仍跳）及 `git diff --check` 通过。未整站构建、未真实账号复现；商户生产发布由发布负责人处理。
+- 代码 `aef6485d5164c8aa51b96a8098c0072842480e86` 已推送 origin/BY8321-AOK，远端 SHA 与本地一致。
