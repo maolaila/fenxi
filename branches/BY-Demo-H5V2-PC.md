@@ -1,5 +1,15 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-11-10 PC/H5 阿里云验证以 6688 为准（已发布）
+
+- 需求：演示站阿里云验证与 8315（`BY8315-6688-h5` `ea0bbbf7b`）一致，以 6688 为准；手机号短信验证码本次按用户要求不改。
+- 归属/配置：后台 querySystemConfig 实际值 `ALIYUN_CAPTCHA_CONFIG` openStatus=1、loginOpen=1、registerOpen=0，`ALIYUN_CAPTCHA_WEB_REGISTER_ENABLE`=0，`YI_DUN_VAILD_CONFIG` 各模块 captchaId=8rm4e28pr。原演示站逻辑按 loginOpen/registerOpen 及设备字典分别关闭，故注册不弹阿里云；按用户“以 6688 为准”改前端，开关来源仍是后台 openStatus，非前端写死。
+- 改动（`1e7706ef8`）：PC/H5 `src/utils/aliyunCaptcha.js` 阿里云开关只看 `openStatus`，登录/注册同一开关（purpose 参数保留，不再单独关闭）；H5 `src/vendor/VueProtoExt.js` `$systemConfig` 归一化系统配置并支持 fresh；旧易盾兼容层优先使用后台阿里云 sceneId/region/prefix。图形验证码开关、注册密码规则（authPolicy）、触摸锁定等演示站原有逻辑保留。测试：新增 `h5-v2/tests/aliyunSceneFromConfig.test.js`，更新 `authPolicy.test.js` 期望。
+- 验证：Node v14.21.3 + Vue 2.5.21：aliyunSceneFromConfig、authPolicy、captchaVisibility 等 H5 测试通过；`chatPrivateHistory.test.js` 因本地解析到 Vue 2.7.16 失败，改动前同样失败，与本次无关。PC/H5 隔离副本生产构建通过，产物仅 Vue 2.5.21、无旧分开关代码。
+- 代码：`1e7706ef8` 已推送 origin/BY-Demo-H5V2-PC，远端与本地一致；8315 无新增改动，`c305ad4d1` 远端一致。
+- 发布：PC 556 文件，备份 `pc/_rollback_before_1e7706ef8_20261110-161912`；H5 759 文件，备份 `wap/_rollback_before_1e7706ef8_20261110-161921`（脚本末步校验同前误报）。公网核对 PC app.9d48863b…、H5 app.92cdef05 的 index/app SHA256 与构建一致。线上实测：H5 375px 登录、注册及 PC 注册点击“请点击按钮进行行为验证”均弹出阿里云滑块；未完成真实登录/注册提交。
+- 现状提醒：共享 configstatic 仍是 11-09 覆盖的 6688（by315）运行时配置，本次未改；入口无 6688 缓存版本号。证据：本地 output/demo-aliyun6688-1e7706ef8（不入库）。
+
 ## 2026-11-10 PC/H5 修改资金密码旧密码连续错误改弹窗（全盘通用优化，已发布）
 
 - 需求：8321 澳客网反馈修改资金密码旧密码多次输错跳维护页、提示错误；用户确认为通用优化项，同步演示站并发布。
