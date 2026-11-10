@@ -1,5 +1,15 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-11-10 PC/H5 修改资金密码旧密码连续错误改弹窗（全盘通用优化，已发布）
+
+- 需求：8321 澳客网反馈修改资金密码旧密码多次输错跳维护页、提示错误；用户确认为通用优化项，同步演示站并发布。
+- 归属：接口 `/api/v2/user/setPayPwd` 该场景返回 `207`，PC/H5 公共拦截器写死按系统维护跳 `/503`；无后台/control.js 配置控制，属前端处理。后端 207 语义未改。
+- 改动（`b1e3601ed`，由 8321 `dcd584f71`、`aef6485d5` 移植合并）：PC `pc/src/utils/request.js`、`pc/src/views/personalCenter/child_modal/account/modify_password.vue`；H5 `h5-v2/src/utils/request.js`、`h5-v2/src/api/user.js`、`h5-v2/src/views/personal-center/child_modal/mysetting/reset_pay_pwd/reset_pay_pwd.vue`。仅修改资金密码请求跳过 207 维护跳转，弹窗提示“旧密码连续输入错误，请联系客服”（PC `$Modal.warning`、H5 `Dialog.alert`）；其他接口 207 维护处理不变。H5 同时修正原先注释掉成功码判断导致任意错误码都提示“修改成功”的问题，原 207 toast“旧资金密码不正确，请重输”被替换。登录密码、首次设置资金密码、提现输资金密码未改。版面/主题色/开关/control.js 无变更。
+- 验证：Node v14.21.3、隔离副本 Vue/compiler 2.5.21 完整 PC/H5-v2 生产构建通过；产物含新逻辑，仅 Vue 2.5.21、无 2.7 混入。未用真实账号触发 207 锁定验证。
+- 代码：`b1e3601ed96899050cd229a7050d4432ac038ed5` 已推送 origin/BY-Demo-H5V2-PC，远端与本地一致。
+- 发布：PC 556 文件 → /usr/local/nginx/html/pc，备份 `_rollback_before_b1e3601ed_20261110-125756`；H5 759 文件 → /usr/local/nginx/html/wap，备份 `_rollback_before_b1e3601ed_20261110-125805`。H5 发布脚本末步校验同 10-29 误报（static/js 超 2000 文件列表分页），已经公网核对：biyingbaowang.cc PC/H5 index、app（PC app.7b1a7ada…，H5 app.b38712c6）及变更 chunk（PC 1.97bc9e6e…、H5 resetPayPwd.fd168669）均 HTTP 200 且 SHA256 与构建一致。运行时配置未覆盖。证据：本地 output/paypwd-lockout-20261110（不入库）。
+- 其他商户：除 8321 外的商户分支未同步，需逐商户确认后再推送。
+
 ## 2026-10-30 PC 游戏空弹窗修复与发布
 
 - 共用弹窗编译/运行时固定为 Vue 2.5.21，加构建版本门槛及绝对运行时 alias，修正重复 footer；14 项真实运行时检查、完整构建及线上体育/电子游戏提示显示与取消验证通过。
