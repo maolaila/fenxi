@@ -1,5 +1,12 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-11-16 演示站整站回退到 11-09 切 6688 之前（已发布）
+
+- 需求：用户要求“把演示站还原回原本的”，确认范围为整站回 11-09 14:59:50 切 6688 前的完整备份（PC、H5 文件及共享 configstatic）。
+- 操作：运行 `output/demo-backup-before-6688-20261109-145950/rollback-demo-to-before-6688.ps1`（先 DryRun）。PC `index.html`/`static`/`pc`、H5 `index.html`/`static`/`configstatic`/`service-worker.js`/`robots.txt`/`favicon.ico`/`precache-manifest.*` 及共享 `/usr/local/nginx/html/configstatic` 从 `_full_backup_before_6688_20261109-145950` 复制回；回退前在线文件留档于 `pc/_6688_live_20261116-154534`（含 `_shared_configstatic`）、`wap/_6688_live_20261116-154534`，未删除。
+- 验证：服务器 PC/H5 index 与备份一致；公网 biyingbaowang.cc 桌面 UA → PC `app.e735f19d9e6f6f7b8130.js`，移动 UA → H5 `app.9bf4de79.js`；公网 `/configstatic/pc|h5/control/control.js` 与服务器一致、无 by315，Nginx-Cache=MISS，无需清前置缓存。未做登录/注册等功能点验。
+- 注意：线上现为 10-30 演示站版本，不再包含 `b1e3601ed`（资金密码锁定弹窗）和 `1e7706ef8`（阿里云对齐 6688）；这两个提交仍在 origin/BY-Demo-H5V2-PC，git 分支未回退。下次从分支构建发布会重新带上它们，如不需要须先 revert。
+
 ## 2026-11-10 PC/H5 阿里云验证以 6688 为准（已发布）
 
 - 需求：演示站阿里云验证与 8315（`BY8315-6688-h5` `ea0bbbf7b`）一致，以 6688 为准；手机号短信验证码本次按用户要求不改。
