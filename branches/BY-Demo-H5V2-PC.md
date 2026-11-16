@@ -1,11 +1,17 @@
 # BY-Demo-H5V2-PC 功能地图
 
-## 2026-11-16 演示站整站回退到 11-09 切 6688 之前（已发布）
+## 2026-11-16 演示站恢复为无 Jackpot 的演示站版本 1e7706ef8 + 演示站原运行时配置（已发布，现状）
+
+- 需求更正：用户实际要的是“没有 jackpot 的演示站版本，阿里云修复要保留”，下方整站回退过度（连 b1e3601ed、1e7706ef8 一起撤掉）。
+- 操作：PC `index.html`/`static`/`pc`、H5 `index.html`/`static`/`service-worker.js`/`robots.txt`/`favicon.ico`/`precache-manifest.*` 从 `_6688_live_20261116-154534`（即 11-10 `1e7706ef8` 发布的文件）复制回；被替换的 10-30 文件留档于 `pc|wap/_pre6688_live_20261116-160931`。共享 `/usr/local/nginx/html/configstatic` 与 `wap/configstatic` 保持下方回退后的演示站原配置（非 by315）。
+- 验证：公网 PC `app.9d48863b…` SHA256 `90095c3e…`、H5 `app.92cdef05` SHA256 `db4dcfad…`，与 11-10 `1e7706ef8` 构建一致；公网 control.js 无 by315。H5 源码 jackpot 仅为“我的彩金”多语言翻译，无 Jackpot 首页组件。线上 375px H5 登录点“请点击按钮进行行为验证”弹出阿里云滑块；未完成真实登录/注册、未测 PC 注册。线上与 origin/BY-Demo-H5V2-PC `1e7706ef8` 一致。
+
+## 2026-11-16 演示站整站回退到 11-09 切 6688 之前（已被上一条更正替代）
 
 - 需求：用户要求“把演示站还原回原本的”，确认范围为整站回 11-09 14:59:50 切 6688 前的完整备份（PC、H5 文件及共享 configstatic）。
 - 操作：运行 `output/demo-backup-before-6688-20261109-145950/rollback-demo-to-before-6688.ps1`（先 DryRun）。PC `index.html`/`static`/`pc`、H5 `index.html`/`static`/`configstatic`/`service-worker.js`/`robots.txt`/`favicon.ico`/`precache-manifest.*` 及共享 `/usr/local/nginx/html/configstatic` 从 `_full_backup_before_6688_20261109-145950` 复制回；回退前在线文件留档于 `pc/_6688_live_20261116-154534`（含 `_shared_configstatic`）、`wap/_6688_live_20261116-154534`，未删除。
 - 验证：服务器 PC/H5 index 与备份一致；公网 biyingbaowang.cc 桌面 UA → PC `app.e735f19d9e6f6f7b8130.js`，移动 UA → H5 `app.9bf4de79.js`；公网 `/configstatic/pc|h5/control/control.js` 与服务器一致、无 by315，Nginx-Cache=MISS，无需清前置缓存。未做登录/注册等功能点验。
-- 注意：线上现为 10-30 演示站版本，不再包含 `b1e3601ed`（资金密码锁定弹窗）和 `1e7706ef8`（阿里云对齐 6688）；这两个提交仍在 origin/BY-Demo-H5V2-PC，git 分支未回退。下次从分支构建发布会重新带上它们，如不需要须先 revert。
+- 当时线上曾为 10-30 演示站版本（不含 `b1e3601ed`、`1e7706ef8`）；同日已按更正恢复为 `1e7706ef8` 代码，见上一条。
 
 ## 2026-11-10 PC/H5 阿里云验证以 6688 为准（已发布）
 
