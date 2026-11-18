@@ -1,6 +1,14 @@
 # BY-Demo-H5V2-PC 功能地图
 
-## 2026-11-16 演示站恢复为无 Jackpot 的演示站版本 1e7706ef8 + 演示站原运行时配置（已发布，现状）
+## 2026-11-19 演示站再次切换为 6688（8315）版本（已发布，现状）
+
+- 需求：用户要求“把演示站换 6688 的那版”。范围同 11-09 展示：PC/H5 代码与共享运行时配置均换为 6688。
+- 版本：H5 `BY8315-6688-h5` `c305ad4d1`（当前远端 tip，含 Jackpot、阿里云后台场景修复）；PC `1e13fbb14`（8315 此后无 PC 提交）。直接使用服务器上 11-09 构建的 `wap/h5-6688-c305ad4d1.zip`、`pc/pc-6688-1e13fbb14.zip`（与本地 `output/8315-demo-release-20261109/` 同名包一致），未重新构建。演示站 `b1e3601ed`（资金密码锁定弹窗）、`1e7706ef8` 的 PC 阿里云改动不在 6688 包内，线上随之不再生效。
+- 备份（复制，未删除）：`pc/_demo_live_before_6688_20261119-082500/`（index.html、static、pc、`_shared_configstatic`；原共享目录整体移至其中 `_shared_configstatic_live_moved`）、`wap/_demo_live_before_6688_20261119-082500/`（index.html、static、configstatic、service-worker、robots、favicon、全部 precache-manifest）。回退即从这两处复制回。
+- 操作：面板解压两包覆盖到 `pc/`、`wap/`；共享 `/usr/local/nginx/html/configstatic` 换为 `pc/_6688_live_20261116-154534/_shared_configstatic`（PC/H5 control.js 与资源仓库 `dev` `by315` 当前文件 SHA256 一致）；H5 入口写入 `?v=0.1.9-6688-20261109` 版本号页（`h5-index-6688-c305ad4d1-cachebust.html`）。
+- 验证：服务器逐文件核对 H5 760、PC 543 个文件均存在且大小一致；公网手机 UA 入口与版本号页逐字节一致（`app.fb0dca1f.js`），桌面 UA 为 PC `app.bed6d2b31fe2f283db4d.js`；公网 PC/H5 control.js 为 by315（`Nginx-Cache: MISS`）。375px 清除 `themeColor`/`themeColorList` 后首页显示 6688 Jackpot。曾访问过演示站的浏览器需清这两项 localStorage 或用无痕窗口。未做登录/注册提交、未看 PC 页面截图。
+
+## 2026-11-16 演示站恢复为无 Jackpot 的演示站版本 1e7706ef8 + 演示站原运行时配置（已被 11-19 切换替代）
 
 - 需求更正：用户实际要的是“没有 jackpot 的演示站版本，阿里云修复要保留”，下方整站回退过度（连 b1e3601ed、1e7706ef8 一起撤掉）。
 - 操作：PC `index.html`/`static`/`pc`、H5 `index.html`/`static`/`service-worker.js`/`robots.txt`/`favicon.ico`/`precache-manifest.*` 从 `_6688_live_20261116-154534`（即 11-10 `1e7706ef8` 发布的文件）复制回；被替换的 10-30 文件留档于 `pc|wap/_pre6688_live_20261116-160931`。共享 `/usr/local/nginx/html/configstatic` 与 `wap/configstatic` 保持下方回退后的演示站原配置（非 by315）。
