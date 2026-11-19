@@ -1,5 +1,13 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-11-19 H5 综合版（views6）首页 Jackpot 合入公共演示站分支（已推送，未发布）
+
+- 需求：Jackpot 做成公共功能，只针对综合版（views6），其他版面不动；显示与否同 6688，由后台接口开关决定。
+- 归属/配置：后台系统参数 `H5_SWIPER_TYPE`（querySystemConfig）控制，`1` 显示 Jackpot，`0`/未配置/5 秒无响应显示原轮播图；非前端写死。演示站后台当前为 `1`（11-09 实测）。
+- 改动 `aa80fe3a134834bee54cc0b793808beb410e1f44`：从 `BY8315-6688-h5`（`c305ad4d1`）取 `h5-v2/src/views6/home/jackpot/`（index/reel/winnerStrip/jackpotData、jackpot-bg.jpg/webp，通用素材无商户 Logo）、`views6/home/homeTopMode.js`、`views6/home/home.vue` 顶部二选一；注释改为公共说明，`seedKey` 沿用 `BY8315-6688`（6688 合入后数字不变）。依赖 store `queryLotteryList`/`queryGameSearch`/`loginGame` 与后台 `lotCcGameTypeConfig`，演示站均已有。未带 8315 `banner.vue` 5 秒停留修复，`homeBannerPriority.test.js` 对应断言保留演示站原样。PC、其他 H5 版面、废弃 h5、主题色、control.js 未改。
+- 影响面：仅 H5 `views6`；构建产物中 `H5_SWIPER_TYPE` 只在综合版首页分包 `home5`。资源库 H5 选 `temp6` 的商户：by315、by339、by356、by359、by362；本次未推送任何商户分支，商户合入公共代码后仍需后台设 `H5_SWIPER_TYPE=1` 才显示。
+- 验证：Node v14.21.3 + 实际 Vue/compiler 2.5.21（preload）`homeJackpot`、`homeBannerPriority` 通过；`output/` 临时副本 H5 生产构建通过，产物仅 Vue 2.5.21（临时目录已删）。代码已推送，远端一致。演示站线上为 6688 `e6ba90a0a` 包（已含 Jackpot），本次不发布。
+
 ## 2026-11-19 阿里云验证按登录/注册开关分别生效（分支已推送；线上发布 6688 修复包，现状）
 
 - 后台 `registerOpen=0` 时注册页仍显示阿里云行为验证，前端只看 `openStatus` 所致。演示站分支 `a5e643cf4` 恢复 `b1e3601ed` 的分场景判断（含设备字典）并加注册短信 type 8 用途，已推送、未发布。线上发布的是 6688 `e6ba90a0a` 构建（H5 `app.88074e88.js`、PC `app.1aeefd57…`），备份 `pc|wap/_rollback_before_e6ba90a0a_20261119-165922/`。注册页改为图形验证码、登录页保留行为验证；滑块弹出待人工测试。详见[记录](../h5-v2/manual-6688-aliyun-login-register-switch-2026-11-19.md)。
