@@ -1,5 +1,13 @@
 # BY-Demo-H5V2-PC 功能地图
 
+## 2026-11-19 演示站发布演示站分支 aa80fe3a1，运行时配置恢复为切 6688 前（已发布，现状）
+
+- 需求：演示站用演示站分支（含 Jackpot 与阿里云开关修复），配置与之前一样。线上此前为 6688 `e6ba90a0a` 包 + by315 配置。
+- 构建：主工作区 `output/demo-release-aa80fe3a1/` 临时副本（沿用 11-10 脚本），Node v14.21.3，PC/H5 均为 Vue 2.5.21；包 PC 556、H5 761 个文件（不含 H5 `configstatic`、PC `pc/`）。临时目录已删。
+- 发布：备份 `pc|wap/_rollback_before_aa80fe3a1_20261119-173959/`（共享 configstatic 中的 6688 配置移至 `pc/_rollback_before_aa80fe3a1_20261119-173959/_shared_configstatic_6688`）；共享 `/usr/local/nginx/html/configstatic` 复制自 `pc/_demo_live_before_6688_20261119-082500/_shared_configstatic`（今日切换前线上原样；与资源库 `bydemo` 文件哈希不同，未改资源库）。`wap/configstatic` 未动。H5 入口为 dist 原样（`?v=0.1.9`）。
+- 验证：服务器逐文件核对一致；公网 H5 `app.92afda39.js`、`home5.e134cdb7.js`、PC `app.082859a962e1704c56c0.js` 与构建 SHA256 一致；公网 PC/H5 control.js 与备份一致（MISS）。375px H5 首页为必赢包网、蓝白版本 temp7 默认、可切换版面（列表：经典彩票/大发彩票/蓝白版本/金色娱乐城，无 temp6 综合版，故切换不到 Jackpot 版面；按用户要求配置不动）。注册页无行为验证。
+- 遗留：前置代理缓存（Nginx-Cache HIT）仍返回 6688 图片：`configstatic/h5/images/ic_reg_logo.png`、`configstatic/pc/images/logo.gif`、`logo.png`；服务器文件为演示站原图。需负责前置代理/CDN 的同事清这 3 个地址，或等缓存过期。其余 44 张图一致。
+
 ## 2026-11-19 H5 综合版（views6）首页 Jackpot 合入公共演示站分支（已推送，未发布）
 
 - 需求：Jackpot 做成公共功能，只针对综合版（views6），其他版面不动；显示与否同 6688，由后台接口开关决定。
