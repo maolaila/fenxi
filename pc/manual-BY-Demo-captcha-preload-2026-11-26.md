@@ -50,6 +50,7 @@
 - 控制台：干净加载时 H5 无报错；PC 有 `ciphertext` 未处理错误和阿里云"language 参数不合法"，线上演示站 PC 注册页同样存在，非本次引入。
 - 只在单元测试覆盖：后台开关关闭不加载；已登录用户首页不预加载（浏览器里伪造 `user` 会被应用清掉，未用真实账号测）。
 - 未验证：QQ 浏览器 / X5 内核真机；真实国内网络到 `sgp` 节点的表现；登录态。
+- 本机安卓模拟器尝试（同日）：`C:\tools\android-sdk`，AVD `cnphone`（Android 14 x86_64，支持 arm64 转译）。已装 QQ 浏览器 `com.tencent.mtt` 20.8.2.2043（`_apk/qqbrowser.apk`，签名证书 O=Tencent OU=WSD，仅 arm64-v8a）启动即提示"当前版本与你的手机CPU类型不匹配，请去应用市场下载 QQ浏览器X86版本"并退出；360 浏览器 `com.qihoo.browser` v10.1.7（仅 arm64-v8a）内核 `libqwv` 在 ARM 转译下 SIGSEGV 闪退。两者都无法在本机模拟器测试，需 ARM 真机或带 ARM 转译的国产模拟器。测试服务 `serve-test.js` 已加 `rewrite=0`（直连 o.alicdn.com）和页面状态上报（`/__beacon`），可供真机同局域网访问时采集。
 
 ## 已知与后续
 
