@@ -58,3 +58,35 @@
 - 原有：H5 登录/注册页在系统配置返回、验证码初始化完成前点击 `#j-popup` 无反应，也没有"加载中"状态（`h5-v2/src/mixins/initGtCapthca.js` 初始化后才绑定点击）。本地排查资料 `output/captcha-probe-20261124/`（未入地图）记载 6688 做过"验证加载中…"、弹窗等待 25s 等优化，其提交与发布状态待确认；演示站没有。
 - 原有：PC `getCurrentLang` 传 `zh`，阿里云要求 `cn`，控制台报 language 不合法。
 - 6688（`BY8315-6688-h5`）同步：用户要求演示站没问题后合入 6688 并本地连线上自测，暂缓（"不着急"）。6688 的 `aliyunCaptcha.js` 与演示站有差异，需要单独合并检查。
+
+## 2026-11-27 补充：PC 语言参数、H5 初始化前点击"加载中"、发布演示站、合入 6688
+
+- 需求：用户要求把上文"已知与后续"里的两个原有问题（PC language 不合法、H5 初始化前点击无反应）一起修好，发演示站自测，没问题后合入 6688 并推送，由用户请运维发布 6688。
+- 归属/配置：纯前端写死逻辑（`getCurrentLang` 取值转换、mixin 点击绑定时机），无后台配置、control.js 或资源仓库改动。
+
+### 演示站 `BY-Demo-H5V2-PC`
+
+- 提交 `a9549b035265da30d4f8d7658956e3ae11c36360`，已推送 `origin/BY-Demo-H5V2-PC`，远端与本地一致。
+- PC `src/utils/aliyunCaptcha.js` `getCurrentLang`：改为同 H5，`zh_CN`→`cn`、`zh_TW`→`tw`、`en*`→`en`、其他→`cn`（原截成 `zh`，阿里云报 language 不合法）。
+- H5 `src/mixins/initGtCapthca.js`：`mounted` 在组件根节点监听点击，验证未初始化（系统配置未返回）时点 `.ui-captchaBtn` 即显示"验证加载中…"并记下待弹出，初始化成功后自动弹出一次；初始化失败或 20s 仍未初始化则清除加载中。后台关闭阿里云（`isCaptchaFlag` 为 false）时不处理。
+- H5 `src/utils/aliyunCaptcha.js`：`openAliyunCaptcha` 支持 `onLoading`（点击到弹窗出现前为 true，弹窗出现/失败/关闭为 false）；`createLegacyNECaptcha` 加载中重复点击复用进行中的那次验证。`src/assets/css/css.less` 加 `.ui-captchaBtn.loading`（文案"验证加载中…"，同 6688）。
+- 测试：`aliyunCaptchaPreload.test.js` 加语言、加载中状态用例，jsdom 关闭外部资源加载（原来会真的下载 SDK，导致计时用例偶发失败）；新增 `captchaEarlyClick.test.js`（真实 Vue 2.5.21 挂载 mixin）。Node v14.21.3 + Vue 2.5.21 全部 17 个 H5 测试文件通过，新测试在旧代码上失败。
+- 构建：`output/demo-captcha-lang-loading-a9549b035/`，PC/H5 生产构建通过，产物 Vue 运行时仅 2.5.21。
+- 本地自测（接口转发演示站，只读）：只延迟系统配置接口 8s，6.8s 点验证→立即"验证加载中…"，配置 8.8s 到达后 9.7s 自动弹出，加载中再点不重复弹；注册页 SDK 慢 6s，点击后加载中直到弹窗；SDK 挂起，加载中 15s 后变"验证失败"；系统配置一直不回，加载中 20s 后恢复、配置晚到也不突然弹窗；PC 注册页 `language=cn`、中文弹窗、无 language 报错。
+- 发布：本次上线包含 `1ad22ed83`（预加载）与 `a9549b035`。PC 556、H5 761 个文件，备份 `pc/_rollback_before_a9549b035_20261127-095449`、`wap/_rollback_before_a9549b035_20261127-095604`。两端脚本末步校验均报失败（H5 同前误报；PC 本次也报），实际核对：公网 PC `app.3d663948eb0613a3081c.js`、H5 `app.6d919b33.js`，两端 index 与入口引用文件一致；PC js/css 121/121 一致，H5 241/245 一致。
+- H5 不一致的 4 个为旧第三方脚本 `static/js/gt.js`、`qiniu-upload.js`、`RongIMVoice-2.2.6.js`、`RongEmoji-2.2.7.min.js`：带参数绕缓存取回为新文件（大小一致），前置代理缓存（`Nginx-Cache: HIT`）仍返回旧格式版本，内容仅缩进不同。如需一致请负责前置代理的同事清这 4 个地址。
+- 线上复验（游客，未登录、未提交）：H5 登录页 SDK 1.8s 已预加载，点击 0.59s 弹窗；PC 注册页 `language=cn`，弹窗正常，控制台无 language 报错（`ciphertext` 未处理错误仍在，非本次）。
+
+### 6688 `BY8315-6688-h5`
+
+- 提交 `592d1abbca65ec6638cd48e35c64ce78e7513b1f`，已推送 `origin/BY8315-6688-h5`，远端与本地一致。**未发布**，由用户请运维发布。
+- 按本分支现有验证码代码移植（未整份覆盖、未 cherry-pick 冲突文件）：两端首屏空闲预加载 + 登录/注册路由兜底、失败换 `?t=` 新地址重试（预加载自动重试一次；错误码沿用本分支 `ALIYUN_CAPTCHA_LOAD_FAIL`）、PC `language` 修正、PC/H5 点击验证按钮吞掉 Promise 拒绝；`main.js`、`router/index.js` 接入；移植 `aliyunCaptchaPreload.test.js`。
+- 未移植"初始化前点击"：6688 登录/注册页 `isCaptchaFlag = captchaConfigReady && aliyunCaptchaEnabled`，配置返回前不显示验证按钮，配置到达后同一 tick 初始化，不存在点了没反应的空档；"加载中"、加载中重复点击合并 6688 已有（`86af9377f`）。
+- 测试：Node v14.21.3 + Vue 2.5.21，21/22 个 H5 测试文件通过；`captchaFlowState.test.js` 在未改动的 6688（`5cc712b1b`）上同样失败（测试文件正则缺反斜杠，SyntaxError），非本次引入。
+- 构建：`output/6688-captcha-preload-592d1abbc/`，H5/PC 生产构建通过。临时副本注意：6688 PC `webpack.base.conf.js` 的 `vue$` 别名为字符串 `'vue/dist/vue.esm.js'`，临时副本用 junction 链接主目录依赖时 iview 等会解析到主目录 Vue 2.7.14，包内出现两份 Vue、页面白屏（未改动的 `5cc712b1b` 同样白屏）；仅在临时副本改为 `require.resolve` 后产物只含 2.5.21、页面正常。正式构建由运维按 6688 自身依赖完成，本次未改 6688 构建配置；6688 `package.json` 中 `vue` / `vue-template-compiler` 为 `^2.5.2`，实际安装版本待运维确认。
+- 本地自测：本机 IP 访问 6688 线上被前端提示"您所在的地区限制访问"，未绕过，改为接口转发演示站测试 6688 包：H5 首页 load 0.76s、SDK 2.27s 预加载，登录页点击 0.45s 弹窗、无新请求；SDK 挂起时页面 load 0.65s 不受影响，15s 超时、18.7s 换新地址重试（服务端收到第二次请求），网络恢复后点击 2.3s 弹窗；PC 首页 2.27s 预加载，注册页 `language=cn`、点击 0.56s 弹窗、无报错；SDK 失败时按钮显示"验证加载失败，点击重试"、无未处理错误。**未用 6688 线上接口与配置实测。**
+
+### 已知（两分支相同，未改）
+
+- 脚本卡住时，后台自动重试的那次请求若仍挂着，网络恢复后用户点击会与它共用，最多再等 15s 才失败，再点一次即可正常加载。
+- 直接打开登录/注册页且脚本持续失败时，路由兜底与首屏空闲预加载各发起一次，加上自动重试，共自动请求约 3 次。
